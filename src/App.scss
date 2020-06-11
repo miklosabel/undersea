@@ -1,74 +1,86 @@
 @import url('https://fonts.googleapis.com/css2?family=Baloo+2&display=swap');
-@import "./styles/variables.scss";
+@import './styles/variables.scss';
 
 .App {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
   background-image: url('./assets/background_login.png');
   width: 100%;
   height: 100%;
   background-repeat: no-repeat;
   min-height: 100vh;
+  h1 {
+    text-align: center;
+    font-family: 'Baloo 2';
+    font-size: 93px;
+    font-weight: 900;
+    color: #9ffff0;
+  }
 }
 
 header {
   text-align: center;
 }
 .login-title::before {
-  background: #9ffff0;
-  border: 7px solid #9ffff0;
-  opacity: 0;
+  //TODO Draw here a sine wave
 }
-.login-title {
-  text-align: center;
-  font-family: Baloo 2;
-  font-size: 93px;
-  letter-spacing: 0px;
-  color: #9ffff0;
-  opacity: 1;
-}
-form {
-  // background: ffffff 0% 0% no-repeat padding-box;
+
+.form-container {
   border-radius: 16px;
-  opacity: 1;
-  // width: 100%;
+  padding: 1em 0;
+  background: rgba(255,255,255,0.05);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  >div{
-  margin-top:20px;
-  }
-
+  margin-top: 20px;
 }
 .form-title {
+  margin: 1em 0;
   text-align: center;
-  font: 32px Baloo;
-  letter-spacing: 0px;
+  font-family: 'Baloo 2';
+  font-size: 32px;
+  font-weight: 900;
   color: #1c3e76;
-  opacity: 1;
 }
-input {
-  margin: 1em 3em;
-  padding-left: 10px;
-  background: $white;
-  border-radius: 20px;
-  opacity: 0.39;
-}
-::-moz-placeholder,
-:-ms-input-placeholder,
-:-moz-placeholder, 
-::-webkit-input-placeholder {
-  text-align: left;
-  font: 16px Open Sans;
-  letter-spacing: 0px;
-  color: #1c3e76;
-  opacity: 1;
+form {
+  input {
+    margin: 0.5em 0;
+    padding: 5px 0px 5px 20px;
+    border: 0;
+    width: 80%;
+    background: $white;
+    border-radius: 20px;
+    opacity: 0.39;
+  }
+  input:placeholder {
+    text-align: left;
+    font-family: 'Open Sans', 'Regular';
+    font-size: 16px;
+    color: #1c3e76;
+  }
+  button {
+    font-family: 'Baloo 2';
+    font-size: 18px;
+    border: none;
+    background: transparent
+      linear-gradient(258deg, #9ffff0 0%, #6beee9 36%, #0fcfde 100%);
+    font-weight: 900;
+  }
+  .submit-button {
+    margin: 1em 0;
+    padding: 0.45em 3em;
+    border-radius: 90px;
+    color: #001234;
+  }
 }
 
-input[type=submit] {
-  background: transparent
-    linear-gradient(258deg, #9ffff0 0%, #6beee9 36%, #0fcfde 100%);
-  box-shadow: 0px 3px 6px #3b7dbd;
-  border-radius: 90px;
-  opacity: 1;
-  color: #001234;
-  font: 18px Baloo 2;
+.no-bg-button {
+  color: #9ffff0;
+  font-weight: bold;
+  margin: 1em;
+  &:hover {
+    color: #6BEEE9;
+    text-decoration: none;
+  }
 }

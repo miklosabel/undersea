@@ -27,49 +27,43 @@ export class Login extends React.Component<{}, State> {
   }
   render() {
     return (
-      <>
+      <div>
         <header>
           <h1 className="login-title">UNDERSEA</h1>
         </header>
-        <div className="form">
+        <div className="form-container">
           <h2 className="form-title">Belépés</h2>
-          <form onSubmit={event => this.handleSubmit(event)}>
-            <div>
-              <input
-                type="text"
-                name="username"
-                //TODO ?
-                placeholder="Felhasználónév"
-                onChange={event => this.handleChange(event.target.value,"username")}
-                required
-              />
-            </div>
-            <div>
-              <input
-                type="password"
-                name="password"
-                //TODO ?
-                placeholder="Jelszó"
-                onChange={event => this.handleChange(event.target.value, "password")}
-                required
-              />
-            </div>
-            <div>
-              <button
-                className="submit-button"
-                type="submit"
-                value="Belépés"
-              />
-            </div>
+          <form onSubmit={(event) => this.handleSubmit(event)}>
+            <input
+              type="text"
+              name="username"
+              placeholder="Felhasználónév"
+              onChange={(event) =>
+                this.handleChange(event.target.value, 'username')
+              }
+            />
+            <br />
+            <input
+              type="password"
+              name="password"
+              placeholder="Jelszó"
+              onChange={(event) =>
+                this.handleChange(event.target.value, 'password')
+              }
+            />
+            <br />
+            <button className="submit-button" type="submit" value="Belépés">
+              Belépés
+            </button>
           </form>
 
-          <div>
-            <Link className="reg-button" to="./register">
+          <div className="no-bg-button">
+            <Link className="no-bg-button" to="./register">
               Regisztráció
             </Link>
           </div>
         </div>
-      </>
+      </div>
     );
   }
 }
