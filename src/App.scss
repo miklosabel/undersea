@@ -90,15 +90,15 @@
             box-shadow: 0px 3px 6px $blue;
           }
         }
-        a {
-          display: block;
-          color: $light-turquoise;
-          font-weight: bold;
-          margin: 1em;
-          &:hover {
-            color: $turquoise;
-            text-decoration: none;
-          }
+      }
+      a {
+        display: block;
+        margin: 1em;
+        color: $light-turquoise;
+        font-weight: bold;
+        &:hover {
+          color: $turquoise;
+          text-decoration: none;
         }
       }
     }
