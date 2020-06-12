@@ -49,11 +49,11 @@ export class Login extends React.Component<{}, State> {
 
     if (!username) {
       formIsValid = false;
-      errors.username= "*Kötelező mező";
+      errors.username = '*Kötelező mező';
     }
     if (!password) {
       formIsValid = false;
-      errors.password= "*Kötelező mező";
+      errors.password = '*Kötelező mező';
     }
     // if (typeof password !== "undefined") {
     //   if (!password.match(/^.*(?=.{8,})(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%&]).*$/)) {
@@ -62,7 +62,7 @@ export class Login extends React.Component<{}, State> {
     //   }
     // }
     this.setState({
-      errors: errors
+      errors: errors,
     });
     return formIsValid;
   }
@@ -101,12 +101,7 @@ export class Login extends React.Component<{}, State> {
               Belépés
             </button>
           </form>
-
-          {/* <div className="no-bg-button"> */}
-            <Link className="no-bg-button" to="./register">
-              Regisztráció
-            </Link>
-          {/* </div> */}
+          <Link to="./register">Regisztráció</Link>
         </div>
       </div>
     );
