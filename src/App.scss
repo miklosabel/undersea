@@ -16,36 +16,42 @@
     font-family: 'Baloo 2';
     font-size: 93px;
     font-weight: 900;
-    color: #9ffff0;
+    color: $light-turquoise;
   }
 }
 
 header {
   text-align: center;
+  .header-line {
+    width: 100%;
+    border-top: 5px solid $light-turquoise;
+  }
 }
 .login-title::before {
   //TODO Draw here a sine wave
+  border: 5px;
+  height: 1px;
 }
 
 .form-container {
   border-radius: 16px;
   padding: 1em 0;
-  background: rgba(255,255,255,0.05);
+  background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   margin-top: 20px;
 }
 .form-title {
-  margin: 1em 0;
+  margin-top: 1em;
   text-align: center;
   font-family: 'Baloo 2';
   font-size: 32px;
   font-weight: 900;
-  color: #1c3e76;
+  color: $blue;
 }
 form {
   input {
-    margin: 0.5em 0;
+    margin: 0;
     padding: 5px 0px 5px 20px;
     border: 0;
     width: 80%;
@@ -57,30 +63,42 @@ form {
     text-align: left;
     font-family: 'Open Sans', 'Regular';
     font-size: 16px;
-    color: #1c3e76;
+    color: $blue;
+  }
+  .error-message {
+    display: inline-block;
+    color: red;
+    margin: 0;
+    width: 80%;
+    text-align: left;
+    padding-left: 20px;
   }
   button {
     font-family: 'Baloo 2';
     font-size: 18px;
     border: none;
     background: transparent
-      linear-gradient(258deg, #9ffff0 0%, #6beee9 36%, #0fcfde 100%);
+      linear-gradient(258deg, $light-turquoise 0%, $turquoise 36%, $dark-turquoise 100%);
     font-weight: 900;
   }
   .submit-button {
     margin: 1em 0;
     padding: 0.45em 3em;
     border-radius: 90px;
-    color: #001234;
+    color: $dark-blue;
+    &:hover {
+      box-shadow: 0px 3px 6px $blue;
+    }
   }
 }
 
-.no-bg-button {
-  color: #9ffff0;
+a.no-bg-button {
+  display: block;
+  color: $light-turquoise;
   font-weight: bold;
   margin: 1em;
   &:hover {
-    color: #6BEEE9;
+    color: $turquoise;
     text-decoration: none;
   }
 }
