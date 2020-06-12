@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { findRenderedDOMComponentWithClass } from 'react-dom/test-utils';
 
 interface State {
   username: string;
@@ -69,7 +68,7 @@ export class Login extends React.Component<{}, State> {
 
   render() {
     return (
-      <div>
+      <div className="container">
         <header>
           <div className="header-line"></div>
           <h1 className="login-title">UNDERSEA</h1>
