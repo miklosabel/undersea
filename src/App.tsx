@@ -9,10 +9,12 @@ function App() {
   return (
     <div className="App">
       <Switch>
+        {/* two ways of creating a route */}
         <Route path="/login" children={<Login></Login>}></Route>
         <Route path="/register">
           <Register></Register>
         </Route>
+        {/* default route to login */}
         <Redirect to="/login" from="*"></Redirect>
       </Switch>
     </div>
