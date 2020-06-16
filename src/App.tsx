@@ -3,6 +3,7 @@ import './App.scss';
 import { Switch, Route, Redirect } from 'react-router';
 import { Login } from './page/login/Login'
 import { Register } from './page/register/Register'
+import { AuthComponent } from './page/auth/component';
 
 function App() {
   return (
@@ -12,7 +13,8 @@ function App() {
         <Route path="/register">
           <Register></Register>
         </Route>
-        <Redirect to="/" from="*"></Redirect>
+        <AuthComponent></AuthComponent>
+        <Redirect to="/login" from="*"></Redirect>
       </Switch>
     </div>
   );

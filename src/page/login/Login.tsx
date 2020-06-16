@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
 interface State {
   username: string;
   password: string;
@@ -22,6 +21,7 @@ export class Login extends React.Component<{}, State> {
       },
     };
   }
+
   // handlechange == changes the state
   handleChange(value: string, type: string) {
     this.setState({
