@@ -6,7 +6,6 @@ interface State {
   password: string;
   passwordConfirmation: string;
   cityName: string;
-  //   formIsValid: boolean;
   error: {
     username: string;
     password: string;
@@ -73,7 +72,7 @@ export class Register extends React.Component<{}, State> {
 
   render() {
     return (
-      <div className="container">
+      <div className="login-register-container">
         <header>
           <div className="header-line"></div>
           <h1 className="login-title">UNDERSEA</h1>
