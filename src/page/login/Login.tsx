@@ -26,6 +26,7 @@ export class Login extends React.Component<{}, State> {
   handleChange(value: string, type: string) {
     this.setState({
       //TODO miert nme jo ha csak a value-t adom at es azt egyenlove teszem?
+      //      mert a igazabol nem nagy masolas, de biztonsagosabb, a react igy tud rola, amugy meg nem
       ...this.state,
       [type]: value,
     });
@@ -38,31 +39,18 @@ export class Login extends React.Component<{}, State> {
   }
 
   validateForm() {
-    let username = this.state.username;
-    let password = this.state.password;
-    let errors = {
-      username: '',
-      password: '',
-    };
     let formIsValid = true;
 
-    if (!username) {
-      formIsValid = false;
-      errors.username = '*Kötelező mező';
-    }
-    if (!password) {
-      formIsValid = false;
-      errors.password = '*Kötelező mező';
-    }
-    // if (typeof password !== "undefined") {
-    //   if (!password.match(/^.*(?=.{8,})(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%&]).*$/)) {
-    //     formIsValid = false;
-    //     errors.password = "*Erős és biztonságos jelszót adj meg";
-    //   }
-    // }
+    // setting error msg for username
     this.setState({
-      errors: errors,
+      ...this.state,
+      errors: {
+        ...this.state.errors,
+        username: !this.state.username ? '*Kötelező mező' : '',
+        password: !this.state.password ? '*Kötelező mező' : ''
+      },
     });
+
     return formIsValid;
   }
 
