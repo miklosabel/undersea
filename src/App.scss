@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Baloo+2&display=swap');
 @import './styles/variables.scss';
+@import './styles/general.scss';
+@import './styles/login-register.scss';
 
 .App {
   display: flex;
@@ -11,108 +13,4 @@
   height: 100%;
   min-height: 100vh;
   background-repeat: no-repeat;
-
-  .container {
-    max-width: 460px;
-    padding: 0;
-    header {
-      .header-line {
-        width: 100%;
-        border-top: 5px solid $light-turquoise;
-      }
-      h1 {
-        font-family: 'Baloo 2';
-        font-size: 93px;
-        // font-size: 20vw;
-        font-weight: 900;
-        color: $light-turquoise;
-      }
-    }
-
-    .form-container {
-      border-radius: 16px;
-      margin-top: 20px;
-      padding: 1em 0;
-      background: rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      h2 {
-        margin-top: 1em;
-        text-align: center;
-        font-family: 'Baloo 2';
-        font-size: 32px;
-        font-weight: 900;
-        color: $blue;
-      }
-      form {
-        input {
-          margin: 0;
-          padding: 5px 0px 5px 20px;
-          border: 0;
-          width: 80%;
-          background: $white;
-          border-radius: 20px;
-          opacity: 0.39;
-        }
-        input:placeholder {
-          text-align: left;
-          font-family: 'Open Sans', 'Regular';
-          font-size: 16px;
-          color: $blue;
-        }
-        .error-message {
-          display: inline-block;
-          color: red;
-          margin: 0;
-          width: 80%;
-          text-align: left;
-          padding-left: 20px;
-        }
-        button {
-          font-family: 'Baloo 2';
-          font-size: 18px;
-          font-weight: 900;
-          border: none;
-          background: transparent
-            linear-gradient(
-              258deg,
-              $light-turquoise 0%,
-              $turquoise 36%,
-              $dark-turquoise 100%
-            );
-        }
-        .submit-button {
-          margin: 1em 0;
-          padding: 0.45em 3em;
-          border-radius: 90px;
-          color: $dark-blue;
-          &:hover {
-            box-shadow: 0px 3px 6px $blue;
-          }
-        }
-      }
-      a {
-        display: block;
-        margin: 1em;
-        color: $light-turquoise;
-        font-weight: bold;
-        &:hover {
-          color: $turquoise;
-          text-decoration: none;
-        }
-      }
-    }
-  }
-}
-
-@media screen and (max-device-width: 470px) {
-  .App {
-    .container {
-      header {
-        h1 {
-          font-size: 19.5vw;
-        }
-      }
-    }
-  }
 }
