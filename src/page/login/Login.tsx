@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { withRouter, RouteComponentProps } from 'react-router-dom';
 
 interface State {
   username: string;
@@ -10,8 +11,12 @@ interface State {
   };
 }
 
-export class Login extends React.Component<{}, State> {
-  constructor(props: {}) {
+interface Props extends RouteComponentProps {
+  errorMsg: string;
+}
+
+class Login extends React.Component<Props, State> {
+  constructor(props: Props) {
     super(props);
     this.state = {
       username: '',
@@ -34,12 +39,14 @@ export class Login extends React.Component<{}, State> {
   // handlesubmit == submits the data -- this posts data to backend -- in this case logs the data
   handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    this.validateForm();
     console.log(this);
+    if (this.validateForm()) {
+      this.props.history.push('/auth');
+    }
   }
 
   validateForm() {
-    let formIsValid = true;
+    let formIsValid = this.state.username && this.state.password;
 
     // setting error msg for username
     this.setState({
@@ -47,13 +54,20 @@ export class Login extends React.Component<{}, State> {
       errors: {
         ...this.state.errors,
         username: !this.state.username ? '*Kötelező mező' : '',
-        password: !this.state.password ? '*Kötelező mező' : ''
+        password: !this.state.password ? '*Kötelező mező' : '',
       },
     });
 
     return formIsValid;
   }
 
+  getErrorMessage(param: string) {
+    if (param) {
+      return <div className="error-message">{param}</div>;
+    } else {
+      return <br />;
+    }
+  }
   render() {
     return (
       <div className="login-register-container">
@@ -64,7 +78,10 @@ export class Login extends React.Component<{}, State> {
         <div className="form-container">
           <h2 className="form-title">Belépés</h2>
           <form onSubmit={(event) => this.handleSubmit(event)}>
-            <div className="error-message">{this.state.errors.username}</div>
+            {this.props.errorMsg && !this.state.errors.username && (
+              <div className="error-message">{this.props.errorMsg}</div>
+            )}
+            {this.getErrorMessage(this.state.errors.username)}
             <input
               type="text"
               name="username"
@@ -74,7 +91,7 @@ export class Login extends React.Component<{}, State> {
               }
             />
             <br />
-            <div className="error-message">{this.state.errors.password}</div>
+            {this.getErrorMessage(this.state.errors.password)}
             <input
               type="password"
               name="password"
@@ -94,3 +111,5 @@ export class Login extends React.Component<{}, State> {
     );
   }
 }
+
+export default withRouter(Login);
