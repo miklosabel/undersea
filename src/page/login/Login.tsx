@@ -30,7 +30,7 @@ class Login extends React.Component<Props, State> {
   // handlechange == changes the state
   handleChange(value: string, type: string) {
     this.setState({
-      //TODO miert nme jo ha csak a value-t adom at es azt egyenlove teszem?
+      // miert nme jo ha csak a value-t adom at es azt egyenlove teszem?
       //      mert a igazabol nem nagy masolas, de biztonsagosabb, a react igy tud rola, amugy meg nem
       ...this.state,
       [type]: value,
