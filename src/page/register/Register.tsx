@@ -6,6 +6,7 @@ interface State {
   password: string;
   passwordConfirmation: string;
   cityName: string;
+  successMessage: string;
   error: {
     username: string;
     password: string;
@@ -22,6 +23,7 @@ export class Register extends React.Component<{}, State> {
       password: '',
       passwordConfirmation: '',
       cityName: '',
+      successMessage: '',
       error: {
         username: '',
         password: '',
@@ -40,8 +42,12 @@ export class Register extends React.Component<{}, State> {
 
   handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    //TODO if validateform then console.log, illetve routoljon at a loginre
-    this.validateForm();
+    if (this.validateForm()) {
+      this.setState({
+        ...this.state,
+        successMessage: 'Sikeresen regisztráltál. Most már bejelentkezhetsz.',
+      });
+    }
     console.log(this);
   }
 
@@ -127,6 +133,7 @@ export class Register extends React.Component<{}, State> {
             />
             <button className="submit-button">Regisztráció</button>
           </form>
+          {this.state.successMessage}
           <Link to="./login">Bejelentkezés</Link>
         </div>
       </div>
