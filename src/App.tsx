@@ -1,4 +1,4 @@
-import React, { useState, Component } from 'react';
+import React, { useState } from 'react';
 import './App.scss';
 import './styles/general.scss';
 import { Switch, Route, Redirect } from 'react-router';
@@ -25,7 +25,7 @@ function App() {
             }}
           />
         </Route>
-        {/* TODO make this route private */ }
+        {/* TODO make this route private */}
         <Route path="/main" component={Main} />
         {/* default route to login */}
         <Redirect to="/login" from="*" />
