@@ -1,0 +1,34 @@
+@import '../../styles/variables.scss';
+
+//TODO fonts 
+
+
+.statusbar {
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+  
+  //TODO margin kilogatja ha 100% a width
+  // margin: 0 1em;
+  padding: 1em 2em;
+  border-radius: 10px;
+  p {
+    margin: 0;
+    align-self: center;
+  }
+  .counter {
+    display: flex;
+    img {
+      height: 3.5em;
+      width: 3.5em;
+      background-color: $light-turquoise;
+      border: 2px solid $status-border-color;
+      padding: 5px;
+      border-radius: 10px;
+    }
+  }
+}
