@@ -2,6 +2,7 @@ import React from 'react';
 import './Main.scss';
 import TowerImage from '../../components/towerImage/TowerImage';
 import StatusBar from '../../components/statusBar/StatusBar';
+import Sidebar from '../../components/sideBar/Sidebar';
 
 export default class Main extends React.Component<{}, {}> {
   render() {
@@ -20,6 +21,7 @@ export default class Main extends React.Component<{}, {}> {
           buildings={0}
           upgrades={0}
         />
+        <Sidebar userName='jakabjatekos'/>
         <TowerImage />
       </div>
     );
