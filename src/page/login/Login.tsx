@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
+import { MappedProps } from './connect';
 
 interface State {
   username: string;
@@ -11,7 +12,7 @@ interface State {
   };
 }
 
-interface Props extends RouteComponentProps {
+interface Props extends RouteComponentProps, MappedProps {
   errorMsg: string;
 }
 
@@ -28,6 +29,9 @@ class Login extends React.Component<Props, State> {
     };
   }
 
+  componentDidUpdate() {
+    console.log(this.props.isLoading)
+  }
   // handlechange == changes the state
   handleChange(value: string, type: string) {
     this.setState({

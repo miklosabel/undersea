@@ -7,6 +7,7 @@ import Login from './page/login/Login';
 import AuthComponent from './page/auth/Auth';
 import { Register } from './page/register/Register';
 import Main from './page/auth/Main';
+import { LoginConnected } from './page/login/connect';
 
 function App() {
   const [msg, setMsg] = useState<string>('');
@@ -14,7 +15,7 @@ function App() {
     <div className="App">
       <Switch>
         {/* two ways of creating a route */}
-        <Route path="/login" children={<Login errorMsg={msg}></Login>}></Route>
+        <Route path="/login" children={<LoginConnected errorMsg={msg}></LoginConnected>}></Route>
         <Route path="/register">
           <Register></Register>
         </Route>

@@ -17,7 +17,7 @@ export class Sidebar extends Component<Props, {}> {
         <Link to="/main">Ranglista</Link>
         <Link to="/main">Sereg</Link>
         <div className="usermenu">
-          <img src={ProfileImg} alt="profile image" />
+          <img src={ProfileImg} alt="profile" />
           <p>{this.props.userName}</p>
           <Link to="/main">Profil</Link>
           <Link to="/login">Kijelentkezés</Link>
