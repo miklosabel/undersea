@@ -6,7 +6,7 @@ interface State {
   password: string;
   passwordConfirmation: string;
   cityName: string;
-  //   formIsValid: boolean;
+  successMessage: string;
   error: {
     username: string;
     password: string;
@@ -23,6 +23,7 @@ export class Register extends React.Component<{}, State> {
       password: '',
       passwordConfirmation: '',
       cityName: '',
+      successMessage: '',
       error: {
         username: '',
         password: '',
@@ -41,61 +42,43 @@ export class Register extends React.Component<{}, State> {
 
   handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    this.validateForm();
+    if (this.validateForm()) {
+      this.setState({
+        ...this.state,
+        successMessage: 'Sikeresen regisztráltál. Most már bejelentkezhetsz.',
+      });
+    }
     console.log(this);
   }
 
   validateForm() {
-    const username = this.state.username;
-    const password = this.state.password;
-    const passwordConfirmation = this.state.passwordConfirmation;
-    const cityName = this.state.cityName;
-    //   let error = this.state.error;
-    let error = {
-      username: '',
-      password: '',
-      passwordConfirmation: '',
-      cityName: '',
-    };
     let formIsValid = true;
-    if (!username) {
-      formIsValid = false;
-      error.username = 'Kötelező mező';
-    }
-    if (!password) {
-      formIsValid = false;
-      error.password = 'Kötelező mező';
-    } else if (
-      !password.match(
-        /^.*(?=.{8,})(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#?!.$%&]).*$/
-      )
-    ) {
-      formIsValid = false;
-      error.password =
-        'Legalább 8 karakter, kis-nagybetű, szám, speciális karakter legyen a jelszóban';
-    }
-    if (!passwordConfirmation) {
-      formIsValid = false;
-      error.passwordConfirmation = 'Kötelező mező';
-    }
-    if (!cityName) {
-      formIsValid = false;
-      error.cityName = 'Kötelező mező';
-    }
-    if (password !== passwordConfirmation) {
-      formIsValid = false;
-      error.passwordConfirmation = 'A két jelszó nem egyezik meg';
-    }
-
     this.setState({
-      error: error,
+      ...this.state,
+      error: {
+        ...this.state.error,
+        username: !this.state.username ? '*Kötelező mező' : '',
+        password: !this.state.password
+          ? '*Kötelező mező'
+          : !this.state.password.match(
+              /^.*(?=.{8,})(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#?!.$%&]).*$/
+            )
+          ? 'Legalább 8 karakter, kis- és nagybetű, szám, speciális karakter legyen a jelszóban'
+          : '',
+        passwordConfirmation: !this.state.passwordConfirmation
+          ? '*Kötelező mező'
+          : this.state.password !== this.state.passwordConfirmation
+          ? '*A két jelszó nem egyezik'
+          : '',
+        cityName: !this.state.cityName ? '*Kötelező mező' : '',
+      },
     });
     return formIsValid;
   }
 
   render() {
     return (
-      <div className="container">
+      <div className="login-register-container">
         <header>
           <div className="header-line"></div>
           <h1 className="login-title">UNDERSEA</h1>
@@ -150,6 +133,7 @@ export class Register extends React.Component<{}, State> {
             />
             <button className="submit-button">Regisztráció</button>
           </form>
+          {this.state.successMessage}
           <Link to="./login">Bejelentkezés</Link>
         </div>
       </div>

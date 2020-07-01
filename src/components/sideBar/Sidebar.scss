@@ -1,0 +1,44 @@
+@import '../../styles/variables.scss';
+
+.sidebar {
+  grid-column: 1 / 2;
+  grid-row: 2 / end;
+  justify-self: center;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  > a {
+    color: $dark-blue;
+    background-color: $light-turquoise;
+    font-family: 'Baloo 2';
+    font-size: 18px;
+    font-weight: 900;
+    background: transparent
+      linear-gradient(
+        258deg,
+        $light-turquoise 0%,
+        $turquoise 36%,
+        $dark-turquoise 100%
+      );
+    text-decoration: none;
+    :hover {
+      text-decoration: none;
+      box-shadow: $light-blue;
+    }
+  }
+  .usermenu {
+    display: flex;
+    flex-direction: column;
+    a,
+    p {
+      color: $white;
+    }
+  }
+  .undersea-line {
+    width: 100%;
+    border-top: 5px solid $light-turquoise;
+  }
+  .undersea-title {
+    color: $light-turquoise;
+  }
+}
