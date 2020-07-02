@@ -1,4 +1,4 @@
-import { ILoginActions, LoginAction } from './action';
+import { ILoginActions, PossibleLoginActions } from './action';
 import { LoginInitState, LoginState } from './store';
 
 export const LoginReducer = (
@@ -6,17 +6,17 @@ export const LoginReducer = (
   action: ILoginActions
 ): LoginState => {
   switch (action.type) {
-    case LoginAction.REQUEST:
+    case PossibleLoginActions.REQUEST:
       return { ...state, isLoading: true, params: action.payload };
-    case LoginAction.RESPONSE:
+    case PossibleLoginActions.RESPONSE:
       return {
         ...state,
-        data: action.payload,
+        data: { isConnected: action.payload },
         isDataLoaded: true,
         isLoading: false,
         isError: false,
       };
-    case LoginAction.ERROR:
+    case PossibleLoginActions.ERROR:
       return { ...state, isLoading: false, isDataLoaded: false, isError: true };
     default:
       return state;

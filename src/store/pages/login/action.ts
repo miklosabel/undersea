@@ -3,7 +3,7 @@ export interface LoginActionTypes {
   RESPONSE: 'LOGIN_RESPONSE';
   ERROR: 'LOGIN_ERROR';
 }
-export const LoginAction: LoginActionTypes = {
+export const PossibleLoginActions: LoginActionTypes = {
   ERROR: 'LOGIN_ERROR',
   REQUEST: 'LOGIN_REQUEST',
   RESPONSE: 'LOGIN_RESPONSE',
@@ -19,10 +19,11 @@ export interface LoginActionRequest {
 }
 export interface LoginActionResponse {
   type: LoginActionTypes['RESPONSE'];
-  payload: {};
+  payload: boolean;
 }
 export interface LoginActionError {
   type: LoginActionTypes['ERROR'];
+  payload: string;
 }
 
 export type ILoginActions =
@@ -35,15 +36,18 @@ export const loginRequestActionCall = (params: {
   name: string;
   password: string;
 }): LoginActionRequest => ({
-  type: LoginAction.REQUEST,
+  type: PossibleLoginActions.REQUEST,
   payload: params,
 });
 
-export const loginResponseActionCall = (response: {}): LoginActionResponse => ({
-  type: LoginAction.RESPONSE,
+export const loginResponseActionCall = (
+  response: boolean
+): LoginActionResponse => ({
+  type: PossibleLoginActions.RESPONSE,
   payload: response,
 });
 
-export const loginErrorActionCall = (): LoginActionError => ({
-  type: LoginAction.ERROR,
+export const loginErrorActionCall = (error: string): LoginActionError => ({
+  type: PossibleLoginActions.ERROR,
+  payload: error,
 });

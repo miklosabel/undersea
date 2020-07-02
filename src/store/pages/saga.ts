@@ -1,5 +1,5 @@
 import { all } from 'redux-saga/effects';
-import { watchLoginAction } from './login/saga';
+import { watchLoginAction, watchLoginResponseAction } from './login/saga';
 export function* pageSaga() {
-  yield all([watchLoginAction()]);
+  yield all([watchLoginAction(), watchLoginResponseAction()]);
 }
