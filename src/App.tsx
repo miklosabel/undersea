@@ -3,7 +3,6 @@ import './App.scss';
 import './styles/general.scss';
 import { Switch, Route, Redirect } from 'react-router';
 import { createBrowserHistory } from 'history';
-import Login from './page/login/Login';
 import AuthComponent from './page/auth/Auth';
 import { Register } from './page/register/Register';
 import Main from './page/auth/Main';

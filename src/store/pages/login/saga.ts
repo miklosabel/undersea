@@ -1,6 +1,6 @@
 import { takeEvery, put } from 'redux-saga/effects';
 import {
-  LoginAction,
+  PossibleLoginActions,
   loginErrorActionCall,
   loginResponseActionCall,
 } from './action';
@@ -12,7 +12,7 @@ function* handleFetch() {
     yield put(loginErrorActionCall());
   }
 }
-
+// generator function to catch all Request action and do other things
 export function* watchLoginAction() {
-  yield takeEvery(LoginAction.REQUEST, handleFetch);
+  yield takeEvery(PossibleLoginActions.REQUEST, handleFetch);
 }

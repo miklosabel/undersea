@@ -6,12 +6,16 @@ export interface IApplicationState {
   page: PageState;
   global: GlobalState;
 }
-interface ResetAction {
+// type of reset Action
+interface IResetAction {
   type: 'RESET_APP';
 }
-export const resetApp = (): ResetAction => ({
+//this Action will reset the store to initial state
+export const resetApp = (): IResetAction => ({
   type: 'RESET_APP',
 });
+
+// child of RootReducer
 export const appLayerReducer = combineReducers<IApplicationState>({
   global: GlobalReducer,
   page: PageReducer,
