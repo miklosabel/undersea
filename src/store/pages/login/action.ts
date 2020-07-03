@@ -10,44 +10,44 @@ export const PossibleLoginActions: LoginActionTypes = {
 };
 
 //action
-export interface LoginActionRequest {
+export interface LoginRequestAction {
   type: LoginActionTypes['REQUEST'];
   payload: {
     name: string;
     password: string;
   };
 }
-export interface LoginActionResponse {
+export interface LoginResponseAction {
   type: LoginActionTypes['RESPONSE'];
   payload: boolean;
 }
-export interface LoginActionError {
+export interface LoginErrorAction {
   type: LoginActionTypes['ERROR'];
   payload: string;
 }
 
 export type ILoginActions =
-  | LoginActionRequest
-  | LoginActionResponse
-  | LoginActionError;
+  | LoginRequestAction
+  | LoginResponseAction
+  | LoginErrorAction;
 
 //action creator
 export const loginRequestActionCall = (params: {
   name: string;
   password: string;
-}): LoginActionRequest => ({
+}): LoginRequestAction => ({
   type: PossibleLoginActions.REQUEST,
   payload: params,
 });
 
 export const loginResponseActionCall = (
   response: boolean
-): LoginActionResponse => ({
+): LoginResponseAction => ({
   type: PossibleLoginActions.RESPONSE,
   payload: response,
 });
 
-export const loginErrorActionCall = (error: string): LoginActionError => ({
+export const loginErrorActionCall = (error: string): LoginErrorAction => ({
   type: PossibleLoginActions.ERROR,
   payload: error,
 });

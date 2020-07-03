@@ -28,7 +28,6 @@ class Login extends React.Component<Props, State> {
     };
   }
 
-
   // handlechange == changes the state
   handleChange(value: string, type: string) {
     this.setState({
@@ -41,17 +40,22 @@ class Login extends React.Component<Props, State> {
   // handlesubmit == submits the data -- this posts data to backend -- in this case logs the data
   handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    const { password, username } = this.state
+    const { password, username } = this.state;
     if (password && username) {
-
-      this.props.loginRequest({ name: this.state.username, password: this.state.password })
+      this.props.loginRequest({
+        name: this.state.username,
+        password: this.state.password,
+      });
+    } else {
+      this.setState({
+        ...this.state,
+        errors: {
+          password: !password ? 'Kötelező mező' : '',
+          username: !username ? 'Kötelező mező' : '',
+        },
+      });
     }
-    else {
-      this.setState({ ...this.state, errors: { password: !password ? "Kötelező mező" : '', username: !username ? "Kötelező mező" : '' } })
-    }
-
   }
-
 
   getErrorMessage(param: string) {
     if (param) {

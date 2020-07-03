@@ -35,6 +35,7 @@ class AuthComponent extends React.Component<Props, State> {
     return (
       <>
         {this.props.isLoading ? (
+          //TODO gorgo
           <div className="gorgo">toltes</div>
         ) : (
             <>
