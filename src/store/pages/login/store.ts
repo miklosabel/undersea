@@ -19,7 +19,8 @@ export interface LoginState {
 
 export const LoginInitState: LoginState = {
   data: {
-    isConnected: false,
+    // TODO change value to false 
+    isConnected: true,
   },
   isDataLoaded: false,
   isError: false,

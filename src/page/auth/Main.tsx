@@ -21,8 +21,12 @@ export default class Main extends React.Component<{}, {}> {
           buildings={0}
           upgrades={0}
         />
-        <Sidebar userName='jakabjatekos'/>
-        <TowerImage />
+        <div className="second-row">
+          <Sidebar userName="jakabjatekos" />
+          <div className="active-component">
+            <TowerImage />
+          </div>
+        </div>
       </div>
     );
   }

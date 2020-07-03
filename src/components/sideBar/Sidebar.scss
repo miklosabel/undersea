@@ -1,18 +1,18 @@
 @import '../../styles/variables.scss';
 
 .sidebar {
-  grid-column: 1 / 2;
-  grid-row: 2 / end;
-  justify-self: center;
   align-self: center;
   display: flex;
   flex-direction: column;
+  margin-left: 3em;
+  max-width: 200px;
   > a {
     color: $dark-blue;
     background-color: $light-turquoise;
-    font-family: 'Baloo 2';
-    font-size: 18px;
-    font-weight: 900;
+    font-size: 25px;
+    border-radius: 20px;
+    margin-top: 10px;
+    border: 2px;
     background: transparent
       linear-gradient(
         258deg,
@@ -21,7 +21,7 @@
         $dark-turquoise 100%
       );
     text-decoration: none;
-    :hover {
+    &:hover {
       text-decoration: none;
       box-shadow: $light-blue;
     }
@@ -29,9 +29,26 @@
   .usermenu {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 10px;
+    margin: 20px 0;
+    padding: 10px;
+    img {
+      height: 96px;
+      width: 96px;
+      border: 2px solid $light-blue;
+      border-radius: 10px;
+      margin: 5px;
+      background-color: $light-turquoise;
+    }
     a,
     p {
       color: $white;
+      margin: 5px;
+      font-size: 18px;
     }
   }
   .undersea-line {
