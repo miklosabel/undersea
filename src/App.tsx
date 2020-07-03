@@ -3,10 +3,9 @@ import './App.scss';
 import './styles/general.scss';
 import { Switch, Route, Redirect } from 'react-router';
 import { createBrowserHistory } from 'history';
-import AuthComponent from './page/auth/Auth';
 import { Register } from './page/register/Register';
-import Main from './page/auth/Main';
 import { LoginConnected } from './page/login/connect';
+import { AuthComponentConnected } from './page/auth/connect';
 
 function App() {
   const [msg, setMsg] = useState<string>('');
@@ -18,15 +17,13 @@ function App() {
         <Route path="/register">
           <Register></Register>
         </Route>
-        <Route path="/auth">
-          <AuthComponent
-            loginMsg={(tempMsg) => {
-              setMsg(tempMsg);
-            }}
-          />
-        </Route>
+
         {/* TODO make this route private */}
-        <Route path="/main" component={Main} />
+        <AuthComponentConnected
+          loginMsg={(tempMsg) => {
+            setMsg(tempMsg);
+          }}
+        />
         {/* default route to login */}
         <Redirect to="/login" from="*" />
       </Switch>

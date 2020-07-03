@@ -1,10 +1,9 @@
 import { Reducer, AnyAction, combineReducers } from 'redux';
 import { PageReducer, PageState } from './store/pages/reducer';
-import { GlobalReducer, GlobalState } from './store/global/reducer';
 
 export interface IApplicationState {
   page: PageState;
-  global: GlobalState;
+  // global: GlobalState;
 }
 // type of reset Action
 interface IResetAction {
@@ -17,7 +16,7 @@ export const resetApp = (): IResetAction => ({
 
 // child of RootReducer
 export const appLayerReducer = combineReducers<IApplicationState>({
-  global: GlobalReducer,
+  // global: GlobalReducer,
   page: PageReducer,
 });
 
