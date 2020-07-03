@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { withRouter, RouteComponentProps } from 'react-router-dom';
-import { MappedProps } from './connect';
+import { MappedProps, DispatchProps } from './connect';
 
 interface State {
   username: string;
@@ -12,7 +11,7 @@ interface State {
   };
 }
 
-interface Props extends RouteComponentProps, MappedProps {
+interface Props extends MappedProps, DispatchProps {
   errorMsg: string;
 }
 
@@ -29,9 +28,7 @@ class Login extends React.Component<Props, State> {
     };
   }
 
-  componentDidUpdate() {
-    console.log(this.props.isLoading)
-  }
+
   // handlechange == changes the state
   handleChange(value: string, type: string) {
     this.setState({
@@ -44,27 +41,17 @@ class Login extends React.Component<Props, State> {
   // handlesubmit == submits the data -- this posts data to backend -- in this case logs the data
   handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    console.log(this);
-    if (this.validateForm()) {
-      this.props.history.push('/auth');
+    const { password, username } = this.state
+    if (password && username) {
+
+      this.props.loginRequest({ name: this.state.username, password: this.state.password })
     }
+    else {
+      this.setState({ ...this.state, errors: { password: !password ? "Kötelező mező" : '', username: !username ? "Kötelező mező" : '' } })
+    }
+
   }
 
-  validateForm() {
-    let formIsValid = this.state.username && this.state.password;
-
-    // setting error msg for username
-    this.setState({
-      ...this.state,
-      errors: {
-        ...this.state.errors,
-        username: !this.state.username ? '*Kötelező mező' : '',
-        password: !this.state.password ? '*Kötelező mező' : '',
-      },
-    });
-
-    return formIsValid;
-  }
 
   getErrorMessage(param: string) {
     if (param) {
@@ -117,4 +104,4 @@ class Login extends React.Component<Props, State> {
   }
 }
 
-export default withRouter(Login);
+export default Login;

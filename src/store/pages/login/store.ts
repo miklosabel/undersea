@@ -11,14 +11,20 @@ export interface LoginState {
   isLoading: boolean;
   isDataLoaded: boolean;
   isError: boolean;
-  data: {};  // answer of network request
+  error: string;
+  data: {
+    isConnected: boolean;
+  }; // answer of network request
 }
 
 export const LoginInitState: LoginState = {
-  data: {},
+  data: {
+    isConnected: false,
+  },
   isDataLoaded: false,
   isError: false,
   isLoading: false,
+  error: '',
   params: {
     name: '',
     password: '',
