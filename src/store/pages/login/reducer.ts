@@ -1,10 +1,7 @@
 import { ILoginActions, PossibleLoginActions } from './action';
 import { LoginInitState, LoginState } from './store';
 
-export const LoginReducer = (
-  state = LoginInitState,
-  action: ILoginActions
-): LoginState => {
+export const LoginReducer = (  state = LoginInitState, action: ILoginActions): LoginState => {
   switch (action.type) {
     case PossibleLoginActions.REQUEST:
       return { ...state, isLoading: true, params: action.payload };

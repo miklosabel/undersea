@@ -3,11 +3,11 @@ import './Main.scss';
 import TowerImage from '../../components/towerImage/TowerImage';
 import StatusBar from '../../components/statusBar/StatusBar';
 import Sidebar from '../../components/sideBar/Sidebar';
-import { MappedProps, DispatchProps } from './connect';
+import { MappedProps } from './connect';
 
-interface Props extends MappedProps, DispatchProps {}
+interface Props extends MappedProps {}
 
-export default class Main extends React.Component<{}, {}> {
+export default class Main extends React.Component<Props, {}> {
   render() {
     return (
       <div className="main-container">

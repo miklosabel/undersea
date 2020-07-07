@@ -31,11 +31,8 @@ export type ILoginActions =
   | LoginResponseAction
   | LoginErrorAction;
 
-//action creator
-export const loginRequestActionCall = (params: {
-  name: string;
-  password: string;
-}): LoginRequestAction => ({
+//action creators
+export const loginRequestActionCall = (params: {name: string; password: string;}): LoginRequestAction => ({
   type: PossibleLoginActions.REQUEST,
   payload: params,
 });
