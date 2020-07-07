@@ -4,11 +4,8 @@ import TowerImage from '../../components/towerImage/TowerImage';
 import StatusBar from '../../components/statusBar/StatusBar';
 import Sidebar from '../../components/sideBar/Sidebar';
 import { MappedProps, DispatchProps } from './connect';
-import 
 
-interface Props extends MappedProps, DispatchProps {
-
-}
+interface Props extends MappedProps, DispatchProps {}
 
 export default class Main extends React.Component<{}, {}> {
   render() {
