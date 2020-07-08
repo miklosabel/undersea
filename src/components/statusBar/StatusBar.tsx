@@ -8,21 +8,6 @@ import SeahorsePng from '../../assets/seahorse.png';
 import BuildingsPng from '../../assets/buildings.png';
 import UpgradesPng from '../../assets/upgrades.png';
 
-// interface Props {
-//   round?: number;
-//   rank?: number;
-//   shark?: number;
-//   seal?: number;
-//   seahorse?: number;
-//   shell?: number;
-//   shellIncome?: number;
-//   coral?: number;
-//   coralIncome?: number;
-//   atollFortress?: number;
-//   isAtollFortressBuilding?: boolean;
-//   flowController?: number;
-//   isFlowControllerBuilding?: boolean;
-// }
 export interface Props {
     round: number;
     rank: number;
