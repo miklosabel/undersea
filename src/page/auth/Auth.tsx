@@ -1,9 +1,8 @@
 import React from 'react';
-import {
-  Route,
-} from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import Main from '../main/Main';
 import { MappedProps, DispatchProps } from './connect';
+import { MainConnected } from '../main/connect';
 
 interface State {
   isLoading: boolean;
@@ -27,7 +26,7 @@ class AuthComponent extends React.Component<Props, State> {
     //loginresponse állítja isConnected true-ra
     //TODO Esetleg csinálhtasz olyat, hogy localstoreba kimented be van-e jelentkezve
     if (!this.props.isConnected) {
-      this.props.pushState("/login")
+      this.props.pushState('/login');
     }
   }
 
@@ -38,13 +37,18 @@ class AuthComponent extends React.Component<Props, State> {
           //TODO gorgo
           <div className="gorgo">toltes</div>
         ) : (
-            <>
-              {this.props.isConnected && (
-                <Route path="/main" component={Main} />
-              )}
+          <>
+            {this.props.isConnected && (
+              <Route path="/main">
+                <MainConnected />
+                <Route path="/main/buildings">
+                  {/* TODO buildings */}
+                </Route>
+              </Route>
 
-            </>
-          )}
+            )}
+          </>
+        )}
       </>
     );
   }

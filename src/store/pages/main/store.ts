@@ -9,10 +9,10 @@ export interface MainState {
     shellIncome: number;
     coral: number;
     coralIncome: number;
-    buildings: number;
-    isBuilding: boolean;
-    upgrades: number;
-    isUpgrading: boolean;
+    atollFortress: number;
+    isAtollFortressBuilding: boolean;
+    flowController: number;
+    isFlowControllerBuilding: boolean;
   };
 }
 
@@ -27,9 +27,9 @@ export const mainInitState: MainState = {
     shellIncome: 20,
     coral: 10,
     coralIncome: 5,
-    buildings: 0,
-    isBuilding: false,
-    upgrades: 0,
-    isUpgrading: false,
+    atollFortress: 0,
+    isAtollFortressBuilding: false,
+    flowController: 0,
+    isFlowControllerBuilding: false,
   },
 };

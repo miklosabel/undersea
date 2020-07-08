@@ -9,23 +9,10 @@ interface Props extends MappedProps {}
 
 export default class Main extends React.Component<Props, {}> {
   render() {
+    console.log(this.props);
     return (
       <div className="main-container">
-        <StatusBar
-          round={this.props.status.round}
-          rank={this.props.status.rank}
-          shark={this.props.status.shark}
-          seal={this.props.status.seal}
-          seahorse={this.props.status.seahorse}
-          shell={this.props.status.shell}
-          shellIncome={this.props.status.shellIncome}
-          coral={this.props.status.coral}
-          coralIncome={this.props.status.coralIncome}
-          buildings={this.props.status.buildings}
-          isBuilding={this.props.status.isBuilding}
-          upgrades={this.props.status.upgrades}
-          isUpgrading={this.props.status.isUpgrading}
-        />
+        <StatusBar {...this.props.status}/>
         <div className="second-row">
           <Sidebar userName="jakabjatekos" />
           <div className="active-component">
