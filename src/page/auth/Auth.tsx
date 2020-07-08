@@ -1,8 +1,9 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
-import Main from '../main/Main';
 import { MappedProps, DispatchProps } from './connect';
 import { MainConnected } from '../main/connect';
+import { Buildings } from '../../components/buildings/buildings';
+import { BuildingsConnected } from '../../components/buildings/connect';
 
 interface State {
   isLoading: boolean;
@@ -34,18 +35,13 @@ class AuthComponent extends React.Component<Props, State> {
     return (
       <>
         {this.props.isLoading ? (
-          //TODO gorgo
           <div className="gorgo">toltes</div>
         ) : (
           <>
             {this.props.isConnected && (
               <Route path="/main">
                 <MainConnected />
-                <Route path="/main/buildings">
-                  {/* TODO buildings */}
-                </Route>
               </Route>
-
             )}
           </>
         )}
