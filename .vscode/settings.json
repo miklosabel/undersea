@@ -1,3 +1,34 @@
 {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+
+  "multiCommand.commands": [
+    {
+      "command": "multiCommand.moveLeftAndFocus",
+      "sequence": [
+        "workbench.action.moveEditorToLeftGroup",
+        "workbench.action.navigateLeft"
+      ]
+    },
+    {
+      "command": "multiCommand.moveRightAndFocus",
+      "sequence": [
+        "workbench.action.moveEditorToRightGroup",
+        "workbench.action.navigateRight"
+      ]
+    },
+    {
+      "command": "multiCommand.moveUpAndFocus",
+      "sequence": [
+        "workbench.action.moveEditorToAboveGroup",
+        "workbench.action.navigateUp"
+      ]
+    },
+    {
+      "command": "multiCommand.moveDownAndFocus",
+      "sequence": [
+        "workbench.action.moveEditorToBelowGroup",
+        "workbench.action.navigateDown"
+      ]
+    },
+  ]
 }
