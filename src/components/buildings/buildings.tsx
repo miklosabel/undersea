@@ -6,6 +6,7 @@ import {
 } from '../../mock/contants';
 import atollFortressImage from '../../assets/atollfortress.png';
 import flowController from '../../assets/flowcontroller.png';
+import { Card } from './card';
 
 interface Props {
   atollFortress: number;
@@ -13,6 +14,14 @@ interface Props {
 }
 
 export class Buildings extends React.Component<Props, {}> {
+  atollTitle =
+    'Zátonyvár\n50 embert ad a népességhez\n200 krumplit termel körönként';
+  atollBody =
+    this.props.atollFortress + ' db\n' + COST_OF_ATOLLFORTRESS + ' Gyöngy / db';
+  classNames = {
+    title: 'dolgok',
+    body: 'base-text',
+  };
   render() {
     return (
       <div className="buildings">
@@ -20,18 +29,13 @@ export class Buildings extends React.Component<Props, {}> {
         <p>Kattings rá, amelyiket szeretnéd megvenni</p>
         <p className="base-text">Egyszerre csak egy épület épülhet</p>
         <div className="card-container">
-          <div className="card">
-            <div>
-              <img src={atollFortressImage} alt="zatonyvar" />
-              <p>Zátonyvár</p>
-              <p>50 embert ad a népességhez</p>
-              <p>200 krumplit termel körönként</p>
-            </div>
-            <div>
-              <p className="base-text">{this.props.atollFortress} db</p>
-              <p className="base-text">{COST_OF_ATOLLFORTRESS} Gyöngy / db</p>
-            </div>
-          </div>
+          <Card
+            img={atollFortressImage}
+            imgAlt="zátonyvár"
+            title={this.atollTitle}
+            body={this.atollBody}
+            classNames={this.classNames}
+          />
           <div className="card">
             <div>
               <img src={flowController} alt="aramlasiranyito" />
