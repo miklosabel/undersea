@@ -5,7 +5,7 @@ import {
   COST_OF_FLOWCONTROLLER,
 } from '../../mock/contants';
 import atollFortressImage from '../../assets/atollfortress.png';
-import flowController from '../../assets/flowcontroller.png';
+import flowControllerImage from '../../assets/flowcontroller.png';
 import { Card } from './card';
 
 interface Props {
@@ -14,13 +14,30 @@ interface Props {
 }
 
 export class Buildings extends React.Component<Props, {}> {
-  atollTitle =
-    'Zátonyvár\n50 embert ad a népességhez\n200 krumplit termel körönként';
-  atollBody =
-    this.props.atollFortress + ' db\n' + COST_OF_ATOLLFORTRESS + ' Gyöngy / db';
-  classNames = {
-    title: 'dolgok',
-    body: 'base-text',
+  atollFortressProps = {
+    atollFortressTitle:
+      'Zátonyvár\n50 embert ad a népességhez\n200 krumplit termel körönként',
+    atollFortressBody:
+      this.props.atollFortress +
+      ' db\n' +
+      COST_OF_ATOLLFORTRESS +
+      ' Gyöngy / db',
+    classNames: {
+      title: 'dolgok',
+      body: 'base-text',
+    },
+  };
+  flowControllerProps = {
+    flowControllerTitle: 'Áramlásirányító\n200 egységnek nyújt szállást',
+    flowControllerBody:
+      this.props.flowController +
+      ' db\n' +
+      COST_OF_FLOWCONTROLLER +
+      ' Gyöngy / db',
+    classNames: {
+      title: 'dolgok',
+      body: 'base-text',
+    },
   };
   render() {
     return (
@@ -32,21 +49,17 @@ export class Buildings extends React.Component<Props, {}> {
           <Card
             img={atollFortressImage}
             imgAlt="zátonyvár"
-            title={this.atollTitle}
-            body={this.atollBody}
-            classNames={this.classNames}
+            title={this.atollFortressProps.atollFortressTitle}
+            body={this.atollFortressProps.atollFortressBody}
+            classNames={this.atollFortressProps.classNames}
           />
-          <div className="card">
-            <div>
-              <img src={flowController} alt="aramlasiranyito" />
-              <p>Áramlásirányító</p>
-              <p>200 egységnek nyújt szállást</p>
-            </div>
-            <div>
-              <p className="base-text">{this.props.flowController} db</p>
-              <p className="base-text">{COST_OF_FLOWCONTROLLER} Gyöngy / db</p>
-            </div>
-          </div>
+          <Card
+            img={flowControllerImage}
+            imgAlt="Áramlásirányító"
+            title={this.flowControllerProps.flowControllerTitle}
+            body={this.flowControllerProps.flowControllerBody}
+            classNames={this.flowControllerProps.classNames}
+          />
         </div>
         <button className="submit-button">Megveszem</button>
       </div>
