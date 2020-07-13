@@ -23,8 +23,9 @@ export class Buildings extends React.Component<Props, {}> {
       COST_OF_ATOLLFORTRESS +
       ' Gyöngy / db',
     classNames: {
-      title: 'dolgok',
+      title: '',
       body: 'base-text',
+      isActive: true,
     },
   };
   flowControllerProps = {
@@ -35,10 +36,14 @@ export class Buildings extends React.Component<Props, {}> {
       COST_OF_FLOWCONTROLLER +
       ' Gyöngy / db',
     classNames: {
-      title: 'dolgok',
+      title: '',
       body: 'base-text',
     },
   };
+
+  // handleActiveCardClass(e: React.MouseEvent<HTMLElement>) {
+  // }
+
   render() {
     return (
       <div className="buildings">
