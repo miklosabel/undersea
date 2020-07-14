@@ -1,41 +1,48 @@
 @import '../../styles/variables.scss';
 
 .sidebar {
+  height: 100%;
+  max-width: 12.5rem;
   align-self: center;
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
   margin-left: 3rem;
-  max-width: 12.5rem;
-  > a {
-    color: $dark-blue;
-    background-color: $light-turquoise;
-    font-size: 1.5rem;
-    padding: 2px;
-    border-radius: 20px;
-    margin-top: 10px;
-    background: transparent
-      linear-gradient(
-        258deg,
-        $light-turquoise 0%,
-        $turquoise 36%,
-        $dark-turquoise 100%
-      );
-    text-decoration: none;
-    &:hover {
-      text-decoration: none;
+  .links {
+    display: flex;
+    flex-direction: column;
+    > a {
       color: $dark-blue;
-      box-shadow: $background-blue 4px 4px 4px;
+      background-color: $light-turquoise;
+      font-size: 1.5rem;
+      padding: 2px;
+      border-radius: 20px;
+      margin-top: 10px;
+      background: transparent
+        linear-gradient(
+          258deg,
+          $light-turquoise 0%,
+          $turquoise 36%,
+          $dark-turquoise 100%
+        );
+      text-decoration: none;
+      &:hover {
+        text-decoration: none;
+        color: $dark-blue;
+        box-shadow: $background-blue 4px 4px 4px;
+      }
     }
   }
   // usermenu
-  div{
+  .usermenu {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     background: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(8px);
     border-radius: 10px;
-    margin: 5rem 0;
+    // margin: 4rem 0;
     padding: 1rem;
     img {
       height: 6rem;
@@ -48,7 +55,7 @@
     a,
     p {
       color: $white;
-      margin: .4rem;
+      margin: 0.4rem;
       font-size: 1.1rem;
     }
     a:hover {
@@ -57,13 +64,17 @@
     }
   }
   // undersea line
-  span {
-    width: 100%;
-    border-top: 5px solid $light-turquoise;
-  }
-  // undersea title
-  h1 {
-    color: $light-turquoise;
-    text-transform: uppercase;
+  .sidebar-footer {
+    display: flex;
+    flex-direction: column;
+    span {
+      width: 100%;
+      border-top: 5px solid $light-turquoise;
+    }
+    // undersea title
+    h1 {
+      color: $light-turquoise;
+      text-transform: uppercase;
+    }
   }
 }

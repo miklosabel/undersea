@@ -4,13 +4,9 @@ import './card.scss';
 interface Props {
   img: string;
   imgAlt: string;
-  title: string;
-  body: string;
-  classNames: {
-    title: string;
-    body: string;
-  };
-  onClick:(x:any)=>void
+  id: string;
+  isActive: boolean;
+  onClick?: (id: string) => void;
 }
 
 interface State {
@@ -21,8 +17,8 @@ export class Card extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
     this.state = {
-      isActive: false
-    }
+      isActive: false,
+    };
   }
   handleClick() {
     return !this.state.isActive;
@@ -30,25 +26,16 @@ export class Card extends React.Component<Props, State> {
   render() {
     return (
       <div
-        className={`card ${this.state.isActive ? "card-active" : ""}`}
+        className={`card ${this.props.isActive ? 'card-active' : ''}`}
         onClick={() => {
-          // this.setState({
-          //   ...this.state,
-          //   isActive: !this.state.isActive,
-          // })
-          // return this.props.onclick(x)
+          if (this.props.onClick) {
+            this.props.onClick(this.props.id);
+          }
         }}
       >
-        <div className={this.props.classNames.title}>
-          <img src={this.props.img} alt={this.props.imgAlt} />
-          <div>
-            {this.props.title.split('\n').map((i, item) => (
-              <p key={item}>{i}</p>
-            ))}
-          </div>
-          {this.props.children}
-        </div>
-        <div>{this.props.body}</div>
+        <img src={this.props.img} alt={this.props.imgAlt} />
+
+        {this.props.children}
       </div>
     );
   }

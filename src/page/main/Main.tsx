@@ -16,7 +16,7 @@ export default class Main extends React.Component<Props, State> {
   render() {
     return (
       <div className="main-container">
-        <StatusBarConnected /*...this.props.status*/ />
+        <StatusBarConnected />
         <div className="second-row">
           <Sidebar userName="jakabjatekos" />
           <div className="active-component">
