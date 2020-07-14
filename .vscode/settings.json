@@ -1,5 +1,6 @@
 {
   "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.minimap.enabled": false,
 
   "multiCommand.commands": [
     {
