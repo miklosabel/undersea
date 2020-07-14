@@ -7,67 +7,70 @@ import ShellPng from '../../assets/shell.png';
 import SeahorsePng from '../../assets/seahorse.png';
 import BuildingsPng from '../../assets/buildings.png';
 import UpgradesPng from '../../assets/upgrades.png';
+import { MappedProps } from '../../page/main/connect';
 
-export interface Props {
-    round: number;
-    rank: number;
-    shark: number;
-    seal: number;
-    seahorse: number;
-    shell: number;
-    shellIncome: number;
-    coral: number;
-    coralIncome: number;
-    atollFortress: number;
-    isAtollFortressBuilding: boolean;
-    flowController: number;
-    isFlowControllerBuilding: boolean;
-}
+// export interface Props {
+//     round: number;
+//     rank: number;
+//     shark: number;
+//     seal: number;
+//     seahorse: number;
+//     shell: number;
+//     shellIncome: number;
+//     coral: number;
+//     coralIncome: number;
+//     atollFortress: number;
+//     isAtollFortressBuilding: boolean;
+//     flowController: number;
+//     isFlowControllerBuilding: boolean;
+// }
+
+interface Props extends MappedProps {}
 
 export default class StatusBar extends React.Component<Props, {}> {
   render() {
     return (
       <div className="statusbar">
-        <p>{this.props.round}. kör</p>
-        <p>{this.props.rank}. hely</p>
+        <p>{this.props.status.round}. kör</p>
+        <p>{this.props.status.rank}. hely</p>
         <div className="counter">
           <img src={SharkPng} alt="shark" />
-          <p>{this.props.shark}</p>
+          <p>{this.props.status.shark}</p>
         </div>
         <div className="counter">
           <img src={SealPng} alt="seal" />
-          <p>{this.props.seal}</p>
+          <p>{this.props.status.seal}</p>
         </div>
         <div className="counter">
           <img src={SeahorsePng} alt="seahorse" />
-          <p>{this.props.seahorse}</p>
+          <p>{this.props.status.seahorse}</p>
         </div>
         <div className="counter">
           <img src={ShellPng} alt="shell" />
           <div>
-            <p>{this.props.shell}</p>
-            <p>{this.props.shellIncome}/kör</p>
+            <p>{this.props.status.shell}</p>
+            <p>{this.props.status.shellIncome}/kör</p>
           </div>
         </div>
         <div className="counter">
           <img src={CoralPng} alt="coral" />
           <div>
-            <p>{this.props.coral}</p>
-            <p>{this.props.coralIncome}/kör</p>
+            <p>{this.props.status.coral}</p>
+            <p>{this.props.status.coralIncome}/kör</p>
           </div>
         </div>
         <div className="counter">
           <img src={BuildingsPng} alt="buildings" />
           <div>
-            <p>{this.props.atollFortress}</p>
-            {this.props.isAtollFortressBuilding ? <p>1 épül</p> : <p>0 épül</p>}
+            <p>{this.props.status.atollFortress}</p>
+            {this.props.status.isAtollFortressBuilding ? <p>1 épül</p> : <p>0 épül</p>}
           </div>
         </div>
         <div className="counter">
           <img src={UpgradesPng} alt="upgrades" />
           <div>
-            <p>{this.props.flowController}</p>
-            {this.props.isFlowControllerBuilding ? <p>1 épül</p> : <p>0 épül</p>}
+            <p>{this.props.status.flowController}</p>
+            {this.props.status.isFlowControllerBuilding ? <p>1 épül</p> : <p>0 épül</p>}
           </div>
         </div>
       </div>

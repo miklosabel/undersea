@@ -1,7 +1,7 @@
 import React from 'react';
 import './Main.scss';
 import TowerImage from '../../components/towerImage/TowerImage';
-import StatusBar from '../../components/statusBar/StatusBar';
+import { StatusBarConnected } from '../../components/statusBar/connect';
 import Sidebar from '../../components/sideBar/Sidebar';
 import { MappedProps } from './connect';
 import { Route, Switch } from 'react-router-dom';
@@ -16,7 +16,7 @@ export default class Main extends React.Component<Props, State> {
   render() {
     return (
       <div className="main-container">
-        <StatusBar {...this.props.status} />
+        <StatusBarConnected /*...this.props.status*/ />
         <div className="second-row">
           <Sidebar userName="jakabjatekos" />
           <div className="active-component">
