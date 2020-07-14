@@ -51,21 +51,24 @@ export class Buildings extends React.Component<Props, {}> {
         <p>Kattings rá, amelyiket szeretnéd megvenni</p>
         <p className="base-text">Egyszerre csak egy épület épülhet</p>
         <div className="card-container">
-          <Card
+          {/* {cardConst.map(x=>{ */}
+        <Card
+        // clicked={this.state.clikedTomb.include()}
+            // img={x.img}
             img={atollFortressImage}
             imgAlt="zátonyvár"
             title={this.atollFortressProps.atollFortressTitle}
             body={this.atollFortressProps.atollFortressBody}
             classNames={this.atollFortressProps.classNames}
-          />
-          <Card
-            img={flowControllerImage}
-            imgAlt="Áramlásirányító"
-            title={this.flowControllerProps.flowControllerTitle}
-            body={this.flowControllerProps.flowControllerBody}
-            classNames={this.flowControllerProps.classNames}
-          />
-        </div>
+            onClick={x=>this.setState({})}
+          >
+            {/* <>
+            <spna>alma</spna>
+            </> */}
+          </Card>
+   
+         {/* )} */}
+       </div>
         <button className="submit-button">Megveszem</button>
       </div>
     );

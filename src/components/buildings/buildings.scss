@@ -3,7 +3,9 @@
 .buildings {
   padding: 50px;
   height: 70vh;
-  width: 70%;
+  width: 70vw;
+  max-height: 45rem;
+  max-width: 80rem;
   color: $white;
   background-color: $background-blue;
   border-radius: 20px;
@@ -22,7 +24,7 @@
       height: 20rem;
       padding: 1rem 1.5rem;
       text-align: center;
-      // border: none;
+      border: none;
       background: transparent;
       div {
         white-space: pre-wrap;

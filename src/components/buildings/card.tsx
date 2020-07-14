@@ -10,6 +10,7 @@ interface Props {
     title: string;
     body: string;
   };
+  onClick:(x:any)=>void
 }
 
 interface State {
@@ -31,10 +32,11 @@ export class Card extends React.Component<Props, State> {
       <div
         className={`card ${this.state.isActive ? "card-active" : ""}`}
         onClick={() => {
-          this.setState({
-            ...this.state,
-            isActive: !this.state.isActive,
-          })
+          // this.setState({
+          //   ...this.state,
+          //   isActive: !this.state.isActive,
+          // })
+          // return this.props.onclick(x)
         }}
       >
         <div className={this.props.classNames.title}>
@@ -44,6 +46,7 @@ export class Card extends React.Component<Props, State> {
               <p key={item}>{i}</p>
             ))}
           </div>
+          {this.props.children}
         </div>
         <div className={this.props.classNames.body}>{this.props.body}</div>
       </div>
