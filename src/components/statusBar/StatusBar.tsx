@@ -8,20 +8,20 @@ import SeahorsePng from '../../assets/seahorse.png';
 import BuildingsPng from '../../assets/buildings.png';
 import UpgradesPng from '../../assets/upgrades.png';
 
-interface Props {
-  round?: number;
-  rank?: number;
-  shark?: number;
-  seal?: number;
-  seahorse?: number;
-  shell?: number;
-  shellIncome?: number;
-  coral?: number;
-  coralIncome?: number;
-  buildings?: number;
-  isBuilding?: boolean;
-  upgrades?: number;
-  isUpgrading?: boolean;
+export interface Props {
+    round: number;
+    rank: number;
+    shark: number;
+    seal: number;
+    seahorse: number;
+    shell: number;
+    shellIncome: number;
+    coral: number;
+    coralIncome: number;
+    atollFortress: number;
+    isAtollFortressBuilding: boolean;
+    flowController: number;
+    isFlowControllerBuilding: boolean;
 }
 
 export default class StatusBar extends React.Component<Props, {}> {
@@ -59,15 +59,15 @@ export default class StatusBar extends React.Component<Props, {}> {
         <div className="counter">
           <img src={BuildingsPng} alt="buildings" />
           <div>
-            <p>{this.props.buildings}</p>
-            {this.props.isBuilding ? <p>1 épül</p> : <p>0 épül</p>}
+            <p>{this.props.atollFortress}</p>
+            {this.props.isAtollFortressBuilding ? <p>1 épül</p> : <p>0 épül</p>}
           </div>
         </div>
         <div className="counter">
           <img src={UpgradesPng} alt="upgrades" />
           <div>
-            <p>{this.props.upgrades}</p>
-            {this.props.isUpgrading ? <p>1 épül</p> : <p>0 épül</p>}
+            <p>{this.props.flowController}</p>
+            {this.props.isFlowControllerBuilding ? <p>1 épül</p> : <p>0 épül</p>}
           </div>
         </div>
       </div>

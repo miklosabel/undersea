@@ -3,11 +3,11 @@ import {
   PossibleLoginActions,
   loginErrorActionCall,
   loginResponseActionCall,
-  LoginActionRequest,
+  LoginRequestAction,
 } from './action';
 import { push } from 'connected-react-router';
 
-function* handleFetch(action: LoginActionRequest) {
+function* handleFetch(action: LoginRequestAction) {
   try {
     if (!action.payload.name || !action.payload.password) {
       throw Error;
@@ -22,11 +22,12 @@ function* handleFetch(action: LoginActionRequest) {
 export function* watchLoginAction() {
   yield takeEvery(PossibleLoginActions.REQUEST, handleFetch);
 }
+// route to /main
 function* pushState() {
-  console.log('alma');
   yield put(push('/main'));
 }
 
+// in case of catching LoginResponseAction push router state to /main
 export function* watchLoginResponseAction() {
   yield takeEvery(PossibleLoginActions.RESPONSE, pushState);
 }

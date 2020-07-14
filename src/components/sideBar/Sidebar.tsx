@@ -11,7 +11,7 @@ export class Sidebar extends Component<Props, {}> {
   render() {
     return (
       <div className="sidebar">
-        <Link to="/main">Épületek</Link>
+        <Link to="/main/buildings">Épületek</Link>
         <Link to="/main">Támadás</Link>
         <Link to="/main">Harc </Link>
         <Link to="/main">Ranglista</Link>

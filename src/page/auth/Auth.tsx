@@ -1,9 +1,7 @@
 import React from 'react';
-import {
-  Route,
-} from 'react-router-dom';
-import Main from './Main';
+import { Route } from 'react-router-dom';
 import { MappedProps, DispatchProps } from './connect';
+import { MainConnected } from '../main/connect';
 
 interface State {
   isLoading: boolean;
@@ -25,9 +23,9 @@ class AuthComponent extends React.Component<Props, State> {
   componentDidMount() {
     //ennek nem itt kéne lenni, de mivel Nincs Backendünk, nincs ami megmondaná, hogy be vagyunk jelentkezve ezért, ha konkrétan nem a logintól indulunk el, akkor el fog irányítani
     //loginresponse állítja isConnected true-ra
-    // Esetleg csinálhtasz olyat, hogy localstoreba kimented be van-e jelentkezve
+    //TODO Esetleg csinálhtasz olyat, hogy localstoreba kimented be van-e jelentkezve
     if (!this.props.isConnected) {
-      this.props.pushState("/login")
+      this.props.pushState('/login');
     }
   }
 
@@ -39,9 +37,10 @@ class AuthComponent extends React.Component<Props, State> {
         ) : (
             <>
               {this.props.isConnected && (
-                <Route path="/main" component={Main} />
+                <Route path="/main">
+                  <MainConnected />
+                </Route>
               )}
-
             </>
           )}
       </>

@@ -1,7 +1,5 @@
 .default_bg{ 
-  grid-column: 2 / end;
-  grid-row: 2 /end;
-  justify-self: center;
-  align-self: center;
-  content: url('../../assets/background_tower.png');
+  content: url('../../assets/background_tower_2x.png');
+  height: 372px;
+  width: 360px;
 }

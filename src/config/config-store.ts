@@ -14,7 +14,6 @@ export interface RootState {
   app: IApplicationState;
   router: RouterState;
 }
-// TODO ez mit csinal? megmondja, hogy igy fog kinezni a store?
 export function configStore(history: History) {
   // megkapja a history-t hogy a router ahhoz hozzaferjen
   const saga = createSagaMiddleware();

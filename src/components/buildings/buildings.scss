@@ -1,0 +1,49 @@
+@import '../../styles/variables.scss';
+
+.buildings {
+  padding: 50px;
+  height: 70vh;
+  width: 70%;
+  color: $white;
+  background-color: $background-blue;
+  border-radius: 20px;
+  box-shadow: 0px 5px 35px $background-blue;
+  > * {
+    text-align: left;
+  }
+  .card-container {
+    display: flex;
+    justify-content: space-around;
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid $card-container-border-blue;
+    .card {
+      justify-content: space-between;
+      height: 20rem;
+      padding: 1rem 1.5rem;
+      text-align: center;
+      // border: none;
+      background: transparent;
+      div {
+        white-space: pre-wrap;
+      }
+      img {
+        height: 8rem;
+        width: 8rem;
+      }
+      // TODO do something with conditional css
+      &:active {
+        background-color: $active-gray;
+      }
+      p {
+        margin: 0.2rem;
+      }
+    }
+    .card-active {
+      background-color: $active-gray;
+    }
+  }
+  .active-button {
+    background: red;
+  }
+}
