@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { MainState } from '../../store/pages/main/store';
+import { MainState } from '../../store/global/main/store';
 import { RootState } from '../../config/config-store';
 import Main from './Main';
 
