@@ -16,14 +16,14 @@ export class Sidebar extends Component<Props, {}> {
         <Link to="/main">Harc </Link>
         <Link to="/main">Ranglista</Link>
         <Link to="/main">Sereg</Link>
-        <div className="usermenu">
+        <div>
           <img src={ProfileImg} alt="profile" />
           <p>{this.props.userName}</p>
           <Link to="/main">Profil</Link>
           <Link to="/login">Kijelentkezés</Link>
         </div>
-        <div className="undersea-line"></div>
-        <h1 className="undersea-title">UNDERSEA</h1>
+        <span></span>
+        <h1>undersea</h1>
       </div>
     );
   }

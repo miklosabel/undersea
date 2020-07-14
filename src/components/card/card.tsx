@@ -41,14 +41,14 @@ export class Card extends React.Component<Props, State> {
       >
         <div className={this.props.classNames.title}>
           <img src={this.props.img} alt={this.props.imgAlt} />
-          <div className={this.props.classNames.title}>
+          <div>
             {this.props.title.split('\n').map((i, item) => (
               <p key={item}>{i}</p>
             ))}
           </div>
           {this.props.children}
         </div>
-        <div className={this.props.classNames.body}>{this.props.body}</div>
+        <div>{this.props.body}</div>
       </div>
     );
   }

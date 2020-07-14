@@ -3,9 +3,8 @@
 .statusbar {
   font-size: 1.5rem;
   // light-turquoise with alpha value
-  background: rgba(159,255,240,0.4);
+  background: rgba(159, 255, 240, 0.4);
   backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
   display: flex;
   justify-content: space-between;
   width: 100%;
@@ -18,7 +17,8 @@
     padding: 0 1rem;
     align-self: center;
   }
-  .counter {
+  // .counter {
+  > div {
     display: flex;
     align-items: center;
     img {
@@ -29,10 +29,8 @@
       padding: 0.4rem;
       border-radius: 10px;
     }
-    >div
-    :nth-child(2) {
+    > div :nth-child(2) {
       font-size: 1rem;
     }
   }
-  
 }

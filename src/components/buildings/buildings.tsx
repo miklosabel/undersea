@@ -6,7 +6,7 @@ import {
 } from '../../mock/contants';
 import atollFortressImage from '../../assets/atollfortress.png';
 import flowControllerImage from '../../assets/flowcontroller.png';
-import { Card } from './card';
+import { Card } from '../card/card';
 
 interface Props {
   atollFortress: number;
@@ -49,8 +49,8 @@ export class Buildings extends React.Component<Props, {}> {
       <div className="buildings">
         <h1>Épületek</h1>
         <p>Kattings rá, amelyiket szeretnéd megvenni</p>
-        <p className="base-text">Egyszerre csak egy épület épülhet</p>
-        <div className="card-container">
+        <p>Egyszerre csak egy épület épülhet</p>
+        <div>
           {/* {cardConst.map(x=>{ */}
         <Card
         // clicked={this.state.clikedTomb.include()}

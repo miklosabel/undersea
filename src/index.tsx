@@ -1,9 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import { Provider as ReduxProvider } from 'react-redux';
 import { configStore } from './config/config-store';
 import { ConnectedRouter } from 'connected-react-router';

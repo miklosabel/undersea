@@ -27,13 +27,13 @@
       box-shadow: $background-blue 4px 4px 4px;
     }
   }
-  .usermenu {
+  // usermenu
+  div{
     display: flex;
     flex-direction: column;
     align-items: center;
     background: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
     border-radius: 10px;
     margin: 5rem 0;
     padding: 1rem;
@@ -56,11 +56,14 @@
       text-decoration: none;
     }
   }
-  .undersea-line {
+  // undersea line
+  span {
     width: 100%;
     border-top: 5px solid $light-turquoise;
   }
-  .undersea-title {
+  // undersea title
+  h1 {
     color: $light-turquoise;
+    text-transform: uppercase;
   }
 }

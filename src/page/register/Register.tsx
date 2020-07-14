@@ -48,7 +48,6 @@ export class Register extends React.Component<{}, State> {
         successMessage: 'Sikeresen regisztráltál. Most már bejelentkezhetsz.',
       });
     }
-    console.log(this);
   }
 
   validateForm() {
@@ -81,14 +80,13 @@ export class Register extends React.Component<{}, State> {
       <div className="login-register-container">
         <header>
           <div className="header-line"></div>
-          <h1 className="login-title">UNDERSEA</h1>
+          <h1 className="login-title">undersea</h1>
         </header>
         <div className="form-container">
           <h2 className="form-title">Regisztráció</h2>
           <form onSubmit={(event) => this.handleSubmit(event)}>
             <div className="error-message">{this.state.error.username}</div>
             <input
-              type="text"
               name="username"
               placeholder="Felhasználónév"
               value={this.state.username}
@@ -123,7 +121,6 @@ export class Register extends React.Component<{}, State> {
             <br />
             <div className="error-message">{this.state.error.cityName}</div>
             <input
-              type="text"
               name="cityName"
               placeholder="A városod neve, amit építesz"
               value={this.state.cityName}
