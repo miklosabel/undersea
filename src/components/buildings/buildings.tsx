@@ -40,10 +40,14 @@ export class Buildings extends React.Component<Props, State> {
       cost =
         id === 'atollFortress' ? COST_OF_ATOLLFORTRESS : COST_OF_FLOWCONTROLLER;
     }
+
     this.setState({
       ...this.state,
       selectedBuilding: selectedBuilding,
-      isButtonDisabled: this.props.shell <= cost,
+      isButtonDisabled:
+        this.props.shell <= cost ||
+        this.props.isFlowControllerBuilding ||
+        this.props.isAtollFortressBuilding,
     });
   }
 
