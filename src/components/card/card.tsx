@@ -9,20 +9,7 @@ interface Props {
   onClick?: (id: string) => void;
 }
 
-interface State {
-  isActive: boolean;
-}
-
-export class Card extends React.Component<Props, State> {
-  constructor(props: Props) {
-    super(props);
-    this.state = {
-      isActive: false,
-    };
-  }
-  handleClick() {
-    return !this.state.isActive;
-  }
+export class Card extends React.Component<Props, {}> {
   render() {
     return (
       <div

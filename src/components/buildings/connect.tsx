@@ -8,6 +8,7 @@ export interface MappedProps {
   flowController: number;
   isAtollFortressBuilding: boolean;
   isFlowControllerBuilding: boolean;
+  shell: number
 }
 export interface DispatchProps {}
 
@@ -17,12 +18,14 @@ const mapStateToProps = (state: RootState): MappedProps => {
     flowController,
     isAtollFortressBuilding,
     isFlowControllerBuilding,
+    shell,
   } = state.app.page.main.status;
   return {
     atollFortress,
     flowController,
     isAtollFortressBuilding,
     isFlowControllerBuilding,
+    shell,
   };
 };
 const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => bindActionCreators(
