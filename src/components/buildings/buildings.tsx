@@ -8,10 +8,9 @@ interface State {
 }
 
 export class Buildings extends React.Component<{}, State> {
-  state:State={
-    selectedBuilding:''
-  
-  }
+  state: State = {
+    selectedBuilding: '',
+  };
   validate() {}
   render() {
     return (
@@ -28,10 +27,17 @@ export class Buildings extends React.Component<{}, State> {
                 img={item.image}
                 imgAlt={item.imageAlt}
                 onClick={(id) => {
-                  this.setState({
-                    ...this.state,
-                    selectedBuilding: id,
-                  });
+                  if (this.state.selectedBuilding === id) {
+                    this.setState({
+                      ...this.state,
+                      selectedBuilding: '',
+                    });
+                  } else {
+                    this.setState({
+                      ...this.state,
+                      selectedBuilding: id,
+                    });
+                  }
                 }}
               >
                 <>
