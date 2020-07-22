@@ -4,6 +4,8 @@ import flowControllerImage from '../assets/flowcontroller.png';
 
 export const COST_OF_ATOLLFORTRESS = 45;
 export const COST_OF_FLOWCONTROLLER = 35;
+export const ROUNDS_OF_BUILDING = 5;
+export const ROUNDS_OF_UPGRADE = 15;
 export const TAX = 25;
 
 export const buildings: buildingInterface[] = [

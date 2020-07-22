@@ -12,7 +12,7 @@ export const MainReducer = (state=mainInitState, action: IMainActions): MainStat
           shell: action.payload.shell,
           isAtollFortressBuilding: action.payload.isAtollFortressBuilding,
           isFlowControllerBuilding: action.payload.isFlowControllerBuilding,
-          nextPossibleRoundToBuild: action.payload.nextPossibleRoundToBuild,
+          roundsBeforeNewBuilding: action.payload.roundsBeforeNewBuilding,
           round: state.status.round,
           rank: state.status.rank,
           shark: state.status.shark,

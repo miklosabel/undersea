@@ -4,6 +4,7 @@ import {
   buildings,
   COST_OF_ATOLLFORTRESS,
   COST_OF_FLOWCONTROLLER,
+  ROUNDS_OF_BUILDING,
 } from '../../mock/contants';
 import { Card } from '../card/card';
 import { MappedProps, DispatchProps } from './connect';
@@ -15,27 +16,30 @@ interface State {
 }
 interface Props extends MappedProps, DispatchProps {}
 
+const initialState = {
+  selectedBuilding: '',
+  isButtonDisabled: true,
+  currentCost: Number.POSITIVE_INFINITY,
+};
+
 export class Buildings extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
-    this.state = {
-      selectedBuilding: '',
-      isButtonDisabled: true,
-      currentCost: Number.POSITIVE_INFINITY,
-    };
+    this.state = initialState;
   }
 
   handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event?.preventDefault();
-    const updatedShell = this.props.shell - this.state.currentCost;
-    console.log(updatedShell)
-    const nextPossibleRound = 0;
+    // firing an action to set redux state
     this.props.startBuild({
-      shell: updatedShell,
-      isAtollFortressBuilding: false,
-      isFlowControllerBuilding: false,
-      nextPossibleRoundToBuild: nextPossibleRound,
+      shell: this.props.shell - this.state.currentCost,
+      isAtollFortressBuilding: this.state.selectedBuilding === 'atollFortress',
+      isFlowControllerBuilding:
+        this.state.selectedBuilding === 'flowController',
+      roundsBeforeNewBuilding: ROUNDS_OF_BUILDING,
     });
+    // reseting state to initial
+    this.setState(initialState);
   }
 
   /* calculates:
@@ -57,7 +61,8 @@ export class Buildings extends React.Component<Props, State> {
       isButtonDisabled:
         this.props.shell <= cost ||
         this.props.isFlowControllerBuilding ||
-        this.props.isAtollFortressBuilding,
+        this.props.isAtollFortressBuilding ||
+        this.props.roundsBeforeNewBuilding > 0,
       currentCost: cost,
     });
   }

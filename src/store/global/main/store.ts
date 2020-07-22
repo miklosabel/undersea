@@ -3,7 +3,7 @@ export interface MainState {
     shell: number;
     isAtollFortressBuilding: boolean;
     isFlowControllerBuilding: boolean;
-    nextPossibleRoundToBuild: number;
+    roundsBeforeNewBuilding: number;
     round: number;
     rank: number;
     shark: number;
@@ -12,7 +12,6 @@ export interface MainState {
     shellIncome: number;
     coral: number;
     coralIncome: number;
-    //TODO a round
     atollFortress: number;
     flowController: number;
   };
@@ -23,7 +22,7 @@ export const mainInitState: MainState = {
     shell: 112,
     isAtollFortressBuilding: false,
     isFlowControllerBuilding: false,
-    nextPossibleRoundToBuild: 0,
+    roundsBeforeNewBuilding: 0,
     round: 5,
     rank: 5,
     shark: 3,

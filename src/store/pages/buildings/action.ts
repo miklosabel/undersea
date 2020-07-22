@@ -12,7 +12,7 @@ export interface startBuildAction {
     shell: number;
     isAtollFortressBuilding: boolean;
     isFlowControllerBuilding: boolean;
-    nextPossibleRoundToBuild: number;
+    roundsBeforeNewBuilding: number;
   };
 }
 
@@ -22,7 +22,7 @@ export const startBuildActionCreator = (params: {
   shell: number;
   isAtollFortressBuilding: boolean;
   isFlowControllerBuilding: boolean;
-  nextPossibleRoundToBuild: number;
+  roundsBeforeNewBuilding: number;
 }): startBuildAction => ({
   type: PossibleBuildingActions.START_BUILD,
   payload: params,

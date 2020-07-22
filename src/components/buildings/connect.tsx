@@ -9,6 +9,7 @@ export interface MappedProps {
   flowController: number;
   isAtollFortressBuilding: boolean;
   isFlowControllerBuilding: boolean;
+  roundsBeforeNewBuilding: number;
   shell: number;
 }
 export interface DispatchProps {
@@ -16,7 +17,7 @@ export interface DispatchProps {
     shell: number;
     isAtollFortressBuilding: boolean;
     isFlowControllerBuilding: boolean;
-    nextPossibleRoundToBuild: number;
+    roundsBeforeNewBuilding: number;
   }) => void;
 }
 
@@ -26,6 +27,7 @@ const mapStateToProps = (state: RootState): MappedProps => {
     flowController,
     isAtollFortressBuilding,
     isFlowControllerBuilding,
+    roundsBeforeNewBuilding,
     shell
   } = state.app.page.main.status;
 
@@ -34,6 +36,7 @@ const mapStateToProps = (state: RootState): MappedProps => {
     flowController,
     isAtollFortressBuilding,
     isFlowControllerBuilding,
+    roundsBeforeNewBuilding,
     shell,
   };
 };
