@@ -11,6 +11,7 @@ import { MappedProps, DispatchProps } from './connect';
 interface State {
   selectedBuilding: string;
   isButtonDisabled: boolean;
+  currentCost: number;
 }
 interface Props extends MappedProps, DispatchProps {}
 
@@ -20,12 +21,21 @@ export class Buildings extends React.Component<Props, State> {
     this.state = {
       selectedBuilding: '',
       isButtonDisabled: true,
+      currentCost: Number.POSITIVE_INFINITY,
     };
   }
 
-  validate(event: React.FormEvent<HTMLFormElement>) {
+  handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event?.preventDefault();
-    console.log('validated');
+    const updatedShell = this.props.shell - this.state.currentCost;
+    console.log(updatedShell)
+    const nextPossibleRound = 0;
+    this.props.startBuild({
+      shell: updatedShell,
+      isAtollFortressBuilding: false,
+      isFlowControllerBuilding: false,
+      nextPossibleRoundToBuild: nextPossibleRound,
+    });
   }
 
   /* calculates:
@@ -48,12 +58,16 @@ export class Buildings extends React.Component<Props, State> {
         this.props.shell <= cost ||
         this.props.isFlowControllerBuilding ||
         this.props.isAtollFortressBuilding,
+      currentCost: cost,
     });
   }
 
   render() {
     return (
-      <form className="buildings" onSubmit={(event) => this.validate(event)}>
+      <form
+        className="buildings"
+        onSubmit={(event) => this.handleSubmit(event)}
+      >
         <h1>Épületek</h1>
         <p>Kattings rá, amelyiket szeretnéd megvenni</p>
         <p>Egyszerre csak egy épület épülhet</p>
