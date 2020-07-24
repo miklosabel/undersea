@@ -13,7 +13,7 @@ export class Sidebar extends Component<Props, {}> {
       <div className="sidebar">
         <div className="links">
           <Link to="/main/buildings">Épületek</Link>
-          <Link to="/main">Támadás</Link>
+          <Link to="/main/attack">Támadás</Link>
           <Link to="/main">Harc </Link>
           <Link to="/main">Ranglista</Link>
           <Link to="/main">Sereg</Link>

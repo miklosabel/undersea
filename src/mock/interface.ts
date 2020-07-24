@@ -5,3 +5,10 @@ export interface buildingInterface {
   image: string;
   imageAlt: string;
 }
+
+export interface unitSelectorInterface {
+  id: string;
+  body: string;
+  image: string;
+  imgAlt: string;
+}

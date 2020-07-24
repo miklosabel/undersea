@@ -1,6 +1,9 @@
-import { buildingInterface } from './interface';
+import { buildingInterface, unitSelectorInterface } from './interface';
 import atollFortressImage from '../assets/atollfortress.png';
 import flowControllerImage from '../assets/flowcontroller.png';
+import sharkImage from '../assets/shark.png';
+import sealImage from '../assets/seal.png';
+import seaHorseImage from '../assets/seahorse.png';
 
 export const COST_OF_ATOLLFORTRESS = 45;
 export const COST_OF_FLOWCONTROLLER = 35;
@@ -32,3 +35,12 @@ export const buildings: buildingInterface[] = [
     imageAlt: 'áramlásirányító',
   },
 ];
+
+export const unitSelectors: unitSelectorInterface[] = [
+  {
+    id: 'shark',
+    body: 'Lézercápa: ',
+    image: sharkImage,
+    imgAlt: 'lézercápa',
+  }
+]
