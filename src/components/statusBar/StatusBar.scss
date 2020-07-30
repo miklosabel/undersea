@@ -1,4 +1,5 @@
 @import '../../styles/variables.scss';
+@import '../../styles/general.scss';
 
 .statusbar {
   font-size: 1.5rem;
@@ -21,14 +22,6 @@
   > div {
     display: flex;
     align-items: center;
-    img {
-      height: 3.75rem;
-      width: 3.75rem;
-      background-color: $light-turquoise;
-      border: 2px solid $status-border-color;
-      padding: 0.4rem;
-      border-radius: 10px;
-    }
     > div :nth-child(2) {
       font-size: 1rem;
     }

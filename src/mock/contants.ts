@@ -42,5 +42,17 @@ export const unitSelectors: unitSelectorInterface[] = [
     body: 'Lézercápa: ',
     image: sharkImage,
     imgAlt: 'lézercápa',
-  }
+  },
+  {
+    id: 'seal',
+    body: 'Rohamfóka: ',
+    image: sealImage,
+    imgAlt: 'rohamfóka',
+  },
+  {
+    id: 'seahorse',
+    body: 'Csatacsikó: ',
+    image: seaHorseImage,
+    imgAlt: 'csatacsikó',
+  },
 ]
