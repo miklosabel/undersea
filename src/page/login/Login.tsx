@@ -12,7 +12,7 @@ interface State {
 }
 
 interface Props extends MappedProps, DispatchProps {
-  errorMsg: string;
+
 }
 
 class Login extends React.Component<Props, State> {
@@ -64,9 +64,7 @@ class Login extends React.Component<Props, State> {
         <div className="form-container">
           <h2 className="form-title">Belépés</h2>
           <form onSubmit={(event) => this.handleSubmit(event)}>
-            {this.props.errorMsg && !this.state.errors.username && (
-              <div className="error-message">{this.props.errorMsg}</div>
-            )}
+
             {this.state.errors.username ? <div className="error-message">this.state.errors.username</div> : <br />}
             <input
               name="username"

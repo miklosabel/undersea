@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import { AppConnected } from './connect';
 import * as serviceWorker from './serviceWorker';
 import { Provider as ReduxProvider } from 'react-redux';
 import { configStore } from './config/config-store';
@@ -14,7 +14,7 @@ ReactDOM.render(
   <ReduxProvider store={store}>
     <ConnectedRouter history={history}>
       <React.StrictMode>
-        <App />
+        <AppConnected />
       </React.StrictMode>
     </ConnectedRouter>
   </ReduxProvider>,
@@ -25,4 +25,3 @@ ReactDOM.render(
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();
- 

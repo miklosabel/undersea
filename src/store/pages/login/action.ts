@@ -1,9 +1,11 @@
 export interface LoginActionTypes {
+  INIT: 'LOGIN_INIT';
   REQUEST: 'LOGIN_REQUEST';
   RESPONSE: 'LOGIN_RESPONSE';
   ERROR: 'LOGIN_ERROR';
 }
 export const PossibleLoginActions: LoginActionTypes = {
+  INIT: 'LOGIN_INIT',
   ERROR: 'LOGIN_ERROR',
   REQUEST: 'LOGIN_REQUEST',
   RESPONSE: 'LOGIN_RESPONSE',
@@ -25,14 +27,21 @@ export interface LoginErrorAction {
   type: LoginActionTypes['ERROR'];
   payload: string;
 }
-
+export interface LoginInitAction {
+  type: LoginActionTypes['INIT'];
+  payload: boolean;
+}
 export type ILoginActions =
   | LoginRequestAction
   | LoginResponseAction
-  | LoginErrorAction;
+  | LoginErrorAction
+  | LoginInitAction;
 
 //action creators
-export const loginRequestActionCall = (params: {name: string; password: string;}): LoginRequestAction => ({
+export const loginRequestActionCall = (params: {
+  name: string;
+  password: string;
+}): LoginRequestAction => ({
   type: PossibleLoginActions.REQUEST,
   payload: params,
 });
@@ -47,4 +56,8 @@ export const loginResponseActionCall = (
 export const loginErrorActionCall = (error: string): LoginErrorAction => ({
   type: PossibleLoginActions.ERROR,
   payload: error,
+});
+export const loginInitActionCall = (isConnected: boolean): LoginInitAction => ({
+  type: PossibleLoginActions.INIT,
+  payload: isConnected,
 });

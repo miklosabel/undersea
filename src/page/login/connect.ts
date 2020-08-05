@@ -15,9 +15,8 @@ const mapStateToProps = (state: RootState): MappedProps => ({
   ...state.app.page.login,
 });
 
-const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => 
+const mapDispatchToProps = (dispatch: Dispatch): DispatchProps =>
   bindActionCreators({ loginRequest: loginRequestActionCall }, dispatch);
-
 
 export const LoginConnected = connect(
   mapStateToProps,
