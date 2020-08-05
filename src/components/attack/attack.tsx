@@ -21,26 +21,9 @@ export class Attacks extends React.Component<{}, State> {
     };
   }
 
-  findUsernameInList(event: KeyboardEvent) {
-    if (event.charCode === 13) {
-      event.preventDefault();
-      this.state.userList.some((listItem) => {
-        if (listItem.item === this.state.inputContent) {
-          const prevId = this.state.activeListItemId;
-          this.setState({
-            ...this.state,
-            activeListItemId: listItem.id,
-          });
-          return this.state.activeListItemId === prevId;
-        } else {
-          this.setState({
-            ...this.state,
-            activeListItemId: undefined,
-          })
-          return false;
-        }
-      });
-    }
+  findUsernameInList(event: React.ChangeEvent<HTMLInputElement>) {
+    const userList = attackUserList.filter(x => x.item.includes(event.target.value))
+    this.setState({ ...this.state, userList })
   }
 
   setActiveIdInList(listItemId: number) {
@@ -64,15 +47,9 @@ export class Attacks extends React.Component<{}, State> {
             <p>1. Jelöld ki, kit szeretnél megtámadni</p>
             <input
               type="text"
-              value={this.state.inputContent}
               placeholder="Felhasználónév"
-              onChange={(event) => {
-                this.setState({
-                  ...this.state,
-                  inputContent: event.target.value,
-                });
-              }}
-              onKeyPress={(event) => this.findUsernameInList(event)}
+              onChange={(event) => this.findUsernameInList(event)}
+
             />
 
             <List
