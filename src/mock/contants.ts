@@ -61,7 +61,7 @@ export const unitSelectors: unitSelectorInterface[] = [
   },
 ];
 
-export var attackUserList: displayListElement[] = new Array();
+export var attackUserList: displayListElement[] = [];
 for (let i = 0; i < 50; i++) {
   attackUserList.push({
     id: i,

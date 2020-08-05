@@ -1,4 +1,5 @@
 @import '../../styles/variables.scss';
+@import '../../styles/general.scss';
 
 .attacks {
   padding: 3.5em;
@@ -22,18 +23,21 @@
       padding: 0 5px;
       input {
         width: 90%;
-        margin: 0;
-        padding: 5px 0px 5px 20px;
-        background: $input-background-gray;
-        border-radius: 3rem;
-        border: none;
-        opacity: 0.39;
-        &:placeholder {
-          text-align: left;
-          font-family: 'Open Sans', 'Regular';
-          font-size: 1rem;
-          color: $input-placeholder-gray
-        }
+        margin-bottom: 1rem;
+        // width: 90%;
+        // margin: 0;
+        // padding: 5px 0px 5px 20px;
+        // background: $input-background-gray;
+        // border-radius: 20px;
+        // border: none;
+        // opacity: 0.39;
+        // &:placeholder {
+        //   text-align: left;
+        //   font-family: 'Open Sans', 'Regular';
+        //   font-size: 1rem;
+        //   color: $input-placeholder-gray;
+        //   color: $blue;
+        // }
       }
     }
   }

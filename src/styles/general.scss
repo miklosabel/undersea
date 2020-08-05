@@ -1,4 +1,5 @@
 @import './variables.scss';
+
 button {
   font-weight: 900;
   border: none;
@@ -30,4 +31,19 @@ button {
   border: 2px solid $status-border-color;
   padding: 0.4rem;
   border-radius: 10px;
+}
+
+input {
+  margin: 0;
+  padding: 5px 0px 5px 20px;
+  border: none;
+  border-radius: 20px;
+  width: 80%;
+  background: $white;
+  opacity: 0.39;
+  &::placeholder {
+    text-align: left;
+    // font-family: 'Open Sans', 'Regular';
+    color: $blue;
+  }
 }

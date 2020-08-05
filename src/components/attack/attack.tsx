@@ -37,6 +37,7 @@ export class Attacks extends React.Component<{}, State> {
             ...this.state,
             activeListItemId: undefined,
           })
+          return false;
         }
       });
     }
