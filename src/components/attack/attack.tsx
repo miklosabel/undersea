@@ -22,8 +22,10 @@ export class Attacks extends React.Component<{}, State> {
   }
 
   findUsernameInList(event: React.ChangeEvent<HTMLInputElement>) {
-    const userList = attackUserList.filter(x => x.item.includes(event.target.value))
-    this.setState({ ...this.state, userList })
+    const userList = attackUserList.filter((x) =>
+      x.item.includes(event.target.value)
+    );
+    this.setState({ ...this.state, userList });
   }
 
   setActiveIdInList(listItemId: number) {
@@ -49,7 +51,6 @@ export class Attacks extends React.Component<{}, State> {
               type="text"
               placeholder="Felhasználónév"
               onChange={(event) => this.findUsernameInList(event)}
-
             />
 
             <List
