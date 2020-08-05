@@ -2,7 +2,7 @@ import React from 'react';
 import './Main.scss';
 import TowerImage from '../../components/towerImage/TowerImage';
 import { StatusBarConnected } from '../../components/statusBar/connect';
-import Sidebar from '../../components/sideBar/Sidebar';
+import { SidebarConnected } from '../../components/sideBar/connect';
 import { MappedProps } from './connect';
 import { Route, Switch } from 'react-router-dom';
 import { BuildingsConnected } from '../../components/buildings/connect';
@@ -19,7 +19,7 @@ export default class Main extends React.Component<Props, State> {
       <div className="main-container">
         <StatusBarConnected />
         <div className="second-row">
-          <Sidebar userName="jakabjatekos" />
+          <SidebarConnected userName="jakabjatekos" />
           <div className="active-component">
             <Switch>
               <Route exact path="/main">

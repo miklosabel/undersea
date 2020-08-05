@@ -2,9 +2,11 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './Sidebar.scss';
 import ProfileImg from '../../assets/default_profile_image.png';
+import { resetApp } from '../../store';
 
 interface Props {
   userName: string;
+  resetApp: () => void;
 }
 
 export class Sidebar extends Component<Props, {}> {
@@ -22,7 +24,7 @@ export class Sidebar extends Component<Props, {}> {
           <img src={ProfileImg} alt="profile" />
           <p>{this.props.userName}</p>
           <Link to="/main">Profil</Link>
-          <Link to="/login">Kijelentkezés</Link>
+          <p onClick={() => this.props.resetApp()}>Kijelentkezés</p>
         </div>
         <div className="sidebar-footer">
           <span></span>
