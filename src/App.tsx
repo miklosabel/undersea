@@ -1,32 +1,32 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.scss';
 import './styles/general.scss';
-import { Switch, Route, Redirect } from 'react-router';
+import { Switch, Route, Redirect, } from 'react-router';
 import { createBrowserHistory } from 'history';
 import { Register } from './page/register/Register';
-import { LoginConnected } from './page/login/connect';
 import { AuthComponentConnected } from './page/auth/connect';
 
-function App() {
-  const [msg, setMsg] = useState<string>('');
+function App(props: { init: (isConnected: boolean) => void }) {
+
+  useEffect(() => {
+    //Kiolvassuk, volt-e bejelentkezve
+    const isConnectedUnparsed = localStorage.getItem('isConnected')
+    const isConnected = isConnectedUnparsed ? JSON.parse(isConnectedUnparsed) : false
+    //Ha nem volt false értékkel elküldjük action
+    props.init(isConnected)
+
+  })
   return (
     <div className="App">
       <Switch>
-        {/* two ways of creating a route */}
-        <Route path="/login" children={<LoginConnected errorMsg={msg}></LoginConnected>}></Route>
         <Route path="/register">
           <Register></Register>
         </Route>
-
         {/* TODO make this route private */}
         <AuthComponentConnected
-          loginMsg={(tempMsg) => {
-            setMsg(tempMsg);
-          }}
         />
-        {/* default route to login */}
-        <Redirect to="/login" from="*" />
+        <Redirect from="*" to="/login"></Redirect>
       </Switch>
     </div>
   );

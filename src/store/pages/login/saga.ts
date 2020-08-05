@@ -4,6 +4,7 @@ import {
   loginErrorActionCall,
   loginResponseActionCall,
   LoginRequestAction,
+  LoginInitAction,
 } from './action';
 import { push } from 'connected-react-router';
 
@@ -26,8 +27,15 @@ export function* watchLoginAction() {
 function* pushState() {
   yield put(push('/main'));
 }
-
+//Elpusholjuk aszerint, hogy init actionben be van-e jelentkezve
+function* pushInit(action: LoginInitAction) {
+  yield put(push(action.payload ? '/main' : '/login'));
+}
 // in case of catching LoginResponseAction push router state to /main
 export function* watchLoginResponseAction() {
   yield takeEvery(PossibleLoginActions.RESPONSE, pushState);
+}
+
+export function* watchInitResponseAction() {
+  yield takeEvery(PossibleLoginActions.INIT, pushInit);
 }
