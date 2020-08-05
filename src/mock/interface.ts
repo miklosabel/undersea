@@ -12,3 +12,8 @@ export interface unitSelectorInterface {
   image: string;
   imgAlt: string;
 }
+
+export interface displayListElement {
+  id: number;
+  item: string;
+}
