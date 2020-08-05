@@ -1,3 +1,5 @@
+@import './general.scss';
+
 .login-register-container {
   max-width: 29.5rem;
   width: 100%;
@@ -29,21 +31,6 @@
       color: $blue;
     }
     form {
-      input {
-        margin: 0;
-        padding: 5px 0px 5px 20px;
-        border: 0;
-        width: 80%;
-        background: $white;
-        border-radius: 20px;
-        opacity: 0.39;
-        &:placeholder {
-          text-align: left;
-          font-family: 'Open Sans', 'Regular';
-          font-size: 1rem;
-          color: $blue;
-        }
-      }
       .error-message {
         display: inline-block;
         color: red;

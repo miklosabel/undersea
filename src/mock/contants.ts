@@ -1,4 +1,8 @@
-import { buildingInterface, unitSelectorInterface } from './interface';
+import {
+  buildingInterface,
+  unitSelectorInterface,
+  displayListElement,
+} from './interface';
 import atollFortressImage from '../assets/atollfortress.png';
 import flowControllerImage from '../assets/flowcontroller.png';
 import sharkImage from '../assets/shark.png';
@@ -55,4 +59,12 @@ export const unitSelectors: unitSelectorInterface[] = [
     image: seaHorseImage,
     imgAlt: 'csatacsikó',
   },
-]
+];
+
+export var attackUserList: displayListElement[] = [];
+for (let i = 0; i < 50; i++) {
+  attackUserList.push({
+    id: i,
+    item: i % 2 === 0 ? 'jozsiwinner12' : 'kiscsiko1990',
+  });
+}
