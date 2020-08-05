@@ -1,24 +1,23 @@
 @import '../../styles/variables.scss';
 
-.buildings {
-  padding: 50px;
+.attacks {
+  padding: 3.5em;
   height: 70vh;
-  width: 70vw;
-  max-height: 45rem;
-  max-width: 80rem;
-  color: $white;
+  width: 50vw;
   background-color: $background-blue;
+  color: $white;
   border-radius: 20px;
-  box-shadow: 0px 5px 35px $background-blue;
   > * {
-    text-align: left;
+    text-align:left;
   }
-  // card-container
   > div {
     display: flex;
     justify-content: space-around;
-    padding-bottom: 1rem;
-    margin-bottom: 2rem;
     border-bottom: 1px solid $card-container-border-blue;
+    > div {
+      // padding: 10px;
+      width: 100%;
+      // padding: 0 1rem;
+    }
   }
 }

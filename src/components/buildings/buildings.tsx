@@ -1,73 +1,113 @@
 import React from 'react';
 import './buildings.scss';
 import {
+  buildings,
   COST_OF_ATOLLFORTRESS,
   COST_OF_FLOWCONTROLLER,
+  ROUNDS_OF_BUILDING,
 } from '../../mock/contants';
-import atollFortressImage from '../../assets/atollfortress.png';
-import flowControllerImage from '../../assets/flowcontroller.png';
-import { Card } from './card';
+import { Card } from '../card/card';
+import { MappedProps, DispatchProps } from './connect';
 
-interface Props {
-  atollFortress: number;
-  flowController: number;
+interface State {
+  selectedBuilding: string;
+  isButtonDisabled: boolean;
+  currentCost: number;
 }
+interface Props extends MappedProps, DispatchProps {}
 
-export class Buildings extends React.Component<Props, {}> {
-  atollFortressProps = {
-    atollFortressTitle:
-      'Zátonyvár\n50 embert ad a népességhez\n200 krumplit termel körönként',
-    atollFortressBody:
-      this.props.atollFortress +
-      ' db\n' +
-      COST_OF_ATOLLFORTRESS +
-      ' Gyöngy / db',
-    classNames: {
-      title: '',
-      body: 'base-text',
-      isActive: true,
-    },
-  };
-  flowControllerProps = {
-    flowControllerTitle: 'Áramlásirányító\n200 egységnek nyújt szállást',
-    flowControllerBody:
-      this.props.flowController +
-      ' db\n' +
-      COST_OF_FLOWCONTROLLER +
-      ' Gyöngy / db',
-    classNames: {
-      title: '',
-      body: 'base-text',
-    },
-  };
+const initialState = {
+  selectedBuilding: '',
+  isButtonDisabled: true,
+  currentCost: Number.POSITIVE_INFINITY,
+};
 
-  // handleActiveCardClass(e: React.MouseEvent<HTMLElement>) {
-  // }
+export class Buildings extends React.Component<Props, State> {
+  constructor(props: Props) {
+    super(props);
+    this.state = initialState;
+  }
+
+  handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event?.preventDefault();
+    // firing an action to set redux state
+    this.props.startBuild({
+      shell: this.props.shell - this.state.currentCost,
+      isAtollFortressBuilding: this.state.selectedBuilding === 'atollFortress',
+      isFlowControllerBuilding:
+        this.state.selectedBuilding === 'flowController',
+      roundsBeforeNewBuilding: ROUNDS_OF_BUILDING,
+    });
+    // reseting state to initial
+    this.setState(initialState);
+  }
+
+  /* calculates:
+    if any card should be active
+    if submit button should be active with respect to the cost of the building
+  */
+  updateState(id: string) {
+    const selectedBuilding = this.state.selectedBuilding === id ? '' : id;
+    var cost = Number.POSITIVE_INFINITY;
+    if (selectedBuilding) {
+      // in that case that check is enough couse we have 2 possible cards
+      cost =
+        id === 'atollFortress' ? COST_OF_ATOLLFORTRESS : COST_OF_FLOWCONTROLLER;
+    }
+
+    this.setState({
+      ...this.state,
+      selectedBuilding: selectedBuilding,
+      isButtonDisabled:
+        this.props.shell <= cost ||
+        this.props.isFlowControllerBuilding ||
+        this.props.isAtollFortressBuilding ||
+        this.props.roundsBeforeNewBuilding > 0,
+      currentCost: cost,
+    });
+  }
 
   render() {
     return (
-      <div className="buildings">
+      <form
+        className="buildings"
+        onSubmit={(event) => this.handleSubmit(event)}
+      >
         <h1>Épületek</h1>
         <p>Kattings rá, amelyiket szeretnéd megvenni</p>
-        <p className="base-text">Egyszerre csak egy épület épülhet</p>
-        <div className="card-container">
-          <Card
-            img={atollFortressImage}
-            imgAlt="zátonyvár"
-            title={this.atollFortressProps.atollFortressTitle}
-            body={this.atollFortressProps.atollFortressBody}
-            classNames={this.atollFortressProps.classNames}
-          />
-          <Card
-            img={flowControllerImage}
-            imgAlt="Áramlásirányító"
-            title={this.flowControllerProps.flowControllerTitle}
-            body={this.flowControllerProps.flowControllerBody}
-            classNames={this.flowControllerProps.classNames}
-          />
+        <p>Egyszerre csak egy épület épülhet</p>
+        <div>
+          {buildings.map((building) => (
+            <React.Fragment key={building.body}>
+              <Card
+                isActive={building.id === this.state.selectedBuilding}
+                id={building.id}
+                img={building.image}
+                imgAlt={building.imageAlt}
+                onClick={(id) => {
+                  this.updateState(id);
+                }}
+              >
+                <>
+                  <div>
+                    {Object.keys(building.title).map((i, index) => (
+                      <p key={i}>{building.title[i]}</p>
+                    ))}
+                  </div>
+                  <div>{building.body}</div>
+                </>
+              </Card>
+            </React.Fragment>
+          ))}
         </div>
-        <button className="submit-button">Megveszem</button>
-      </div>
+        <button
+          disabled={this.state.isButtonDisabled}
+          className="submit-button"
+          type="submit"
+        >
+          Megveszem
+        </button>
+      </form>
     );
   }
 }

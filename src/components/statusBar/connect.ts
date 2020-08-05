@@ -1,15 +1,12 @@
-import { connect } from 'react-redux'
 import { MainState } from '../../store/global/main/store';
 import { RootState } from '../../config/config-store';
-import Main from './Main';
+import { connect } from 'react-redux';
+import StatusBar from './StatusBar';
 
 export interface MappedProps extends MainState {}
 
 const mapStateToProps = (state: RootState): MappedProps => ({
   ...state.app.page.main,
-})
+});
 
-export const MainConnected = connect(
-  mapStateToProps,
-  {}
-)(Main);
+export const StatusBarConnected = connect(mapStateToProps, {})(StatusBar);

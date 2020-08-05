@@ -27,7 +27,7 @@ export function configStore(history: History) {
   const devtoolExtension =
     windowIfDefined && isDev && windowIfDefined.__REDUX_DEVTOOLS_EXTENSION__;
 
-  if (isDev && windowIfDefined && devtoolExtension === 'function') {
+  if (isDev && windowIfDefined && typeof devtoolExtension === 'function') {
     enhanchers = composeWithDevTools({
       //actionBlacklist:[]
     });

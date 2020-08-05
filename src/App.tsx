@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.scss';
 import './styles/general.scss';
 import { Switch, Route, Redirect } from 'react-router';

@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
 import { LoginState } from './login/store';
 import { LoginReducer } from './login/reducer';
-import { MainState } from './main/store';
-import { MainReducer } from './main/reducer';
+import { MainState } from '../global/main/store';
+import { MainReducer } from '../global/main/reducer';
 
 export interface PageState {
   login: LoginState;

@@ -1,35 +1,37 @@
 export interface MainState {
   status: {
+    shell: number;
+    isAtollFortressBuilding: boolean;
+    isFlowControllerBuilding: boolean;
+    roundsBeforeNewBuilding: number;
     round: number;
     rank: number;
     shark: number;
     seal: number;
     seahorse: number;
-    shell: number;
     shellIncome: number;
     coral: number;
     coralIncome: number;
     atollFortress: number;
-    isAtollFortressBuilding: boolean;
     flowController: number;
-    isFlowControllerBuilding: boolean;
   };
 }
 
 export const mainInitState: MainState = {
   status: {
-    round: 5,
-    rank: 5,
-    shark: 3,
-    seal: 2,
-    seahorse: 43,
-    shell: 112,
+    isAtollFortressBuilding: false,
+    isFlowControllerBuilding: false,
+    roundsBeforeNewBuilding: 0,
+    round: 0,
+    rank: 1,
+    shark: 0,
+    seal: 0,
+    seahorse: 0,
     shellIncome: 20,
-    coral: 10,
+    shell: 0,
+    coral: 0,
     coralIncome: 5,
     atollFortress: 0,
-    isAtollFortressBuilding: false,
     flowController: 0,
-    isFlowControllerBuilding: false,
   },
 };

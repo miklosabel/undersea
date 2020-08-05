@@ -54,19 +54,12 @@ class Login extends React.Component<Props, State> {
     }
   }
 
-  getErrorMessage(param: string) {
-    if (param) {
-      return <div className="error-message">{param}</div>;
-    } else {
-      return <br />;
-    }
-  }
   render() {
     return (
       <div className="login-register-container">
         <header>
           <div className="header-line"></div>
-          <h1 className="login-title">UNDERSEA</h1>
+          <h1 className="login-title">undersea</h1>
         </header>
         <div className="form-container">
           <h2 className="form-title">Belépés</h2>
@@ -74,9 +67,8 @@ class Login extends React.Component<Props, State> {
             {this.props.errorMsg && !this.state.errors.username && (
               <div className="error-message">{this.props.errorMsg}</div>
             )}
-            {this.getErrorMessage(this.state.errors.username)}
+            {this.state.errors.username ? <div className="error-message">this.state.errors.username</div> : <br />}
             <input
-              type="text"
               name="username"
               placeholder="Felhasználónév"
               onChange={(event) =>
@@ -84,7 +76,7 @@ class Login extends React.Component<Props, State> {
               }
             />
             <br />
-            {this.getErrorMessage(this.state.errors.password)}
+            {this.state.errors.password ? <div className="error-message">this.state.errors.password</div> : <br />}
             <input
               type="password"
               name="password"

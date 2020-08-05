@@ -1,0 +1,25 @@
+@import '../../styles/variables.scss';
+
+.card {
+  justify-content: space-between;
+  height: 20rem;
+  padding: 1rem 1.5rem;
+  text-align: center;
+  border: none;
+  background: none;
+  img {
+    align-self: center;
+    height: 8rem;
+    width: 8rem;
+  }
+  div {
+    white-space: pre-wrap;
+    p {
+      margin: 0.2rem;
+    }
+  }
+}
+
+.card-active {
+  background-color: $active-gray;
+}

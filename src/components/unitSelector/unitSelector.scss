@@ -1,0 +1,15 @@
+@import '../../styles/general.scss';
+.unit-selector {
+  display: flex;
+  justify-content: space-between;
+  padding: .5rem;
+  div {
+    width: 80%;
+    padding-left: .5rem;
+    p {
+      padding: 0;
+      margin: 0;
+      font-weight: normal;
+    }
+  }
+}

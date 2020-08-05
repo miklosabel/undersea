@@ -2,6 +2,7 @@ import React from 'react';
 import { Route } from 'react-router-dom';
 import { MappedProps, DispatchProps } from './connect';
 import { MainConnected } from '../main/connect';
+import { Spinner } from 'reactstrap';
 
 interface State {
   isLoading: boolean;
@@ -33,7 +34,7 @@ class AuthComponent extends React.Component<Props, State> {
     return (
       <>
         {this.props.isLoading ? (
-          <div className="gorgo">toltes</div>
+          <Spinner animation='border' />
         ) : (
             <>
               {this.props.isConnected && (
