@@ -25,7 +25,7 @@ export class Attacks extends React.Component<{}, State> {
       inputContent: '',
       activeListItemId: undefined,
       userList: attackUserList,
-      unitSelectors: unitSelectorsConst.map((x) => ({ ...x, value: 6 })),
+      unitSelectors: unitSelectorsConst.map((x) => ({ ...x, value: 190 })),
     };
   }
 
@@ -89,7 +89,7 @@ export class Attacks extends React.Component<{}, State> {
                   id={unitSelector.id}
                   body={unitSelector.body}
                   // TODO this will be from store, actual amount of units
-                  maxUnit={6}
+                  maxUnit={190}
                   value={unitSelector.value}
                   img={unitSelector.image}
                   imgAlt={unitSelector.imgAlt}

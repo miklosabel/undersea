@@ -13,8 +13,6 @@ interface Props {
 }
 
 export function UnitSelector(props: Props) {
-  // const [sliderValue, setSliderValue] = useState<number>(props.maxUnit);
-
   const handleChange = (event: React.ChangeEvent<{}>, value: number): void => {
     props.getSliderValue(value);
   };
@@ -24,7 +22,6 @@ export function UnitSelector(props: Props) {
       <img src={props.img} alt={props.imgAlt} className="thumbnail-img" />
       <div>
         <p>
-          {/* {props.body} {props.maxUnit} példány */}
           {props.body} {props.value} példány
         </p>
         <Slider
@@ -32,7 +29,6 @@ export function UnitSelector(props: Props) {
           onChange={(event, value) =>
             handleChange(
               event,
-              // typeof value === 'number' ? value : props.maxUnit
               typeof value === 'number' ? value : props.value
             )
           }
