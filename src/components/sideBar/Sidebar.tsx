@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './Sidebar.scss';
 import ProfileImg from '../../assets/default_profile_image.png';
-import { resetApp } from '../../store';
 
 interface Props {
   userName: string;

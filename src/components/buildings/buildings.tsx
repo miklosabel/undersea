@@ -50,7 +50,7 @@ export class Buildings extends React.Component<Props, State> {
     const selectedBuilding = this.state.selectedBuilding === id ? '' : id;
     var cost = Number.POSITIVE_INFINITY;
     if (selectedBuilding) {
-      // in that case that check is enough couse we have 2 possible cards
+      // in that case this check is enough couse we have 2 possible cards
       cost =
         id === 'atollFortress' ? COST_OF_ATOLLFORTRESS : COST_OF_FLOWCONTROLLER;
     }
@@ -94,7 +94,8 @@ export class Buildings extends React.Component<Props, State> {
                       <p key={i}>{building.title[i]}</p>
                     ))}
                   </div>
-                  <div>{building.body}</div>
+                  {/* TODO ide irjad */}
+                    <div>{building.body}</div>
                 </>
               </Card>
             </React.Fragment>
