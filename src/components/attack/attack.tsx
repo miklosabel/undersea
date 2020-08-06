@@ -1,14 +1,21 @@
-import React, { FormEvent, KeyboardEvent } from 'react';
+import React from 'react';
 import { UnitSelector } from '../unitSelector/unitSelector';
 import './attack.scss';
-import { unitSelectors, attackUserList } from '../../mock/contants';
+import {
+  unitSelectors as unitSelectorsConst,
+  attackUserList,
+} from '../../mock/contants';
 import { List } from '../list/List';
-import { displayListElement } from '../../mock/interface';
+import {
+  displayListElement,
+  unitSelectorInterface,
+} from '../../mock/interface';
 
 interface State {
   inputContent: string;
   activeListItemId?: number;
   userList: displayListElement[];
+  unitSelectors: unitSelectorInterface[];
 }
 
 export class Attacks extends React.Component<{}, State> {
@@ -18,10 +25,12 @@ export class Attacks extends React.Component<{}, State> {
       inputContent: '',
       activeListItemId: undefined,
       userList: attackUserList,
+      unitSelectors: unitSelectorsConst.map((x) => ({ ...x, value: 6 })),
     };
   }
 
   findUsernameInList(event: React.ChangeEvent<HTMLInputElement>) {
+    console.log(this.state.userList);
     const userList = attackUserList.filter((x) =>
       x.item.includes(event.target.value)
     );
@@ -38,6 +47,16 @@ export class Attacks extends React.Component<{}, State> {
 
   handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    console.log(this.state.unitSelectors);
+  }
+
+  updateUnitSelector(id: string, sliderValue: number): void {
+    this.setState({
+      ...this.state,
+      unitSelectors: this.state.unitSelectors.map((x) =>
+        x.id === id ? { ...x, value: sliderValue } : x
+      ),
+    });
   }
 
   render() {
@@ -64,14 +83,19 @@ export class Attacks extends React.Component<{}, State> {
           </div>
           <div>
             <p>2. Állítsd be, kiket küldesz harcba</p>
-            {unitSelectors.map((unitSelector) => (
+            {this.state.unitSelectors.map((unitSelector) => (
               <React.Fragment key={unitSelector.body}>
                 <UnitSelector
                   id={unitSelector.id}
                   body={unitSelector.body}
-                  unitNum={6}
+                  // TODO this will be from store, actual amount of units
+                  maxUnit={6}
+                  value={unitSelector.value}
                   img={unitSelector.image}
                   imgAlt={unitSelector.imgAlt}
+                  getSliderValue={(sliderValue) =>
+                    this.updateUnitSelector(unitSelector.id, sliderValue)
+                  }
                 />
               </React.Fragment>
             ))}

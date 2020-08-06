@@ -2,33 +2,46 @@ import React from 'react';
 import Slider from '@material-ui/core/Slider';
 import './unitSelector.scss';
 
-// TODO props: adott egyseg mennyisege
 interface Props {
-  unitNum: number;
+  maxUnit: number;
   img: string;
   imgAlt: string;
   id: string;
   body: string;
+  value: number;
+  getSliderValue: (sliderValue: number) => void;
 }
-export class UnitSelector extends React.Component<Props, {}> {
-  render() {
-    return (
-      <div className="unit-selector">
-        <img src={this.props.img} alt={this.props.imgAlt} className="thumbnail-img"/>
-        <div>
-          <p>
-            {this.props.body} {this.props.unitNum} példány
-          </p>
-          <Slider
-            defaultValue={this.props.unitNum}
-            // getAriaValueText={}
-            area-labelledby="discrete-slider"
-            step={1}
-            min={0}
-            max={this.props.unitNum}
-          />
-        </div>
+
+export function UnitSelector(props: Props) {
+  // const [sliderValue, setSliderValue] = useState<number>(props.maxUnit);
+
+  const handleChange = (event: React.ChangeEvent<{}>, value: number): void => {
+    props.getSliderValue(value);
+  };
+
+  return (
+    <div className="unit-selector">
+      <img src={props.img} alt={props.imgAlt} className="thumbnail-img" />
+      <div>
+        <p>
+          {/* {props.body} {props.maxUnit} példány */}
+          {props.body} {props.value} példány
+        </p>
+        <Slider
+          value={props.value}
+          onChange={(event, value) =>
+            handleChange(
+              event,
+              // typeof value === 'number' ? value : props.maxUnit
+              typeof value === 'number' ? value : props.value
+            )
+          }
+          area-labelledby="discrete-slider"
+          step={1}
+          min={0}
+          max={props.maxUnit}
+        />
       </div>
-    );
-  }
+    </div>
+  );
 }

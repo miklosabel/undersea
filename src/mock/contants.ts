@@ -46,25 +46,27 @@ export const unitSelectors: unitSelectorInterface[] = [
     body: 'Lézercápa: ',
     image: sharkImage,
     imgAlt: 'lézercápa',
+    value: 0,
   },
   {
     id: 'seal',
     body: 'Rohamfóka: ',
     image: sealImage,
     imgAlt: 'rohamfóka',
+    value: 0,
   },
   {
     id: 'seahorse',
     body: 'Csatacsikó: ',
     image: seaHorseImage,
     imgAlt: 'csatacsikó',
+    value: 0,
   },
 ];
 
-export var attackUserList: displayListElement[] = [];
-for (let i = 0; i < 50; i++) {
-  attackUserList.push({
-    id: i,
-    item: i % 2 === 0 ? 'jozsiwinner12' : 'kiscsiko1990',
-  });
-}
+export var attackUserList: displayListElement[] = [...new Array(50)].map(
+  (_, index) => ({
+    id: index,
+    item: index % 2 === 0 ? 'jozsiwinner12' : 'kiscsiko1990',
+  })
+);
