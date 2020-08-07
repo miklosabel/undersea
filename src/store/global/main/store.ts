@@ -1,3 +1,5 @@
+import { attackListInterface } from "../../../mock/interface";
+
 export interface MainState {
   status: {
     shell: number;
@@ -15,6 +17,7 @@ export interface MainState {
     atollFortress: number;
     flowController: number;
   };
+  attackList: attackListInterface[];
 }
 
 export const mainInitState: MainState = {
@@ -34,4 +37,5 @@ export const mainInitState: MainState = {
     atollFortress: 0,
     flowController: 0,
   },
+  attackList: []
 };

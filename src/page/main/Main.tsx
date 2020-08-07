@@ -6,7 +6,7 @@ import { SidebarConnected } from '../../components/sideBar/connect';
 import { MappedProps } from './connect';
 import { Route, Switch } from 'react-router-dom';
 import { BuildingsConnected } from '../../components/buildings/connect';
-import {Attacks} from '../../components/attack/attack';
+import { AttacksConnected } from '../../components/attack/connect';
 
 interface Props extends MappedProps {}
 interface State {
@@ -29,7 +29,7 @@ export default class Main extends React.Component<Props, State> {
                 <BuildingsConnected />
               </Route>
               <Route exact path="/main/attack">
-                <Attacks />
+                <AttacksConnected />
               </Route>
             </Switch>
           </div>

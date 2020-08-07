@@ -14,6 +14,13 @@ export interface unitSelectorInterface {
   value: number;
 }
 
+export interface attackListInterface {
+  enemy: string;
+  sharkToAttack: number;
+  sealToAttack: number;
+  seahorseToAttack: number;
+}
+
 export interface displayListElement {
   id: number;
   item: string;
