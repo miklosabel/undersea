@@ -10,7 +10,7 @@ import {
   displayListElement,
   unitSelectorInterface,
 } from '../../mock/interface';
-import { MappedProps } from './connect';
+import { MappedProps, DispatchProps } from './connect';
 
 interface State {
   inputContent: string;
@@ -19,15 +19,11 @@ interface State {
   unitSelectors: unitSelectorInterface[];
 }
 
-interface Props extends MappedProps {}
+interface Props extends MappedProps, DispatchProps {}
 
 export class Attacks extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
-    var a = Object.keys(this.props.units).find(
-      (x) => x === unitSelectorsConst[0].id
-    );
-    console.log(a);
     this.state = {
       inputContent: '',
       activeListItemId: undefined,
@@ -56,7 +52,26 @@ export class Attacks extends React.Component<Props, State> {
 
   handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    console.log(this.state.unitSelectors);
+    const sharkArmy = this.state.unitSelectors['shark' as any].value;
+    const sealArmy = this.state.unitSelectors['seal' as any].value;
+    const seahorseArmy = this.state.unitSelectors['seahorse' as any].value;
+    this.props.sendAttack({
+      shark: this.props.units.shark - sharkArmy,
+      seal: this.props.units.seal - sealArmy,
+      seahorse: this.props.units.seahorse - seahorseArmy,
+      attackingArmyList: [
+        ...this.props.attackingArmyList,
+        {
+          target:
+            this.state.activeListItemId === undefined
+              ? ''
+              : this.state.userList[this.state.activeListItemId].item,
+          sharkArmy,
+          sealArmy,
+          seahorseArmy
+        },
+      ],
+    });
   }
 
   updateUnitSelector(id: string, sliderValue: number): void {

@@ -1,6 +1,7 @@
 import { mainInitState, MainState } from "./store";
 import { IMainActions } from "./action";
 import { PossibleBuildingActions } from "../../pages/buildings/action";
+import { PossibleAttackActions } from "../../pages/attacks/action";
 
 // TODO find out what actions we need
 export const MainReducer = (state=mainInitState, action: IMainActions): MainState => {
@@ -9,22 +10,25 @@ export const MainReducer = (state=mainInitState, action: IMainActions): MainStat
       return {
         ...state, 
         status: {
+          ...state.status,
           shell: action.payload.shell,
           isAtollFortressBuilding: action.payload.isAtollFortressBuilding,
           isFlowControllerBuilding: action.payload.isFlowControllerBuilding,
           roundsBeforeNewBuilding: action.payload.roundsBeforeNewBuilding,
-          round: state.status.round,
-          rank: state.status.rank,
-          shark: state.status.shark,
-          seal: state.status.seal,
-          seahorse: state.status.seahorse,
-          shellIncome: state.status.shellIncome,
-          coral: state.status.coral,
-          coralIncome: state.status.coralIncome,
-          atollFortress: state.status.atollFortress,
-          flowController: state.status.flowController,
-        }
+
+       }
       };
+      case PossibleAttackActions.SEND_ATTACK:
+        return {
+          ...state,
+          status: {
+            ...state.status,
+            shark: action.payload.shark,
+            seal: action.payload.seal,
+            seahorse: action.payload.seahorse,
+          },
+          attackingArmyList: action.payload.attackingArmyList
+        }
     default:
       return state;
   }
