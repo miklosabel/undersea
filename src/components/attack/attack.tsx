@@ -24,7 +24,9 @@ interface Props extends MappedProps {}
 export class Attacks extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
-    var a = Object.keys(this.props.units).find((x) => x === unitSelectorsConst[0].id);
+    var a = Object.keys(this.props.units).find(
+      (x) => x === unitSelectorsConst[0].id
+    );
     console.log(a);
     this.state = {
       inputContent: '',
@@ -32,15 +34,7 @@ export class Attacks extends React.Component<Props, State> {
       userList: attackUserList,
       unitSelectors: unitSelectorsConst.map((obj) => ({
         ...obj,
-        value: this.props.units[Object.keys(this.props.units).find(x => x === obj.id)]
-        // value: (): number => {
-        //   const condition = Object.keys(this.props.units).find(x => x === obj.id)
-        //   if (!condition) {
-        //     throw new TypeError("The value was propmised to always be here")
-        //   }
-        //   return this.props.units[Object.keys(this.props.units).filter(x=>x===obj.id)]
-        // },
-        // value: 100,
+        value: (this.props.units as any)[obj.id],
       })),
     };
   }
@@ -104,7 +98,7 @@ export class Attacks extends React.Component<Props, State> {
                   id={unitSelector.id}
                   body={unitSelector.body}
                   // TODO this will be from store, actual amount of units
-                  maxUnit={190}
+                  maxUnit={(this.props.units as any)[unitSelector.id]}
                   value={unitSelector.value}
                   img={unitSelector.image}
                   imgAlt={unitSelector.imgAlt}

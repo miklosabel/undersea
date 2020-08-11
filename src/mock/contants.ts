@@ -40,23 +40,29 @@ export const buildings: buildingInterface[] = [
   },
 ];
 
+export enum unitSelectorId {
+  shark='shark',
+  seal="seal",
+  seahorse="seahorse"
+}
+
 export const unitSelectors: unitSelectorInterface[] = [
   {
-    id: 'shark',
+    id: unitSelectorId.shark,
     body: 'Lézercápa: ',
     image: sharkImage,
     imgAlt: 'lézercápa',
     value: 0,
   },
   {
-    id: 'seal',
+    id: unitSelectorId.seal,
     body: 'Rohamfóka: ',
     image: sealImage,
     imgAlt: 'rohamfóka',
     value: 0,
   },
   {
-    id: 'seahorse',
+    id: unitSelectorId.seahorse,
     body: 'Csatacsikó: ',
     image: seaHorseImage,
     imgAlt: 'csatacsikó',
