@@ -23,8 +23,7 @@ function App(props: { init: (isConnected: boolean) => void }) {
         <Route path="/register">
           <Register></Register>
         </Route>
-        {/* TODO make this route private */}
-        <AuthComponentConnected
+        AuthComponentConnected
         />
         <Redirect from="*" to="/login"></Redirect>
       </Switch>

@@ -3,7 +3,6 @@ import { IMainActions } from "./action";
 import { PossibleBuildingActions } from "../../pages/buildings/action";
 import { PossibleAttackActions } from "../../pages/attacks/action";
 
-// TODO find out what actions we need
 export const MainReducer = (state=mainInitState, action: IMainActions): MainState => {
   switch (action.type) {
     case PossibleBuildingActions.START_BUILD:
