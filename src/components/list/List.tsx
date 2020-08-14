@@ -24,7 +24,7 @@ export class List extends React.Component<Props, {}> {
               onClick={() => this.props.setActiveId(listItem.id)}
             >
               {listItem.item}
-            </li>
+              </li>
           ))}
         </ul>
       </div>
