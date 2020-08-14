@@ -42,7 +42,8 @@ export class Buildings extends React.Component<Props, State> {
     this.setState(initialState);
   }
 
-  /* calculates:
+  /* card prop function
+  calculates:
     if any card should be active
     if submit button should be active with respect to the cost of the building
   */
@@ -94,8 +95,7 @@ export class Buildings extends React.Component<Props, State> {
                       <p key={i}>{building.title[i]}</p>
                     ))}
                   </div>
-                  {/* TODO ide irjad */}
-                    <div>{building.body}</div>
+                    <div>{building.id === 'atollFortress'?this.props.atollFortress:this.props.flowController} {building.body}</div>
                 </>
               </Card>
             </React.Fragment>
