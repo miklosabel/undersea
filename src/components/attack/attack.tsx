@@ -13,6 +13,7 @@ import {
 import { MappedProps, DispatchProps } from './connect';
 
 interface State {
+  isButtonDisabled: boolean;
   inputContent: string;
   activeListItemId?: number;
   userList: displayListElement[];
@@ -21,17 +22,19 @@ interface State {
 
 interface Props extends MappedProps, DispatchProps {}
 
+const initialState = {
+  isButtonDisabled: true,
+  inputContent: '',
+  activeListItemId: undefined,
+  userList: attackUserList,
+  unitSelectors: unitSelectorsConst,
+};
+
 export class Attacks extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
     this.state = {
-      inputContent: '',
-      activeListItemId: undefined,
-      userList: attackUserList,
-      unitSelectors: unitSelectorsConst.map((obj) => ({
-        ...obj,
-        value: (this.props.units as any)[obj.id],
-      })),
+      ...initialState,
     };
   }
 
@@ -43,18 +46,61 @@ export class Attacks extends React.Component<Props, State> {
   }
 
   setActiveIdInList(listItemId: number) {
+    const activeId =
+      this.state.activeListItemId === listItemId ? undefined : listItemId;
+
     this.setState({
       ...this.state,
-      activeListItemId:
-        this.state.activeListItemId === listItemId ? undefined : listItemId,
+      activeListItemId: activeId,
+      isButtonDisabled: this.setButtonDisabled({ activeId }),
+    });
+  }
+
+  setButtonDisabled({
+    selectedUnitsCount = this.state.unitSelectors
+      .map((obj) => obj.value)
+      .reduce((a, b) => a + b),
+    activeId = undefined,
+  }: {
+    selectedUnitsCount?: number;
+    activeId: number | undefined;
+  }): boolean {
+    return selectedUnitsCount === 0 || activeId === undefined;
+  }
+
+  /*
+    to update unitselector value in the state
+  */
+  updateUnitSelector(id: string, sliderValue: number): void {
+    var selectedUnitsCount = 0;
+    this.state.unitSelectors.map((x) =>
+      x.id === id
+        ? (selectedUnitsCount += sliderValue)
+        : (selectedUnitsCount += x.value)
+    );
+
+    this.setState({
+      ...this.state,
+      unitSelectors: this.state.unitSelectors.map((x) =>
+        x.id === id ? { ...x, value: sliderValue } : x
+      ),
+      isButtonDisabled: this.setButtonDisabled({
+        selectedUnitsCount,
+        activeId: this.state.activeListItemId,
+      }),
     });
   }
 
   handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    const sharkArmy = this.state.unitSelectors['shark' as any].value;
-    const sealArmy = this.state.unitSelectors['seal' as any].value;
-    const seahorseArmy = this.state.unitSelectors['seahorse' as any].value;
+    const sharkArmy = this.state.unitSelectors.filter(
+      (x) => x.id === 'shark'
+    )[0].value;
+    const sealArmy = this.state.unitSelectors.filter((x) => x.id === 'seal')[0]
+      .value;
+    const seahorseArmy = this.state.unitSelectors.filter(
+      (x) => x.id === 'seahorse'
+    )[0].value;
     this.props.sendAttack({
       shark: this.props.units.shark - sharkArmy,
       seal: this.props.units.seal - sealArmy,
@@ -68,19 +114,21 @@ export class Attacks extends React.Component<Props, State> {
               : this.state.userList[this.state.activeListItemId].item,
           sharkArmy,
           sealArmy,
-          seahorseArmy
+          seahorseArmy,
         },
       ],
     });
+    this.setState({
+      ...initialState,
+    });
   }
 
-  updateUnitSelector(id: string, sliderValue: number): void {
-    this.setState({
-      ...this.state,
-      unitSelectors: this.state.unitSelectors.map((x) =>
-        x.id === id ? { ...x, value: sliderValue } : x
-      ),
-    });
+  updateState() {
+    this.state.activeListItemId === undefined &&
+      this.setState({
+        ...this.state,
+        isButtonDisabled: true,
+      });
   }
 
   render() {
@@ -112,7 +160,6 @@ export class Attacks extends React.Component<Props, State> {
                 <UnitSelector
                   id={unitSelector.id}
                   body={unitSelector.body}
-                  // TODO this will be from store, actual amount of units
                   maxUnit={(this.props.units as any)[unitSelector.id]}
                   value={unitSelector.value}
                   img={unitSelector.image}
@@ -125,7 +172,12 @@ export class Attacks extends React.Component<Props, State> {
             ))}
           </div>
         </div>
-        <button className="submit-button">Megtámadom</button>
+        <button
+          disabled={this.state.isButtonDisabled}
+          className="submit-button"
+        >
+          Megtámadom
+        </button>
       </form>
     );
   }
