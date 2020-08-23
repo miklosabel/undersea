@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { MappedProps, DispatchProps } from './connect';
+
+import { DispatchProps, MappedProps } from './connect';
 
 interface State {
   username: string;
@@ -11,9 +12,7 @@ interface State {
   };
 }
 
-interface Props extends MappedProps, DispatchProps {
-
-}
+interface Props extends MappedProps, DispatchProps {}
 
 class Login extends React.Component<Props, State> {
   constructor(props: Props) {
@@ -59,13 +58,18 @@ class Login extends React.Component<Props, State> {
       <div className="login-register-container">
         <header>
           <div className="header-line"></div>
+          {/* Itt felesleges a classname */}
           <h1 className="login-title">undersea</h1>
         </header>
         <div className="form-container">
           <h2 className="form-title">Belépés</h2>
           <form onSubmit={(event) => this.handleSubmit(event)}>
-
-            {this.state.errors.username ? <div className="error-message">this.state.errors.username</div> : <br />}
+            {/* Rossz az error szöveg, nincs zárójel */}
+            {this.state.errors.username ? (
+              <p className="error-message">this.state.errors.username</p>
+            ) : (
+              <br />
+            )}
             <input
               name="username"
               placeholder="Felhasználónév"
@@ -73,8 +77,14 @@ class Login extends React.Component<Props, State> {
                 this.handleChange(event.target.value, 'username')
               }
             />
+            {/* br semmit nem csinál itt, helyette inputnak margin adni */}
             <br />
-            {this.state.errors.password ? <div className="error-message">this.state.errors.password</div> : <br />}
+            {/* Rossz az error szöveg, nincs zárójel */}
+            {this.state.errors.password ? (
+              <div className="error-message">this.state.errors.password</div>
+            ) : (
+              <br />
+            )}
             <input
               type="password"
               name="password"
@@ -83,6 +93,7 @@ class Login extends React.Component<Props, State> {
                 this.handleChange(event.target.value, 'password')
               }
             />
+            {/* br semmit nem csinál itt, helyette inputnak margin adni */}
             <br />
             <button className="submit-button" type="submit" value="Belépés">
               Belépés

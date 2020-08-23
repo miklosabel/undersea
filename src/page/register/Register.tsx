@@ -94,6 +94,7 @@ export class Register extends React.Component<{}, State> {
                 this.handleChange(event.target.value, 'username')
               }
             />
+            {/* br semmit nem csinál itt, helyette inputnak margin adni */}
             <br />
             <div className="error-message">{this.state.error.password}</div>
             <input
@@ -105,6 +106,7 @@ export class Register extends React.Component<{}, State> {
                 this.handleChange(event.target.value, 'password')
               }
             />
+            {/* br semmit nem csinál itt, helyette inputnak margin adni */}
             <br />
             <div className="error-message">
               {this.state.error.passwordConfirmation}
@@ -118,6 +120,7 @@ export class Register extends React.Component<{}, State> {
                 this.handleChange(event.target.value, 'passwordConfirmation')
               }
             />
+            {/* br semmit nem csinál itt, helyette inputnak margin adni */}
             <br />
             <div className="error-message">{this.state.error.cityName}</div>
             <input

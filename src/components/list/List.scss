@@ -1,20 +1,20 @@
 @import '../../styles/variables.scss';
 
-.attack-list{
- max-height:  40vh;
- overflow:auto;
- font-weight: normal;
- ul {
-   padding-left: 0;
-   padding-right: .5rem;
-   li {
-     list-style-type: none;
-     border-top: 1px solid $card-container-border-blue;
-     padding: 1rem 0 1rem .5rem;
-   }
- }
+.attack-list {
+  max-height: 40vh; //Ez ne legyen, hanem használj flex, és szülőnél is. Ezek amiatt csúszik el megtámaom gomb, ha betörik <p>
+  overflow: auto;
+  font-weight: normal;
+  ul {
+    padding-left: 0;
+    padding-right: 0.5rem;
+    li {
+      list-style-type: none;
+      border-top: 1px solid $card-container-border-blue;
+      padding: 1rem 0 1rem 0.5rem; //Szintén px legyen
+    }
+  }
 }
-
+//Ez menjen a felsőbe, ahogy rendezve van
 .li-active {
   background-color: $active-gray;
 }

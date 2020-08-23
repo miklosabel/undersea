@@ -1,14 +1,17 @@
-import React from 'react';
 import './StatusBar.scss';
+
+import React from 'react';
+
+import BuildingsPng from '../../assets/buildings.png';
+import CoralPng from '../../assets/coral.png';
+import SeahorsePng from '../../assets/seahorse.png';
 import SealPng from '../../assets/seal.png';
 import SharkPng from '../../assets/shark.png';
-import CoralPng from '../../assets/coral.png';
 import ShellPng from '../../assets/shell.png';
-import SeahorsePng from '../../assets/seahorse.png';
-import BuildingsPng from '../../assets/buildings.png';
 import UpgradesPng from '../../assets/upgrades.png';
 import { MappedProps } from '../../page/main/connect';
 
+//Nem kell ilyen kikommentezett kód
 // export interface Props {
 //     round: number;
 //     rank: number;
@@ -34,43 +37,57 @@ export default class StatusBar extends React.Component<Props, {}> {
         <p>{this.props.status.round}. kör</p>
         <p>{this.props.status.rank}. hely</p>
         <div className="counter">
-          <img src={SharkPng} alt="shark" className="thumbnail-img"/>
+          <img src={SharkPng} alt="shark" className="thumbnail-img" />
           <p>{this.props.status.shark}</p>
         </div>
         <div className="counter">
-          <img src={SealPng} alt="seal" className="thumbnail-img"/>
+          <img src={SealPng} alt="seal" className="thumbnail-img" />
           <p>{this.props.status.seal}</p>
         </div>
         <div className="counter">
-          <img src={SeahorsePng} alt="seahorse"className="thumbnail-img" />
+          <img src={SeahorsePng} alt="seahorse" className="thumbnail-img" />
           <p>{this.props.status.seahorse}</p>
         </div>
         <div className="counter">
-          <img src={ShellPng} alt="shell"className="thumbnail-img" />
+          <img src={ShellPng} alt="shell" className="thumbnail-img" />
           <div>
             <p>{this.props.status.shell}</p>
+            {/* Ne lehessen többsorba törni, kell css */}
             <p>{this.props.status.shellIncome}/kör</p>
           </div>
         </div>
         <div className="counter">
-          <img src={CoralPng} alt="coral"className="thumbnail-img" />
+          <img src={CoralPng} alt="coral" className="thumbnail-img" />
           <div>
             <p>{this.props.status.coral}</p>
+            {/* Ne lehessen többsorba törni, kell css */}
             <p>{this.props.status.coralIncome}/kör</p>
           </div>
         </div>
         <div className="counter">
-          <img src={BuildingsPng} alt="buildings"className="thumbnail-img" />
+          <img src={BuildingsPng} alt="buildings" className="thumbnail-img" />
           <div>
             <p>{this.props.status.atollFortress}</p>
-            {this.props.status.isAtollFortressBuilding ? <p>1 épül</p> : <p>0 épül</p>}
+            {/* Ne lehessen többsorba törni, kell css */}
+            {/* Ez inkább így, és a többinél is
+            <p> {this.props.status.isAtollFortressBuilding ? 1:0}</p> */}
+            {this.props.status.isAtollFortressBuilding ? (
+              <p>1 épül</p>
+            ) : (
+              <p>0 épül</p>
+            )}
           </div>
         </div>
         <div className="counter">
-          <img src={UpgradesPng} alt="upgrades"className="thumbnail-img" />
+          <img src={UpgradesPng} alt="upgrades" className="thumbnail-img" />
           <div>
             <p>{this.props.status.flowController}</p>
-            {this.props.status.isFlowControllerBuilding ? <p>1 épül</p> : <p>0 épül</p>}
+            {/* Ne lehessen többsorba törni, kell css */}
+            {this.props.status.isFlowControllerBuilding ? (
+              <p>1 épül</p>
+            ) : (
+              <p>0 épül</p>
+            )}
           </div>
         </div>
       </div>

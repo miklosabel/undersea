@@ -1,14 +1,16 @@
 @import '../../styles/variables.scss';
 
 .attacks {
-  padding: 3.5em;
-  height: 70vh;
+  padding: 3.5em; //Ne még 1 féle mérés
+  //Pixelben vagy %-ban add meg, és állíts egy min width/min-height is.
+  max-height: 70vh;
   width: 50vw;
   background-color: $background-blue;
   color: $white;
   border-radius: 20px;
+  //Text-align inkább attack osztályba rakd, és akkor minden alatta lévőre igaz lesz
   > * {
-    text-align:left;
+    text-align: left;
   }
   // main container of things
   > div {

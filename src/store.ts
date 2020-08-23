@@ -1,4 +1,5 @@
-import { Reducer, AnyAction, combineReducers } from 'redux';
+import { AnyAction, combineReducers, Reducer } from 'redux';
+
 import { PageReducer, PageState } from './store/pages/reducer';
 
 export interface IApplicationState {
@@ -24,9 +25,10 @@ export const appReducer: Reducer<IApplicationState> = (
   state: IApplicationState | undefined,
   action: AnyAction
 ): IApplicationState => {
-  localStorage.setItem("state", JSON.stringify(state));
+  localStorage.setItem('state', JSON.stringify(state));
   if (action.type === 'RESET_APP') {
     localStorage.clear();
+    // Ez akár még lehet initialstate is alapállapothoz
     state = undefined;
   }
   return appLayerReducer(state, action);

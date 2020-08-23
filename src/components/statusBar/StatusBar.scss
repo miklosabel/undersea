@@ -1,9 +1,10 @@
 @import '../../styles/variables.scss';
 
 .statusbar {
+  //Ide jöhetne overflow-x :auto
   font-size: 1.5rem;
   // light-turquoise with alpha value
-  background: rgba(159, 255, 240, 0.4);
+  background: rgba(159, 255, 240, 0.4); //Variablesbe
   backdrop-filter: blur(8px);
   display: flex;
   justify-content: space-between;

@@ -2,12 +2,12 @@
 
 .sidebar {
   height: 100%;
-  max-width: 12.5rem;
-  align-self: center;
+  max-width: 12.5rem; //px legyen
+  align-self: center; //Ez minek? Nem csionál semmit
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  margin-left: 3rem;
+  justify-content: space-around; //Ez space between, de inkább start, és utolsó eleme (logó), meg legalulra csúszik
+  margin-left: 3rem; //px legyen
   .links {
     display: flex;
     flex-direction: column;
@@ -18,7 +18,7 @@
       padding: 2px;
       border-radius: 20px;
       margin-top: 10px;
-      background: transparent
+      background: transparent //Ez is mehetne variablesbe
         linear-gradient(
           258deg,
           $light-turquoise 0%,
@@ -39,7 +39,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.2); //Ez is mehetne variablesbe
     backdrop-filter: blur(8px);
     border-radius: 10px;
     // margin: 4rem 0;

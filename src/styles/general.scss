@@ -11,11 +11,13 @@ button {
       $dark-turquoise 100%
     );
   &:disabled {
-    background: #3b7dbd;
+    background: #3b7dbd; //Ez mehetne variablesből
   }
 }
+//Nem kell külön osztály submit buttonnak, lehet attribútum alapján is megadni.
+//w3schools.com/css/tryit.asp?filename=trycss_form_button pédának attribútum style
 .submit-button {
-  margin: 1.25rem 0;
+  margin: 1.25rem 0; //Csak px legyen. keverni nem jó, mert az biztosan elromlik, ha valaki alapméreteket állít
   padding: 0.5rem 3.15rem;
   border-radius: 90px;
   color: $dark-blue;
@@ -38,12 +40,12 @@ input {
   padding: 5px 0px 5px 20px;
   border: none;
   border-radius: 20px;
-  width: 80%;
+  width: 80%; // Ez miért? Ha valahol ilyen kell, akkor az odamenjen (login-register)
   background: $white;
   opacity: 0.39;
   &::placeholder {
     text-align: left;
-    // font-family: 'Open Sans', 'Regular';
+    // font-family: 'Open Sans', 'Regular'; //Ilyen kikommentezés ne legyen benne
     color: $blue;
   }
 }

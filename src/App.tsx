@@ -1,10 +1,12 @@
-import React, { useEffect } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.scss';
-import { Switch, Route, Redirect } from 'react-router';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 import { createBrowserHistory } from 'history';
-import { Register } from './page/register/Register';
+import React, { useEffect } from 'react';
+import { Redirect, Route, Switch } from 'react-router';
+
 import { AuthComponentConnected } from './page/auth/connect';
+import { Register } from './page/register/Register';
 
 function App(props: { init: (isConnected: boolean) => void }) {
   useEffect(() => {
@@ -19,6 +21,7 @@ function App(props: { init: (isConnected: boolean) => void }) {
   return (
     <div className="App">
       <Switch>
+        {/* Mint másik fájlban, akár ki lehet url stringeket egy helyre szervezni */}
         <Route path="/register">
           <Register></Register>
         </Route>

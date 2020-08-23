@@ -1,14 +1,15 @@
 .login-register-container {
-  max-width: 29.5rem;
+  max-width: 29.5rem; //Px alapú legyen akkor, ha nagyrészt az minden
   width: 100%;
   padding: 0;
   header {
+    //Ezt div-re cseréld, és nem kell külön class
     .header-line {
       width: 100%;
       border-top: 5px solid $light-turquoise;
     }
     h1 {
-      font-size: 6rem;
+      font-size: 6rem; //Px alapú legyen akkor, ha nagyrészt az minden
       font-weight: 900;
       color: $light-turquoise;
       text-transform: uppercase;
@@ -16,10 +17,10 @@
   }
 
   .form-container {
-    border-radius: 1rem;
+    border-radius: 1rem; //Px alapú legyen akkor, ha nagyrészt az minden
     margin-top: 1.25rem;
     padding: 1rem 0;
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.05); //Kiszervezni
     backdrop-filter: blur(8px);
     h2 {
       margin-top: 1rem;
@@ -29,18 +30,21 @@
       color: $blue;
     }
     form {
+      //formban állíts központi paddingot és méretet, majd a többit töltsd ki vele. Nem kell error és inputnak akkor 80% width, és külön paddin/margin
+      //display:flex
+      //flex-direction:column
       .error-message {
-        display: inline-block;
-        color: red;
+        display: inline-block; //Inkább akkor legyen <p> <div>. Erre nincs semmi szükség itt
+        color: red; //Kiszervezni, beépített red randa, legyen sötétebb, akár nagyobb weight is adhatsz neki
         margin: 0;
-        width: 80%;
-        text-align: left;
+        width: 80%; //Felesleges
+        text-align: left; //Se erre, mert alapból left az irány
         padding-left: 20px;
       }
     }
     a {
-      display: block;
-      margin: 1rem;
+      display: block; // Akkor inkább már display:flex, de egyébként ha a szülő divnek állítasz padding, akkor ennél se display, se margin állításra nincs szükség
+      margin: 1rem; //Px alapú legyen akkor, ha nagyrészt az minden
       color: $light-turquoise;
       font-weight: bold;
       &:hover {

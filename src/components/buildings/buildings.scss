@@ -2,10 +2,11 @@
 
 .buildings {
   padding: 50px;
+  //Ugyanaz, imnt támadásnál. Szülőhöz méretezni százalékosan, de jobb, ha flexet használsz, és akkor automatikus lesz a méretezés.
   height: 70vh;
   width: 70vw;
-  max-height: 45rem;
-  max-width: 80rem;
+  max-height: 45rem; //PX legyen
+  max-width: 80rem; //PX legyen
   color: $white;
   background-color: $background-blue;
   border-radius: 20px;
