@@ -2,6 +2,9 @@
   max-width: 29.5rem; //Px alapú legyen akkor, ha nagyrészt az minden
   width: 100%;
   padding: 0;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
   header {
     //Ezt div-re cseréld, és nem kell külön class
     .header-line {

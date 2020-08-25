@@ -3,7 +3,6 @@
 .sidebar {
   height: 100%;
   max-width: 12.5rem; //px legyen
-  align-self: center; //Ez minek? Nem csionál semmit
   display: flex;
   flex-direction: column;
   justify-content: start; //Ez space between, de inkább start, és utolsó eleme (logó), meg legalulra csúszik

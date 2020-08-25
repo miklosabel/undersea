@@ -1,31 +1,30 @@
 @import '../../styles/variables.scss';
 
 .statusbar {
-  overflow-x: auto;
-  overflow-y: hidden;
   font-size: 1.5rem;
   // light-turquoise with alpha value
   background: rgba(159, 255, 240, 0.4); //Variablesbe
   backdrop-filter: blur(8px);
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  align-items: center;
-  border-radius: 10px;
   padding: 10px;
   white-space: nowrap;
-  min-height: 90px;
+  margin: 10px;
   margin-bottom: 40px;
-
+  display: flex;
+  overflow-y: hidden;
+  overflow-x: auto;
   p {
     margin: 0;
     padding: 0 1rem;
     align-self: center;
+    &:last-of-type {
+      margin-right: auto;
+    }
   }
   // .counter {
   > div {
     display: flex;
     align-items: center;
+
     > div :nth-child(2) {
       font-size: 1rem;
     }
