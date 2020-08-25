@@ -6,8 +6,16 @@
   align-self: center; //Ez minek? Nem csionál semmit
   display: flex;
   flex-direction: column;
-  justify-content: space-around; //Ez space between, de inkább start, és utolsó eleme (logó), meg legalulra csúszik
-  margin-left: 3rem; //px legyen
+  justify-content: start; //Ez space between, de inkább start, és utolsó eleme (logó), meg legalulra csúszik
+  padding-left: 30px; //px legyen
+  padding-right: 30px; //px legyen
+  min-width: 250px;
+  > * {
+    margin-bottom: 30px;
+    &:last-child {
+      margin-top: auto;
+    }
+  }
   .links {
     display: flex;
     flex-direction: column;
