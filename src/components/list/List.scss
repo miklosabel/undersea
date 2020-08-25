@@ -1,20 +1,19 @@
 @import '../../styles/variables.scss';
 
 .attack-list {
-  max-height: 40vh; //Ez ne legyen, hanem használj flex, és szülőnél is. Ezek amiatt csúszik el megtámaom gomb, ha betörik <p>
+  max-height: 400px; 
   overflow: auto;
   font-weight: normal;
   ul {
     padding-left: 0;
-    padding-right: 0.5rem;
+    padding-right: 5px;
+    .li-active {
+      background-color: $active-gray;
+    }
     li {
       list-style-type: none;
-      border-top: 1px solid $card-container-border-blue;
-      padding: 1rem 0 1rem 0.5rem; //Szintén px legyen
+      border-top: 1px solid $button-separator-border;
+      padding: 15px 0 15px 5px;
     }
   }
-}
-//Ez menjen a felsőbe, ahogy rendezve van
-.li-active {
-  background-color: $active-gray;
 }

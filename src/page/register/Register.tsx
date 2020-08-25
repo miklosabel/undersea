@@ -85,7 +85,11 @@ export class Register extends React.Component<{}, State> {
         <div className="form-container">
           <h2 className="form-title">Regisztráció</h2>
           <form onSubmit={(event) => this.handleSubmit(event)}>
-            <div className="error-message">{this.state.error.username}</div>
+            {this.state.error.username ? (
+              <div className="error-message">{this.state.error.username}</div>
+            ) : (
+              <br />
+            )}
             <input
               name="username"
               placeholder="Felhasználónév"
@@ -94,9 +98,11 @@ export class Register extends React.Component<{}, State> {
                 this.handleChange(event.target.value, 'username')
               }
             />
-            {/* br semmit nem csinál itt, helyette inputnak margin adni */}
-            <br />
-            <div className="error-message">{this.state.error.password}</div>
+            {this.state.error.password ? (
+              <div className="error-message">{this.state.error.password}</div>
+            ) : (
+              <br />
+            )}
             <input
               type="password"
               name="password"
@@ -106,11 +112,13 @@ export class Register extends React.Component<{}, State> {
                 this.handleChange(event.target.value, 'password')
               }
             />
-            {/* br semmit nem csinál itt, helyette inputnak margin adni */}
-            <br />
-            <div className="error-message">
-              {this.state.error.passwordConfirmation}
-            </div>
+            {this.state.error.passwordConfirmation ? (
+              <div className="error-message">
+                {this.state.error.passwordConfirmation}
+              </div>
+            ) : (
+              <br />
+            )}
             <input
               type="password"
               name="passwordConfirmation"
@@ -120,9 +128,11 @@ export class Register extends React.Component<{}, State> {
                 this.handleChange(event.target.value, 'passwordConfirmation')
               }
             />
-            {/* br semmit nem csinál itt, helyette inputnak margin adni */}
-            <br />
-            <div className="error-message">{this.state.error.cityName}</div>
+            {this.state.error.cityName ? (
+              <div className="error-message">{this.state.error.cityName}</div>
+            ) : (
+              <br />
+            )}
             <input
               name="cityName"
               placeholder="A városod neve, amit építesz"
@@ -131,9 +141,15 @@ export class Register extends React.Component<{}, State> {
                 this.handleChange(event.target.value, 'cityName')
               }
             />
-            <button className="submit-button">Regisztráció</button>
+            {this.state.successMessage ? (
+              <p>{this.state.successMessage}</p>
+            ) : (
+              <br/>
+            )}
+            <button className="submit-button" type="submit">
+              Regisztráció
+            </button>
           </form>
-          {this.state.successMessage}
           <Link to="./login">Bejelentkezés</Link>
         </div>
       </div>

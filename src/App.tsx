@@ -7,6 +7,7 @@ import { Redirect, Route, Switch } from 'react-router';
 
 import { AuthComponentConnected } from './page/auth/connect';
 import { Register } from './page/register/Register';
+import { registerUrlPath, loginUrlPath } from './urlpaths';
 
 function App(props: { init: (isConnected: boolean) => void }) {
   useEffect(() => {
@@ -22,11 +23,11 @@ function App(props: { init: (isConnected: boolean) => void }) {
     <div className="App">
       <Switch>
         {/* Mint másik fájlban, akár ki lehet url stringeket egy helyre szervezni */}
-        <Route path="/register">
+        <Route path={ registerUrlPath }>
           <Register></Register>
         </Route>
         <AuthComponentConnected />
-        <Redirect from="*" to="/login"></Redirect>
+        <Redirect from="*" to={loginUrlPath}></Redirect>
       </Switch>
     </div>
   );

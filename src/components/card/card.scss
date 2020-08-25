@@ -2,24 +2,24 @@
 
 .card {
   justify-content: space-between;
-  height: 20rem;
-  padding: 1rem 1.5rem;
+  height: 320px;
+  padding: 15px 25px;
   text-align: center;
   border: none;
   background: none;
+  border-radius: 10px;
   img {
     align-self: center;
-    height: 8rem;
-    width: 8rem;
+    height: 125px;
+    width: 125px;
   }
   div {
     white-space: pre-wrap;
     p {
-      margin: 0.2rem;
+      margin: 5px;
     }
   }
 }
-//Menjen oda, ahol a fában lenne
 .card-active {
   background-color: $active-gray;
 }

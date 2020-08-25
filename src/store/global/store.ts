@@ -1,2 +1,2 @@
-//Ilyenekért sír a szája amúgy, asszem warning dob
+//TODO Ilyenekért sír a szája amúgy, asszem warning dob
 export {};

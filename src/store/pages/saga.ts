@@ -4,7 +4,6 @@ import { watchInitResponseAction, watchLoginAction, watchLoginResponseAction } f
 
 export function* pageSaga() {
   yield all([
-    // Ha nem tetszik ez a form lehet hasznáni call(watchLoginAction)-nel is, amit sagából kell behúzni
     watchLoginAction(),
     watchLoginResponseAction(),
     watchInitResponseAction(),

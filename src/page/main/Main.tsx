@@ -7,6 +7,7 @@ import { MappedProps } from './connect';
 import { Route, Switch } from 'react-router-dom';
 import { BuildingsConnected } from '../../components/buildings/connect';
 import { AttacksConnected } from '../../components/attack/connect';
+import { mainUrlPath, buildingsUrlPath, attacksUrlPath } from '../../urlpaths';
 
 interface Props extends MappedProps {}
 interface State {
@@ -22,13 +23,13 @@ export default class Main extends React.Component<Props, State> {
           <SidebarConnected userName="jakabjatekos" />
           <div className="active-component">
             <Switch>
-              <Route exact path="/main">
+              <Route exact path={mainUrlPath}>
                 <TowerImage />
               </Route>
-              <Route exact path="/main/buildings">
+              <Route exact path={buildingsUrlPath}>
                 <BuildingsConnected />
               </Route>
-              <Route exact path="/main/attack">
+              <Route exact path={attacksUrlPath}>
                 <AttacksConnected />
               </Route>
             </Switch>

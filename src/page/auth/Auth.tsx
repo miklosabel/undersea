@@ -4,6 +4,7 @@ import { MappedProps, DispatchProps } from './connect';
 import { MainConnected } from '../main/connect';
 import { Spinner } from 'reactstrap';
 import { LoginConnected } from '../login/connect';
+import { mainUrlPath, loginUrlPath } from '../../urlpaths';
 
 
 interface Props extends MappedProps, DispatchProps {
@@ -23,11 +24,11 @@ class AuthComponent extends React.Component<Props> {
               {this.props.isConnected ? (<>
 
                 {/* Csak ekkor jöjjön létre az ide tartozó path */}
-                <Route path="/main">
+                <Route path={mainUrlPath}>
                   <MainConnected />
                 </Route></>
               ) : <>
-                  <Route exact path="/login" children={<LoginConnected></LoginConnected>}></Route>
+                  <Route exact path={loginUrlPath} children={<LoginConnected></LoginConnected>}></Route>
                 </>}
             </>
           )}

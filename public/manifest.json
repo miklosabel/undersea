@@ -1,6 +1,6 @@
 {
-  "short_name": "React App", //Undersea-ra átírni, metadata update kell
-  "name": "Create React App Sample", //Undersea-ra átírni
+  "short_name": "Undersea", 
+  "name": "UnderSea", 
   "icons": [
     {
       "src": "favicon.ico",

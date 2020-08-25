@@ -1,14 +1,20 @@
+@import '../../styles/variables.scss';
+
 .unit-selector {
   display: flex;
   justify-content: space-between;
-  padding: .5rem;
+  padding: 5px;
   div {
     width: 80%;
-    padding-left: .5rem;
+    padding-left: 5px;
     p {
       padding: 0;
       margin: 0;
       font-weight: normal;
+    }
+    .slider {
+      color: $light-turquoise;
+      margin-left: 5px;
     }
   }
 }

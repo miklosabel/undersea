@@ -1,30 +1,39 @@
 @import '../../styles/variables.scss';
+@import '../../styles/general.scss';
 
 .attacks {
-  padding: 3.5em; //Ne még 1 féle mérés
-  //Pixelben vagy %-ban add meg, és állíts egy min width/min-height is.
-  max-height: 70vh;
-  width: 50vw;
-  background-color: $background-blue;
+  //TODO ezeket kitenni generalba
+  padding: 50px;
+  height: 75%;
+  min-height: 720px;
+  width: 80%;
+  min-width: 635px;
+  max-width: 870px;
+  background-color: $nested-component-background;
   color: $white;
   border-radius: 20px;
-  //Text-align inkább attack osztályba rakd, és akkor minden alatta lévőre igaz lesz
   > * {
     text-align: left;
   }
+  ///////////////////
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   // main container of things
   > div {
     display: flex;
     justify-content: space-around;
     padding-bottom: 10px;
-    border-bottom: 1px solid $card-container-border-blue;
+    border-bottom: 1px solid $button-separator-border;
     // 2 side containers
     > div {
+      max-height: 100%;
       width: 100%;
+      // height: 100%;
       padding: 0 5px;
       input {
         width: 90%;
-        margin-bottom: 1rem;
+        margin-bottom: 15px;
       }
     }
   }

@@ -8,7 +8,7 @@ export interface LoginState {
     name: string;
     password: string;
   };
-  /////////Ez mehetne külön interface, és akkor mindehova az lenne behúzva, lentebb példa.
+  /////////TODO Ez mehetne külön interface, és akkor mindehova az lenne behúzva, lentebb példa.
   isLoading: boolean;
   isDataLoaded: boolean;
   isError: boolean;

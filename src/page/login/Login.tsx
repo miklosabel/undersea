@@ -57,16 +57,15 @@ class Login extends React.Component<Props, State> {
     return (
       <div className="login-register-container">
         <header>
-          <div className="header-line"></div>
-          {/* Itt felesleges a classname */}
-          <h1 className="login-title">undersea</h1>
+          {/* line over UNDERSEA */}
+          <div></div>
+          <h1>undersea</h1>
         </header>
         <div className="form-container">
           <h2 className="form-title">Belépés</h2>
           <form onSubmit={(event) => this.handleSubmit(event)}>
-            {/* Rossz az error szöveg, nincs zárójel */}
             {this.state.errors.username ? (
-              <p className="error-message">this.state.errors.username</p>
+              <div className="error-message">{this.state.errors.username}</div>
             ) : (
               <br />
             )}
@@ -77,11 +76,8 @@ class Login extends React.Component<Props, State> {
                 this.handleChange(event.target.value, 'username')
               }
             />
-            {/* br semmit nem csinál itt, helyette inputnak margin adni */}
-            <br />
-            {/* Rossz az error szöveg, nincs zárójel */}
             {this.state.errors.password ? (
-              <div className="error-message">this.state.errors.password</div>
+              <div className="error-message">{this.state.errors.password}</div>
             ) : (
               <br />
             )}
@@ -93,8 +89,7 @@ class Login extends React.Component<Props, State> {
                 this.handleChange(event.target.value, 'password')
               }
             />
-            {/* br semmit nem csinál itt, helyette inputnak margin adni */}
-            <br />
+            <br/>
             <button className="submit-button" type="submit" value="Belépés">
               Belépés
             </button>

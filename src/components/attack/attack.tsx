@@ -4,7 +4,7 @@ import './attack.scss';
 import {
   unitSelectors as unitSelectorsConst,
   attackUserList,
-} from '../../mock/contants';
+} from '../../mock/constants';
 import { List } from '../list/List';
 import {
   displayListElement,
@@ -175,6 +175,7 @@ export class Attacks extends React.Component<Props, State> {
         <button
           disabled={this.state.isButtonDisabled}
           className="submit-button"
+          type="submit"
         >
           Megtámadom
         </button>

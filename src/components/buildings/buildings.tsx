@@ -5,7 +5,7 @@ import {
   COST_OF_ATOLLFORTRESS,
   COST_OF_FLOWCONTROLLER,
   ROUNDS_OF_BUILDING,
-} from '../../mock/contants';
+} from '../../mock/constants';
 import { Card } from '../card/card';
 import { MappedProps, DispatchProps } from './connect';
 
@@ -95,19 +95,26 @@ export class Buildings extends React.Component<Props, State> {
                       <p key={i}>{building.title[i]}</p>
                     ))}
                   </div>
-                    <div>{building.id === 'atollFortress'?this.props.atollFortress:this.props.flowController} {building.body}</div>
+                  <div>
+                    {building.id === 'atollFortress'
+                      ? this.props.atollFortress
+                      : this.props.flowController}{' '}
+                    {building.body}
+                  </div>
                 </>
               </Card>
             </React.Fragment>
           ))}
         </div>
-        <button
-          disabled={this.state.isButtonDisabled}
-          className="submit-button"
-          type="submit"
-        >
-          Megveszem
-        </button>
+        <div>
+          <button
+            disabled={this.state.isButtonDisabled}
+            className="submit-button"
+            type="submit"
+          >
+            Megveszem
+          </button>
+        </div>
       </form>
     );
   }

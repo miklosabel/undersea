@@ -36,6 +36,7 @@ export function UnitSelector(props: Props) {
           step={1}
           min={0}
           max={props.maxUnit}
+          className='slider'
         />
       </div>
     </div>
