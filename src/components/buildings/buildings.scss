@@ -3,11 +3,7 @@
 .buildings {
   //TODO ezeket kitenni generalba
   padding: 50px;
-  height: 75%;
-  width: 80%;
-  min-height: 720px; 
-  min-width: 635px;
-  max-width: 870px;
+  min-width: 870px;
   color: $white;
   background-color: $nested-component-background;
   border-radius: 20px;
