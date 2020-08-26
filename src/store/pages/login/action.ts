@@ -1,14 +1,14 @@
 export interface LoginActionTypes {
   INIT: 'LOGIN_INIT';
   REQUEST: 'LOGIN_REQUEST';
-  RESPONSE: 'LOGIN_RESPONSE';
+  SUCCESS: 'LOGIN_SUCCESS';
   ERROR: 'LOGIN_ERROR';
 }
 export const PossibleLoginActions: LoginActionTypes = {
   INIT: 'LOGIN_INIT',
   ERROR: 'LOGIN_ERROR',
   REQUEST: 'LOGIN_REQUEST',
-  RESPONSE: 'LOGIN_RESPONSE',
+  SUCCESS: 'LOGIN_SUCCESS',
 };
 
 //action
@@ -20,7 +20,7 @@ export interface LoginRequestAction {
   };
 }
 export interface LoginResponseAction {
-  type: LoginActionTypes['RESPONSE'];
+  type: LoginActionTypes['SUCCESS'];
   payload: boolean;
 }
 export interface LoginErrorAction {
@@ -49,7 +49,7 @@ export const loginRequestActionCall = (params: {
 export const loginResponseActionCall = (
   response: boolean
 ): LoginResponseAction => ({
-  type: PossibleLoginActions.RESPONSE,
+  type: PossibleLoginActions.SUCCESS,
   payload: response,
 });
 

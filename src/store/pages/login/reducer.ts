@@ -10,23 +10,44 @@ export const LoginReducer = (
     case PossibleLoginActions.INIT:
       return {
         ...state,
-        isLoading: false,
-        data: { isConnected: action.payload },
+        loadingStatus: {
+          ...state.loadingStatus,
+          isLoading: false,
+          data: { isConnected: action.payload },
+        },
       };
     case PossibleLoginActions.REQUEST:
-      return { ...state, isLoading: true, params: action.payload };
+      return {
+        ...state,
+        loadingStatus: {
+          ...state.loadingStatus,
+          isLoading: true,
+          params: action.payload,
+        },
+      };
     //Letároljuk bejelentkezett
-    case PossibleLoginActions.RESPONSE:
+    case PossibleLoginActions.SUCCESS:
       localStorage.setItem('isConnected', JSON.stringify(action.payload));
       return {
         ...state,
-        data: { isConnected: action.payload },
-        isDataLoaded: true,
-        isLoading: false,
-        isError: false,
+        loadingStatus: {
+          ...state.loadingStatus,
+          data: { isConnected: action.payload },
+          isDataLoaded: true,
+          isLoading: false,
+          isError: false,
+        },
       };
     case PossibleLoginActions.ERROR:
-      return { ...state, isLoading: false, isDataLoaded: false, isError: true };
+      return {
+        ...state,
+        loadingStatus: {
+          ...state.loadingStatus,
+          isLoading: false,
+          isDataLoaded: false,
+          isError: true,
+        },
+      };
     default:
       return state;
   }

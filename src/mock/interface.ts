@@ -32,3 +32,12 @@ export interface attackActionPayloadInterface {
   seahorse: number;
   attackingArmyList: attackingArmyListInterface[];
 }
+
+export interface LoadingStatusInterface<P,D> {
+  params: P;
+  data: D;
+  isLoading: boolean;
+  isDataLoaded: boolean;
+  isError: boolean;
+  error: string;
+}

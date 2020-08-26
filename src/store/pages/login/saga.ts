@@ -7,7 +7,9 @@ import {
   LoginInitAction,
 } from './action';
 import { push } from 'connected-react-router';
+import { mainUrlPath, loginUrlPath } from '../../../urlpaths';
 
+// LOGINREQUEST KEZELESE ES ELKAPASA KET FUGGVENYBEN 
 function* handleFetch(action: LoginRequestAction) {
   try {
     if (!action.payload.name || !action.payload.password) {
@@ -19,21 +21,23 @@ function* handleFetch(action: LoginRequestAction) {
   }
 }
 
-// generator function to catch all Request action and do other things
+// EZ KAPJA EL A LOGIN REQUESTET ES HIVJA A HANDLEFETCH-ET 
 export function* watchLoginAction() {
   yield takeEvery(PossibleLoginActions.REQUEST, handleFetch);
 }
-// route to /main
+//////////////////////////
+// LOGINRESPONSE KEZELESE ES ELKAPASA KET FUGGVENYBEN
 function* pushState() {
-  yield put(push('/main'));
+  yield put(push(mainUrlPath));
 }
+// HA SIKERES A BEJELENTKEZES AKKOR ELPUSHOLJUK A MAIN OLDALRA 
+export function* watchLoginResponseAction() {
+  yield takeEvery(PossibleLoginActions.SUCCESS, pushState);
+}
+///////////////////////////
 //Elpusholjuk aszerint, hogy init actionben be van-e jelentkezve
 function* pushInit(action: LoginInitAction) {
-  yield put(push(action.payload ? '/main' : '/login'));
-}
-// in case of catching LoginResponseAction push router state to /main
-export function* watchLoginResponseAction() {
-  yield takeEvery(PossibleLoginActions.RESPONSE, pushState);
+  yield put(push(action.payload ? mainUrlPath : loginUrlPath));
 }
 
 export function* watchInitResponseAction() {

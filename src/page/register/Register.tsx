@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { loginUrlPath } from '../../urlpaths';
 
 interface State {
   username: string;
@@ -150,7 +151,7 @@ export class Register extends React.Component<{}, State> {
               Regisztráció
             </button>
           </form>
-          <Link to="./login">Bejelentkezés</Link>
+          <Link to={loginUrlPath}>Bejelentkezés</Link>
         </div>
       </div>
     );

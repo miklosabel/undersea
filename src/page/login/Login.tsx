@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import { DispatchProps, MappedProps } from './connect';
+import { registerUrlPath } from '../../urlpaths';
 
 interface State {
   username: string;
@@ -94,7 +95,7 @@ class Login extends React.Component<Props, State> {
               Belépés
             </button>
           </form>
-          <Link to="./register">Regisztráció</Link>
+          <Link to={registerUrlPath}>Regisztráció</Link>
         </div>
       </div>
     );
