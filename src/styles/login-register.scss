@@ -1,6 +1,12 @@
 .login-register-container {
   max-width: 470px;
   width: 100%;
+  padding: 0;
+  //TODO check this
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  /////
   header {
     //UNDERSEA line
     div {

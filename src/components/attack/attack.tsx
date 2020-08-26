@@ -1,16 +1,12 @@
-import React from 'react';
-import { UnitSelector } from '../unitSelector/unitSelector';
 import './attack.scss';
-import {
-  unitSelectors as unitSelectorsConst,
-  attackUserList,
-} from '../../mock/constants';
+
+import React from 'react';
+
+import { attackUserList, unitSelectors as unitSelectorsConst } from '../../mock/constants';
+import { displayListElement, unitSelectorInterface } from '../../mock/interface';
 import { List } from '../list/List';
-import {
-  displayListElement,
-  unitSelectorInterface,
-} from '../../mock/interface';
-import { MappedProps, DispatchProps } from './connect';
+import { UnitSelector } from '../unitSelector/unitSelector';
+import { DispatchProps, MappedProps } from './connect';
 
 interface State {
   isButtonDisabled: boolean;
@@ -135,6 +131,7 @@ export class Attacks extends React.Component<Props, State> {
     return (
       <form className="attacks" onSubmit={(event) => this.handleSubmit(event)}>
         <h1>Támadás</h1>
+
         <div>
           <div>
             <p>1. Jelöld ki, kit szeretnél megtámadni</p>

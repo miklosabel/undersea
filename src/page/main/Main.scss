@@ -9,21 +9,20 @@
   height: 100vh;
   min-height: 600px;
   width: 100vw;
-  // min-width: 1280px;
   padding: 15px;
+  min-width: 100%;
+  //Minimális szélességet és magasságot meg kell adni, meddig lehet méretezni
+
   // > div {
   .second-row {
     display: flex;
-    width: 100%;
-    height: 100%;
-    justify-content: space-evenly;
+    flex: 1;
+    overflow: auto;
     // > div {
     .active-component {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      padding-bottom: 30px;
+      margin-right: auto;
+      margin-left: auto;
     }
   }
 }

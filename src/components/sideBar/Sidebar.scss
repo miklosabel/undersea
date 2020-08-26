@@ -9,6 +9,12 @@
   justify-content: space-between;
   // margin-left: 32px;
   padding-top: 20px;
+  > * {
+    margin-bottom: 30px;
+    &:last-child {
+      margin-top: auto;
+    }
+  }
   .links {
     display: flex;
     flex-direction: column;

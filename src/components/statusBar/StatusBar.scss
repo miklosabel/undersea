@@ -8,21 +8,31 @@
   font-size: 25px;
   background: $statusbar-background;
   backdrop-filter: blur(8px);
+  padding: 10px;
+  white-space: nowrap;
+  margin: 10px;
+  margin-bottom: 40px;
   display: flex;
   justify-content: space-around;
   align-items: center;
   padding: 15px 60px;
   border-radius: 10px;
+  overflow-y: hidden;
+  overflow-x: auto;
   p {
     margin: 0;
     padding: 0 15px;
     align-self: center;
-    white-space: nowrap;
+    //TODO check this
+    &:last-of-type {
+      margin-right: auto;
+    }
   }
   // .counter {
   > div {
     display: flex;
     align-items: center;
+
     > div :nth-child(2) {
       font-size: $font-size;
     }
