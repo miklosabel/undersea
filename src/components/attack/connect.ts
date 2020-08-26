@@ -2,7 +2,7 @@ import { attackingArmyListInterface } from '../../mock/interface';
 import { RootState } from '../../config/config-store';
 import { Attacks } from './attack';
 import { connect } from 'react-redux';
-import { unitSelectorId } from '../../mock/contants';
+import { unitSelectorId } from '../../mock/constants';
 import { Dispatch, bindActionCreators } from 'redux';
 import { sendAttackActionCreator } from '../../store/pages/attacks/action';
 

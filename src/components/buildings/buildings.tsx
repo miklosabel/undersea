@@ -5,7 +5,7 @@ import {
   COST_OF_ATOLLFORTRESS,
   COST_OF_FLOWCONTROLLER,
   ROUNDS_OF_BUILDING,
-} from '../../mock/contants';
+} from '../../mock/constants';
 import { Card } from '../card/card';
 import { MappedProps, DispatchProps } from './connect';
 

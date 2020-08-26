@@ -2,7 +2,7 @@ import './attack.scss';
 
 import React from 'react';
 
-import { attackUserList, unitSelectors as unitSelectorsConst } from '../../mock/contants';
+import { attackUserList, unitSelectors as unitSelectorsConst } from '../../mock/constants';
 import { displayListElement, unitSelectorInterface } from '../../mock/interface';
 import { List } from '../list/List';
 import { UnitSelector } from '../unitSelector/unitSelector';
