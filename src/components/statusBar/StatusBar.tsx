@@ -17,12 +17,8 @@ export default class StatusBar extends React.Component<Props, {}> {
   render() {
     return (
       <div className="statusbar">
-        <div>
-          <p>{this.props.status.round}. kör</p>
-        </div>
-        <div>
-          <p>{this.props.status.rank}. hely</p>
-        </div>
+        <p>{this.props.status.round}. kör</p>
+        <p>{this.props.status.rank}. hely</p>
         <div className="counter">
           <img src={SharkPng} alt="shark" className="thumbnail-img" />
           <p>{this.props.status.shark}</p>
