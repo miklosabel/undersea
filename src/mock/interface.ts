@@ -25,3 +25,10 @@ export interface displayListElement {
   id: number;
   item: string;
 }
+
+export interface attackActionPayloadInterface {
+  shark: number;
+  seal: number;
+  seahorse: number;
+  attackingArmyList: attackingArmyListInterface[];
+}

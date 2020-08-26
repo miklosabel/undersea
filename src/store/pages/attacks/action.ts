@@ -1,4 +1,4 @@
-import { attackingArmyListInterface } from '../../../mock/interface';
+import { attackingArmyListInterface, attackActionPayloadInterface} from '../../../mock/interface';
 
 //TODO Ennek legyen meg rendesen a request-response error actionje,
 export interface AttackActionTypes {
@@ -10,15 +10,9 @@ export const PossibleAttackActions: AttackActionTypes = {
 
 export interface sendAttackAction {
   type: AttackActionTypes['SEND_ATTACK'];
-  //TODO Ez mehetne külön interface, és akkor mindenhol azt használni ahol szükséges. 3-4 és afölötti kulcs-érték párnál lehet jobb kiszervezni
-  payload: {
-    shark: number;
-    seal: number;
-    seahorse: number;
-    attackingArmyList: attackingArmyListInterface[];
-  };
+  payload: attackActionPayloadInterface;
 }
-//Pl itt
+//TODO Pl itt
 export const sendAttackActionCreator = (params: {
   shark: number;
   seal: number;
