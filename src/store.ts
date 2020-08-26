@@ -28,7 +28,7 @@ export const appReducer: Reducer<IApplicationState> = (
   localStorage.setItem('state', JSON.stringify(state));
   if (action.type === 'RESET_APP') {
     localStorage.clear();
-    //TODO Ez akár még lehet initialstate is alapállapothoz
+    //Ez akár még lehet initialstate is alapállapothoz
     state = undefined;
   }
   return appLayerReducer(state, action);
