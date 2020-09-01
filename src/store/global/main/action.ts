@@ -1,5 +1,5 @@
-import { startBuildAction } from "../../pages/buildings/action";
+import { buildingRequestAction } from "../../pages/buildings/action";
 import { sendAttackAction } from "../../pages/attacks/action";
 
 export type IMainActions =
-  startBuildAction | sendAttackAction;  
+  buildingRequestAction | sendAttackAction;  

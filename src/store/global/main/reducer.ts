@@ -1,34 +1,25 @@
-import { mainInitState, MainState } from "./store";
-import { IMainActions } from "./action";
-import { PossibleBuildingActions } from "../../pages/buildings/action";
-import { PossibleAttackActions } from "../../pages/attacks/action";
+import { mainInitState, MainState } from './store';
+import { IMainActions } from './action';
+import { PossibleBuildingActions } from '../../pages/buildings/action';
+import { PossibleAttackActions } from '../../pages/attacks/action';
 
-export const MainReducer = (state=mainInitState, action: IMainActions): MainState => {
+export const MainReducer = (
+  state = mainInitState,
+  action: IMainActions
+): MainState => {
   switch (action.type) {
-    case PossibleBuildingActions.START_BUILD:
+    case PossibleAttackActions.SEND_ATTACK:
       return {
-        ...state, 
+        ...state,
         status: {
           ...state.status,
-          shell: action.payload.shell,
-          isAtollFortressBuilding: action.payload.isAtollFortressBuilding,
-          isFlowControllerBuilding: action.payload.isFlowControllerBuilding,
-          roundsBeforeNewBuilding: action.payload.roundsBeforeNewBuilding,
-
-       }
+          shark: action.payload.shark,
+          seal: action.payload.seal,
+          seahorse: action.payload.seahorse,
+        },
+        attackingArmyList: action.payload.attackingArmyList,
       };
-      case PossibleAttackActions.SEND_ATTACK:
-        return {
-          ...state,
-          status: {
-            ...state.status,
-            shark: action.payload.shark,
-            seal: action.payload.seal,
-            seahorse: action.payload.seahorse,
-          },
-          attackingArmyList: action.payload.attackingArmyList
-        }
     default:
       return state;
   }
-}
+};

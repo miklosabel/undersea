@@ -1,6 +1,7 @@
-import { attackingArmyListInterface } from '../../../mock/interface';
+import { attackingArmyListInterface, LoadingStatusInterface } from '../../../mock/interface';
+import { isError } from 'util';
 
-export interface MainState {
+export interface MainState extends LoadingStatusInterface{
   status: {
     shell: number;
     isAtollFortressBuilding: boolean;
@@ -38,4 +39,8 @@ export const mainInitState: MainState = {
     flowController: 0,
   },
   attackingArmyList: [],
+  isDataLoaded: false,
+  isError: false,
+  isLoading: false,
+  error:'',
 };

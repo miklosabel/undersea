@@ -5,28 +5,29 @@
 
 import { LoadingStatusInterface } from '../../../mock/interface';
 
-export interface LoginState {
-  loadingStatus: LoadingStatusInterface<
-    { name: string; password: string },
-    { isConnected: boolean }
-  >;
+export interface LoginState extends LoadingStatusInterface {
+  params: {
+    name: string,
+    password: string,
+  },
+  data: {
+    isConnected: boolean,
+  }
 }
 
 export const LoginInitState: LoginState = {
-  loadingStatus: {
     params: {
       name: '',
       password: '',
     },
     data: {
-      //TODO by default this value is false
+      //by default this value is false
       isConnected: false,
     },
     isDataLoaded: false,
     isError: false,
     isLoading: false,
     error: '',
-  },
 };
 
 // //Vagy

@@ -2,7 +2,7 @@ import { RootState } from '../../config/config-store';
 import { Dispatch, bindActionCreators } from 'redux';
 import { Buildings } from './buildings';
 import { connect } from 'react-redux';
-import { startBuildActionCreator } from '../../store/pages/buildings/action';
+import { buildingRequestActionCall } from '../../store/pages/buildings/action';
 
 export interface MappedProps {
   atollFortress: number;
@@ -41,7 +41,7 @@ const mapStateToProps = (state: RootState): MappedProps => {
   };
 };
 const mapDispatchToProps = (dispatch: Dispatch): DispatchProps =>
-  bindActionCreators({ startBuild: startBuildActionCreator }, dispatch);
+  bindActionCreators({ startBuild: buildingRequestActionCall }, dispatch);
 
 export const BuildingsConnected = connect(
   mapStateToProps,

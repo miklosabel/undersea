@@ -13,7 +13,7 @@ export interface DispatchProps {
   pushState: typeof push;
 }
 const mapStateToProps = (state: RootState): MappedProps => {
-  const { data, isLoading, error } = state.app.page.login.loadingStatus;
+  const { data, isLoading, error } = state.app.page.login;
   return {
     error,
     isLoading,
