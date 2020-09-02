@@ -1,24 +1,42 @@
-import { attackingArmyListInterface, attackActionPayloadInterface} from '../../../mock/interface';
+import {
+  attackingArmyListInterface,
+  attackActionPayloadInterface,
+} from '../../../mock/interface';
 
-//TODO Ennek legyen meg rendesen a request-response error actionje,
 export interface AttackActionTypes {
-  SEND_ATTACK: 'ATTACKS_SEND_ATTACK';
+  REQUEST: 'ATTACK_REQUEST';
+  RESPONSE: 'ATTACK_RESPONSE';
 }
-export const PossibleAttackActions: AttackActionTypes = {
-  SEND_ATTACK: 'ATTACKS_SEND_ATTACK',
+export const PossibleAttackActionTypes: AttackActionTypes = {
+  REQUEST: 'ATTACK_REQUEST',
+  RESPONSE: 'ATTACK_RESPONSE',
 };
 
-export interface sendAttackAction {
-  type: AttackActionTypes['SEND_ATTACK'];
+export type PossibleAttackActions = attackRequestAction | attackResponseAction;
+
+export interface attackRequestAction {
+  type: AttackActionTypes['REQUEST'];
   payload: attackActionPayloadInterface;
 }
-//TODO Pl itt
-export const sendAttackActionCreator = (params: {
+
+export const attackRequestActionCall = (params: {
   shark: number;
   seal: number;
   seahorse: number;
   attackingArmyList: attackingArmyListInterface[];
-}): sendAttackAction => ({
-  type: PossibleAttackActions.SEND_ATTACK,
+}): attackRequestAction => ({
+  type: PossibleAttackActionTypes.REQUEST,
   payload: params,
+});
+
+export interface attackResponseAction {
+  type: AttackActionTypes['RESPONSE'];
+  payload: boolean;
+}
+
+export const attackResponseActioncall = (
+  response: boolean
+): attackResponseAction => ({
+  type: PossibleAttackActionTypes.RESPONSE,
+  payload: response,
 });

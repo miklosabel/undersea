@@ -4,7 +4,7 @@ import { Attacks } from './attack';
 import { connect } from 'react-redux';
 import { unitSelectorId } from '../../mock/constants';
 import { Dispatch, bindActionCreators } from 'redux';
-import { sendAttackActionCreator } from '../../store/pages/attacks/action';
+import { attackRequestActionCall } from '../../store/pages/attacks/action';
 
 export interface MappedProps {
   units: unitInterface;
@@ -33,7 +33,7 @@ const mapStateToProps = (state: RootState): MappedProps => {
 };
 
 const mapDispatchToProps = (dispatch: Dispatch): DispatchProps =>
-  bindActionCreators({ sendAttack: sendAttackActionCreator }, dispatch);
+  bindActionCreators({ sendAttack: attackRequestActionCall }, dispatch);
 
 export const AttacksConnected = connect(
   mapStateToProps,
