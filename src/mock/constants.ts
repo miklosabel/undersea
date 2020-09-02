@@ -1,7 +1,7 @@
 import {
-  buildingInterface,
-  unitSelectorInterface,
-  displayListElement,
+  BuildingInterface,
+  UnitSelectorInterface,
+  DisplayListElement,
 } from './interface';
 import atollFortressImage from '../assets/atollfortress.png';
 import flowControllerImage from '../assets/flowcontroller.png';
@@ -15,7 +15,7 @@ export const ROUNDS_OF_BUILDING = 5;
 export const ROUNDS_OF_UPGRADE = 15;
 export const TAX = 25;
 
-export const buildings: buildingInterface[] = [
+export const buildings: BuildingInterface[] = [
   {
     id: 'atollFortress',
     title: {
@@ -46,7 +46,7 @@ export enum unitSelectorId {
   seahorse="seahorse"
 }
 
-export const unitSelectors: unitSelectorInterface[] = [
+export const unitSelectors: UnitSelectorInterface[] = [
   {
     id: unitSelectorId.shark,
     body: 'Lézercápa: ',
@@ -70,7 +70,7 @@ export const unitSelectors: unitSelectorInterface[] = [
   },
 ];
 
-export var attackUserList: displayListElement[] = [...new Array(50)].map(
+export var attackUserList: DisplayListElement[] = [...new Array(50)].map(
   (_, index) => ({
     id: index,
     item: index % 2 === 0 ? 'jozsiwinner12' : 'kiscsiko1990',

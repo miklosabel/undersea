@@ -1,4 +1,4 @@
-import { attackingArmyListInterface } from '../../mock/interface';
+import { AttackingArmyListInterface } from '../../mock/interface';
 import { RootState } from '../../config/config-store';
 import { Attacks } from './attack';
 import { connect } from 'react-redux';
@@ -8,14 +8,14 @@ import { attackRequestActionCall } from '../../store/pages/attacks/action';
 
 export interface MappedProps {
   units: unitInterface;
-  attackingArmyList: attackingArmyListInterface[];
+  attackingArmyList: AttackingArmyListInterface[];
 }
 export interface DispatchProps {
   sendAttack: (params: {
     shark: number;
     seal: number;
     seahorse: number;
-    attackingArmyList: attackingArmyListInterface[];
+    attackingArmyList: AttackingArmyListInterface[];
   }) => void;
 }
 

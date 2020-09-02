@@ -1,42 +1,42 @@
 import {
-  attackingArmyListInterface,
-  attackActionPayloadInterface,
+  AttackingArmyListInterface,
+  AttackActionPayloadInterface,
 } from '../../../mock/interface';
 
 export interface AttackActionTypes {
   REQUEST: 'ATTACK_REQUEST';
-  RESPONSE: 'ATTACK_RESPONSE';
+  SUCCESS: 'ATTACK_SUCCESS';
 }
 export const PossibleAttackActionTypes: AttackActionTypes = {
   REQUEST: 'ATTACK_REQUEST',
-  RESPONSE: 'ATTACK_RESPONSE',
+  SUCCESS: 'ATTACK_SUCCESS',
 };
 
-export type PossibleAttackActions = attackRequestAction | attackResponseAction;
+export type PossibleAttackActions = AttackRequestAction | AttackResponseAction;
 
-export interface attackRequestAction {
+export interface AttackRequestAction {
   type: AttackActionTypes['REQUEST'];
-  payload: attackActionPayloadInterface;
+  payload: AttackActionPayloadInterface;
 }
 
 export const attackRequestActionCall = (params: {
   shark: number;
   seal: number;
   seahorse: number;
-  attackingArmyList: attackingArmyListInterface[];
-}): attackRequestAction => ({
+  attackingArmyList: AttackingArmyListInterface[];
+}): AttackRequestAction => ({
   type: PossibleAttackActionTypes.REQUEST,
   payload: params,
 });
 
-export interface attackResponseAction {
-  type: AttackActionTypes['RESPONSE'];
+export interface AttackResponseAction {
+  type: AttackActionTypes['SUCCESS'];
   payload: boolean;
 }
 
-export const attackResponseActioncall = (
+export const attackResponseActionCall = (
   response: boolean
-): attackResponseAction => ({
-  type: PossibleAttackActionTypes.RESPONSE,
+): AttackResponseAction => ({
+  type: PossibleAttackActionTypes.SUCCESS,
   payload: response,
 });

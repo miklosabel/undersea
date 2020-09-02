@@ -3,7 +3,7 @@ import './attack.scss';
 import React from 'react';
 
 import { attackUserList, unitSelectors as unitSelectorsConst } from '../../mock/constants';
-import { displayListElement, unitSelectorInterface } from '../../mock/interface';
+import { DisplayListElement, UnitSelectorInterface } from '../../mock/interface';
 import { List } from '../list/List';
 import { UnitSelector } from '../unitSelector/unitSelector';
 import { DispatchProps, MappedProps } from './connect';
@@ -12,8 +12,8 @@ interface State {
   isButtonDisabled: boolean;
   inputContent: string;
   activeListItemId?: number;
-  userList: displayListElement[];
-  unitSelectors: unitSelectorInterface[];
+  userList: DisplayListElement[];
+  unitSelectors: UnitSelectorInterface[];
 }
 
 interface Props extends MappedProps, DispatchProps {}

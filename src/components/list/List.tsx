@@ -1,12 +1,12 @@
 import React from 'react';
 import './List.scss';
-import { displayListElement } from '../../mock/interface';
+import { DisplayListElement } from '../../mock/interface';
 
 interface Props {
   findUser: string;
   activeId?: number;
   setActiveId: (id: number) => void;
-  displayList: displayListElement[];
+  displayList: DisplayListElement[];
 }
 
 export class List extends React.Component<Props, {}> {

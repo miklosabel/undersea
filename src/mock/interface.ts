@@ -1,4 +1,4 @@
-export interface buildingInterface {
+export interface BuildingInterface {
   id: string;
   title: { [key: string]: string };
   body: string;
@@ -6,7 +6,7 @@ export interface buildingInterface {
   imageAlt: string;
 }
 
-export interface unitSelectorInterface {
+export interface UnitSelectorInterface {
   id: string;
   body: string;
   image: string;
@@ -14,23 +14,23 @@ export interface unitSelectorInterface {
   value: number;
 }
 
-export interface attackingArmyListInterface {
+export interface AttackingArmyListInterface {
   target: string;
   sharkArmy: number;
   sealArmy: number;
   seahorseArmy: number;
 }
 
-export interface displayListElement {
+export interface DisplayListElement {
   id: number;
   item: string;
 }
 
-export interface attackActionPayloadInterface {
+export interface AttackActionPayloadInterface {
   shark: number;
   seal: number;
   seahorse: number;
-  attackingArmyList: attackingArmyListInterface[];
+  attackingArmyList: AttackingArmyListInterface[];
 }
 
 // export interface LoadingStatusInterface<P,D> {

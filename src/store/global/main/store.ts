@@ -1,4 +1,4 @@
-import { attackingArmyListInterface, LoadingStatusInterface } from '../../../mock/interface';
+import { AttackingArmyListInterface, LoadingStatusInterface } from '../../../mock/interface';
 
 export interface MainState extends LoadingStatusInterface{
   status: {
@@ -17,7 +17,7 @@ export interface MainState extends LoadingStatusInterface{
     atollFortress: number;
     flowController: number;
   };
-  attackingArmyList: attackingArmyListInterface[];
+  attackingArmyList: AttackingArmyListInterface[];
 }
 
 export const mainInitState: MainState = {
