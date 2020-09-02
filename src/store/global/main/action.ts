@@ -1,4 +1,6 @@
-import { buildingRequestAction } from '../../pages/buildings/action';
-import { attackRequestAction } from '../../pages/attacks/action';
+import {
+  PossibleBuildingActions,
+} from '../../pages/buildings/action';
+import { PossibleAttackActions } from '../../pages/attacks/action';
 
-export type IMainActions = buildingRequestAction | attackRequestAction;
+export type PossibleMainActions = PossibleBuildingActions | PossibleAttackActions;

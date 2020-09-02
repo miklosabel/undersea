@@ -16,7 +16,7 @@ export function* watchBuildingRequestAction() {
   yield takeEvery(PossibleBuildingActionTypes.REQUEST, handleFetch);
 }
 
-function* pushToMain() {
+export function* pushToMain() {
   yield put(push(mainUrlPath));
 }
 
