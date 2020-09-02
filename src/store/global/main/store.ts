@@ -1,5 +1,4 @@
 import { attackingArmyListInterface, LoadingStatusInterface } from '../../../mock/interface';
-import { isError } from 'util';
 
 export interface MainState extends LoadingStatusInterface{
   status: {

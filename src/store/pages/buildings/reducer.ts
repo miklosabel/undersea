@@ -1,12 +1,13 @@
-import { PossibleBuildingActions, IBuildingActions } from './action';
+import { PossibleBuildingActionTypes, PossibleBuildingActions } from './action';
 import { mainInitState, MainState } from '../../global/main/store';
 
 export const BuildingReducer = (
   state = mainInitState,
-  action: IBuildingActions
+  action: PossibleBuildingActions
 ): MainState => {
   switch (action.type) {
-    case PossibleBuildingActions.REQUEST:
+    case PossibleBuildingActionTypes.REQUEST:
+      console.log('buildingrequest fired: reducer');
       return {
         ...state,
         status: {
@@ -18,7 +19,7 @@ export const BuildingReducer = (
         },
         isLoading: true,
       };
-    case PossibleBuildingActions.SUCCESS:
+    case PossibleBuildingActionTypes.SUCCESS:
       return {
         ...state,
         isDataLoaded: true,
@@ -26,7 +27,7 @@ export const BuildingReducer = (
         isError: false,
       }
 
-    case PossibleBuildingActions.ERROR:
+    case PossibleBuildingActionTypes.ERROR:
       return{
         ...state,
         isDataLoaded: false,

@@ -1,6 +1,6 @@
 import { takeEvery, put } from 'redux-saga/effects';
 import {
-  PossibleBuildingActions,
+  PossibleBuildingActionTypes,
   buildingRequestAction,
   buildingResponseActionCall,
 } from './action';
@@ -13,7 +13,7 @@ function* handleFetch(action: buildingRequestAction) {
 }
 
 export function* watchBuildingRequestAction() {
-  yield takeEvery(PossibleBuildingActions.REQUEST, handleFetch);
+  yield takeEvery(PossibleBuildingActionTypes.REQUEST, handleFetch);
 }
 
 function* pushToMain() {
@@ -21,5 +21,5 @@ function* pushToMain() {
 }
 
 export function* watchBuildingResponseAction() {
-  yield takeEvery(PossibleBuildingActions.SUCCESS, pushToMain);
+  yield takeEvery(PossibleBuildingActionTypes.SUCCESS, pushToMain);
 }

@@ -5,7 +5,7 @@ export interface BuildingActionTypes {
   SUCCESS: 'START_BUILD_SUCCESS';
   ERROR: 'START_BUILD_ERROR';
 }
-export const PossibleBuildingActions: BuildingActionTypes = {
+export const PossibleBuildingActionTypes: BuildingActionTypes = {
   REQUEST: 'START_BUILD_REQUEST',
   SUCCESS: 'START_BUILD_SUCCESS',
   ERROR: 'START_BUILD_ERROR',
@@ -28,7 +28,7 @@ export interface BuildErrorAction {
   payload: string;
 }
 
-export type IBuildingActions =
+export type PossibleBuildingActions =
   | buildingRequestAction
   | buildingResponseAction
   | BuildErrorAction;
@@ -39,17 +39,17 @@ export const buildingRequestActionCall = (params: {
   isFlowControllerBuilding: boolean;
   roundsBeforeNewBuilding: number;
 }): buildingRequestAction => ({
-  type: PossibleBuildingActions.REQUEST,
+  type: PossibleBuildingActionTypes.REQUEST,
   payload: params,
 });
 
 export const buildingResponseActionCall = (
   response: boolean
 ): buildingResponseAction => ({
-  type: PossibleBuildingActions.SUCCESS,
+  type: PossibleBuildingActionTypes.SUCCESS,
   payload: response,
 });
 export const buildingErrorActionCall = (error: string): BuildErrorAction => ({
-  type: PossibleBuildingActions.ERROR,
+  type: PossibleBuildingActionTypes.ERROR,
   payload: error,
 })
