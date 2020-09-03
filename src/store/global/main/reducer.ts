@@ -37,8 +37,11 @@ export const MainReducer = (
         ...state,
         status: {
           ...state.status,
-          ...action.payload,
+          shark: action.payload.shark,
+          seal: action.payload.seal,
+          seahorse: action.payload.seahorse,
         },
+        attackingArmyList: action.payload.attackingArmyList,
         isLoading: true,
       };
     case PossibleAttackActionTypes.SUCCESS:
