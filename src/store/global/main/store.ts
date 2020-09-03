@@ -1,6 +1,9 @@
-import { AttackingArmyListInterface, LoadingStatusInterface } from '../../../mock/interface';
+import {
+  AttackingArmyListInterface,
+  LoadingStatusInterface,
+} from '../../../mock/interface';
 
-export interface MainState extends LoadingStatusInterface{
+export interface MainState extends LoadingStatusInterface {
   status: {
     shell: number;
     isAtollFortressBuilding: boolean;
@@ -41,5 +44,5 @@ export const mainInitState: MainState = {
   isDataLoaded: false,
   isError: false,
   isLoading: false,
-  error:'',
+  error: '',
 };

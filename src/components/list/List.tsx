@@ -12,7 +12,7 @@ interface Props {
 export class List extends React.Component<Props, {}> {
   render() {
     return (
-      <div className="attack-list">
+      <div className="target-list">
         <ul>
           {this.props.displayList.map((listItem) => (
             <li
