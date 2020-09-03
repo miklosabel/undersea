@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 import ProfileImg from '../../assets/default_profile_image.png';
-import { mainUrlPath, attacksUrlPath, buildingsUrlPath } from '../../urlpaths';
+import { mainUrlPath, attacksUrlPath, buildingsUrlPath, battleUrlPath } from '../../urlpaths';
 
 interface Props {
   userName: string;
@@ -18,7 +18,7 @@ export class Sidebar extends Component<Props, {}> {
         <div className="links">
           <Link to={buildingsUrlPath}>Épületek</Link>
           <Link to={attacksUrlPath}>Támadás</Link>
-          <Link to={mainUrlPath}>Harc </Link>
+          <Link to={battleUrlPath}>Harc </Link>
           <Link to={mainUrlPath}>Ranglista</Link>
           <Link to={mainUrlPath}>Sereg</Link>
         </div>

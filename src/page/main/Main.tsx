@@ -7,7 +7,13 @@ import { MappedProps } from './connect';
 import { Route, Switch } from 'react-router-dom';
 import { BuildingsConnected } from '../../components/buildings/connect';
 import { AttacksConnected } from '../../components/attack/connect';
-import { mainUrlPath, buildingsUrlPath, attacksUrlPath } from '../../urlpaths';
+import { BattleConnected } from '../../components/battle/connect';
+import {
+  mainUrlPath,
+  buildingsUrlPath,
+  attacksUrlPath,
+  battleUrlPath,
+} from '../../urlpaths';
 
 interface Props extends MappedProps {}
 interface State {
@@ -31,6 +37,9 @@ export default class Main extends React.Component<Props, State> {
               </Route>
               <Route exact path={attacksUrlPath}>
                 <AttacksConnected />
+              </Route>
+              <Route exact path={battleUrlPath}>
+                <BattleConnected />
               </Route>
             </Switch>
           </div>
