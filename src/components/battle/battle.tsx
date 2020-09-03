@@ -1,29 +1,31 @@
-import { MappedProps } from './connect';
 import React from 'react';
+import './battle.scss';
+import { MappedProps } from './connect';
 interface Props extends MappedProps {}
 
 export function Battle(props: Props) {
   return (
-    <div className="battleList">
+    <div className="battle-list">
       <h1>Harc</h1>
-      <ul>
-        {props.attackingArmyList.map((item, index) => (
-          <li key={index}>
-            {
-              <div>
+      {Array.isArray(props.attackingArmyList) &&
+      props.attackingArmyList.length ? (
+        <div>
+          <ul>
+            {props.attackingArmyList.map((item, index) => (
+              <li key={index}>
+                <p>{item.target}</p>
                 <div>
-                  <p>{item.target}</p>
+                  <div>{item.sharkArmy} Lézercápa</div>
+                  <div>{item.sealArmy} Rohamfóka</div>
+                  <div>{item.seahorseArmy} Csatacsikó</div>
                 </div>
-                <div>
-                  <p>{item.sharkArmy}</p>
-                  <p>{item.sealArmy}</p>
-                  <p>{item.seahorseArmy}</p>
-                </div>
-              </div>
-            }
-          </li>
-        ))}
-      </ul>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ) : (
+        <div>Épp nem támadsz senkit...</div>
+      )}
     </div>
   );
 }
